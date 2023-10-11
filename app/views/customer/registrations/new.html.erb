@@ -1,0 +1,58 @@
+<%= render "customer/shared/error_messages", resource: @customer %>
+
+  <h2>ユーザー登録フォーム</h2>
+
+  <%= form_with model: @customer, url: customer_registration_path do |f| %>
+  <table class="table table-borderless">
+    <tbody>
+
+    <div class="field">
+      <%= f.label "名前(姓)" %></br>
+      <%= f.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label "名前(名)" %></br>
+      <%= f.text_field :first_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label "フリガナ(セイ)" %></br>
+      <%= f.text_field :last_name_kana %>
+    </div>
+
+    <div class="field">
+      <%= f.label "フリガナ(メイ)" %></br>
+      <%= f.text_field :first_name_kana %>
+    </div>
+
+    <div class="field">
+      <%= f.label :メールアドレス %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :電話番号 %></br>
+      <%= f.text_field :phone_number %>
+    </div>
+
+    <div class="field">
+      <%= f.label :パスワード %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> 文字以上)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :パスワード確認 %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "登録" %>
+    </div>
+<% end %>
+
+<%= render "customer/shared/links" %>
+
