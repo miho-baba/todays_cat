@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "/" => "homes#top"
-    get "admins/mypage" => "admins#show"
+    get "mypage" => "mypages#show"
+    resources :admins, only: [:show]
   end
 
   #会員用
@@ -15,9 +16,16 @@ Rails.application.routes.draw do
     sessions: "customer/sessions",
     registrations: 'customer/registrations'
   }
+
+  namespace :customer do
+    get "mypage" => "mypages#show"
+    # resources :customers, only: [:show]
+  end
+
   namespace :user do
     root "homes#top"
-    get "customers/mypage" => "customers#show"
+    # get "customers/mypage" => "customers#show"
+    resources :customers, only: [:show]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

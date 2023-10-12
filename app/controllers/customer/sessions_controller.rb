@@ -2,7 +2,7 @@
 
 class Customer::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  before_action :reject_inactive_user, only: [:create]
+  #ログインを弾く記述_分離削除　before_action :reject_inactive_user, only: [:create]
   # GET /resource/sign_in
   # def new
   #   super
@@ -21,11 +21,11 @@ class Customer::SessionsController < Devise::SessionsController
   protected
 
   def after_sign_in_path_for(resource)
-    customer_root_path
+    customer_mypage_path
   end
 
   def after_sign_out_path_for(resource)
-    customer_root_path
+    user_root_path
   end
 
   def reject_inactive_user

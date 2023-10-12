@@ -10,7 +10,7 @@ class Customer::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
   def after_sign_in_path_for(resource)
-    customers_mypage_path
+    customer_mypage_path
   end
   # POST /resource
   # def create

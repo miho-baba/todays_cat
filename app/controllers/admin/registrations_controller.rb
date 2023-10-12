@@ -10,7 +10,7 @@ class Admin::RegistrationsController < Devise::RegistrationsController
   # end
 
   def after_sign_in_path_for(resource)
-    admins_mypage_path
+    admin_mypage_path
   end
   # POST /resource
   # def create
