@@ -17,34 +17,66 @@
     <h1>~今日のお猫様~<h1></br>
     <h2>猫好きさんのためのSNSサイト<h2></br>
 
-    <%# あとでログイン後の表示をサインインとサインアップがなしになる条件分岐を記述する　%>
+
+      <%# 会員側ログイン後の表示 %>
+      <% if customer_signed_in? %>
+      <li>
+        <%= link_to "TOPページ", user_root_path %>
+      </li>
+
+      <li>
+        <%= link_to "マイページ", customer_mypages_path %>
+      </li>
+
+      <li>
+        <%= link_to "写真一覧", customer_photos_path %>
+      </li>
+
+      <li>
+        <%= link_to "今日猫会員一覧", customer_customers_path %>
+      </li>
+
+      <li>
+        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+      </li>
+      <%# 管理側ログイン後の表示 %>
+      <% elsif admin_signed_in? %>
+      <li>
+        <%= link_to "管理者TOP", admin_path %>
+      </li>
+
+      <li>
+        <%= link_to "管理者マイページ", admin_mypage_path %>
+      </li>
+
+      <li>
+        <%= link_to "登録済み会員情報一覧", admin_customers_path %>
+      </li>
+
+      <li>
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+      </li>
+
+      <%# ログイン前の表示 %>
+      <% else %>
       <li>
         <%= link_to "TOPページ", user_root_path %>
       </li>
       <li>
-        <%# あとでパスを修正する　%>
-        <%#= link_to "ネコ写真一覧", new_customer_registration_path %>
+        <%= link_to "猫写真一覧", customer_photos_path %>
       </li>
 
-      <li>
-        <%# あとでパスを修正する　%>
-        <%#= link_to "猫会員一覧", new_customer_registration_path %>
+       <li>
+        <%= link_to "ログイン", new_customer_session_path %>
       </li>
 
-      <li>
-        <%= link_to "マイページ", customer_mypage_path %>
-      </li>
       <li>
         <%= link_to "新規登録", new_customer_registration_path %>
       </li>
-      <li>
-        <%= link_to "ログイン", new_customer_session_path %>
-      </li>
-      <li>
-        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-      </li>
 
+      <% end %>
   </header>
+
     </body>
     <%= yield %>
 <foote>

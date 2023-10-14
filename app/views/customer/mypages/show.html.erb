@@ -1,2 +1,39 @@
 
-<h2><%= @customer.last_name%>様のマイページ</h2>
+<h2><%= @customer.last_name%>様の会員情報</h2>
+
+<table class='table'>
+  <tr>
+    <th>会員画像</th>
+    <th><%= image_tag @customer.get_profile_image(100,100) %></th>
+  </tr>
+  <tr>
+	  <th>名前(姓)</th>
+	  <th><%= @customer.last_name %></th>
+  </tr>
+  <tr>
+	  <th>名前(名)</th>
+	  <th><%= @customer.first_name %></th>
+  </tr>
+  <tr>
+	  <th>紹介文</th>
+	  <th><%= @customer.introduction %></th>
+  </tr>
+   <tr>
+	  <th>フォロー</th>
+      <th><%#= link_to follows_user_path(user) do %>
+       <%#= user.followers.count %>
+      <%# end %></th>
+  </tr>
+  <tr>
+	  <th>フォロワー</th>
+      <th><%#= link_to followers_user_path(user) do %>
+        <%#= user.followeds.count %>
+      <%# end %></th>
+  </tr>
+  </tr>
+  </table>
+  <div class='row'>
+    <%= link_to edit_customer_mypage_path(@customer), class: "btn btn-outline-secondary btn-block" do %>
+    <i class="fas fa-user-cog"></i>
+    <% end %>
+  </div>

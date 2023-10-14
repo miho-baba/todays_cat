@@ -4,11 +4,13 @@ Rails.application.routes.draw do
     sessions: "admin/sessions",
     registrations: 'admin/registrations'
   }
-
+  #ルートパスの記述
+  get "/" => "user/homes#top"
   namespace :admin do
     get "/" => "homes#top"
     get "mypage" => "mypages#show"
     resources :admins, only: [:show]
+    resources :customers, only: [:index, :show, :edit, :update]
   end
 
   #会員用
@@ -18,13 +20,13 @@ Rails.application.routes.draw do
   }
 
   namespace :customer do
-    get "mypage" => "mypages#show"
-    # resources :customers, only: [:show]
+    resources :mypages, only: [:show, :edit, :create, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :photos, only: [:index, :show, :edit, :update]
   end
 
   namespace :user do
     root "homes#top"
-    # get "customers/mypage" => "customers#show"
     resources :customers, only: [:show]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

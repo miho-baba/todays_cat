@@ -1,2 +1,15 @@
-<2>管理者マイページ</2>
-<h1><%= @admin %>のユーザーページ</h1>
+<h2>管理者マイページ</h2>
+
+<table class='table'>
+  <tr>
+	  <th>〜管理者情報〜</th>
+  </tr>
+  <tr>
+	  <th>アドレス</th>
+	  <th><%= @admin.email %></th>
+  </tr>
+  <tr>
+	  <th>パスワード</th>
+	  <th><%= @admin.password %></th>
+  </tr>
+</table>

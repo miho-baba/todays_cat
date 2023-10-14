@@ -5,7 +5,12 @@ class Admin::MypagesController < ApplicationController
     @admin = current_admin
   end
 
-  # 必要ならコメントアウトをはずす private
+  private
+
+  def admin_params
+    params.require(:admin).permit(:email, :password)
+  end
+
 
   #def set_admin
     #@admin = Admin.find([:id])
