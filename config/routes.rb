@@ -26,7 +26,7 @@ Rails.application.routes.draw do
         get :mypage
       end
     end
-    resources :photos, only: [:index, :show, :edit, :update]
+    resources :photos, only: [:index, :show, :edit, :update, :create, :destroy]
   end
 
   namespace :user do

@@ -1,1 +1,27 @@
 <1>猫写真一覧</1>
+
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>タイトル</th>
+      <th>会員名</th>
+      <th>投稿時間</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+    <tbody>
+      <% @photos.each do |photo| %>
+        <tr>
+          <td><%= link_to(customer_photos_path) do %>
+            <% if photo.image.attached? %>
+            写真:<%= image_tag photo.image %>
+            <% end %>
+            <% end %>
+          <td>タイトル:<%= link_to photo.title,customer_photo_path(photo.id), class: "photo_#{photo.id}" %></td>
+          <td>投稿時間:<%= photo.updated_at %></td>
+          </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

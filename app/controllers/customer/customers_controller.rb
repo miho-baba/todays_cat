@@ -4,7 +4,7 @@ class Customer::CustomersController < ApplicationController
   end
 
   def mypage
-
+    @photo = Photo.new
   end
 
   def index
@@ -26,6 +26,6 @@ class Customer::CustomersController < ApplicationController
 
   private
     def customer_params
-      params.require(:customer).permit(:last_name, :first_name, :introduction )
+      params.require(:customer).permit(:profile_image, :last_name, :first_name, :introduction )
     end
 end
