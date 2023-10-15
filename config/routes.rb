@@ -20,8 +20,12 @@ Rails.application.routes.draw do
   }
 
   namespace :customer do
-    resources :mypages, only: [:show, :edit, :create, :update]
-    resources :customers, only: [:index, :show, :edit, :update]
+    resources :mypages, only: [:show, :edit, :create, :update, :index]
+    resources :customers, only: [:index, :show, :edit, :update] do
+      collection do
+        get :mypage
+      end
+    end
     resources :photos, only: [:index, :show, :edit, :update]
   end
 
