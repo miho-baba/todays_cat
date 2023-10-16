@@ -1,1 +1,22 @@
-<1>今日猫会員詳細ページ</1>
+
+<h1><%= @customer.last_name%>様の会員プロフィール</h1>
+
+  <table class='table'>
+  <tr>
+    <th>プロフィール画像</th>
+    <th><%= image_tag @customer.get_profile_image(100,100) %></th>
+  </tr>
+  <tr>
+	  <th>名前(姓)</th>
+	  <th><%= @customer.last_name %></th>
+  </tr>
+  <tr>
+	  <th>名前(名)</th>
+	  <th><%= @customer.first_name %></th>
+  </tr>
+  <tr>
+	  <th>紹介文</th>
+	  <th><%= @customer.introduction %></th>
+  </tr>
+   <tr>
+  <td><%= link_to '戻る', customer_customers_path, class: "btn btn-sm btn-success index" %></td>

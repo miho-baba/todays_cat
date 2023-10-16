@@ -1,1 +1,64 @@
-<1>会員情報詳細</1>
+<h1>今日猫会員情報詳細</h1>
+
+<div class="container">
+  <div class="row-8 my-3">
+    <div class="col-lg-4 text-right">
+<h4><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h4>
+</div>
+</div>
+
+
+  <div class="row my-5">
+   <div class="col-lg-7 mx-auto" style="width: 200px;">
+
+  <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
+
+  <table class="table table-borderless">
+
+        <tbody>
+            <tr>
+                <td>会員番号</td>
+                <td><%= @customer.id %></td>
+            </tr>
+            <tr>
+                <td>名前</td>
+                <td><%= f.text_field :last_name %></td>
+                <td><%= f.text_field :first_name %></td>
+            </tr>
+            <tr>
+                <td>フリガナ</td>
+                <td><%= f.text_field :last_name_kana %></td>
+                <td><%= f.text_field :first_name_kana %></td>
+            </tr>
+
+            <tr>
+                <td>電話番号</td>
+                <td><%= f.text_field :phone_number %></td>
+            </tr>
+            <tr>
+                <td>メールアドレス</td>
+                <td><%= f.text_field :email %></td>
+            </tr>
+            <tr>
+                <td>会員ステータス</td>
+                <td>
+                    <%= f.radio_button :is_deleted, :false, checked: true %>
+                    <%= f.label :is_deleted, "有効" %>
+                    <%= f.radio_button :is_deleted, :true %>
+                    <%= f.label :is_deleted, "無効" %>
+                </td>
+            </tr>
+            <tr>
+                <td><%= f.submit '変更を保存', class: "btn btn-success" %></td>
+            </tr>
+            <tr>
+              <td>
+                <%= link_to '一覧に戻る', admin_customers_path, class: "btn btn-sm btn-success index" %>
+              </td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+  <% end %>
+</div>

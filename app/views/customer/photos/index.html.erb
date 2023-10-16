@@ -19,6 +19,7 @@
             <% end %>
             <% end %>
           <td>タイトル:<%= link_to photo.title,customer_photo_path(photo.id), class: "photo_#{photo.id}" %></td>
+          <td><%= current_customer.last_name %>様</td>
           <td>投稿時間:<%= photo.updated_at %></td>
           </td>
         </tr>

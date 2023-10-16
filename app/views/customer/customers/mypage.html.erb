@@ -1,22 +1,22 @@
 
-<h2><%= current_customer.last_name%>様の会員情報</h2>
+<h2><%= @customer.last_name%>様の会員情報</h2>
 
 <table class='table'>
   <tr>
     <th>プロフィール画像</th>
-    <th><%= image_tag current_customer.get_profile_image(100,100) %></th>
+    <th><%= image_tag @customer.get_profile_image(100,100) %></th>
   </tr>
   <tr>
 	  <th>名前(姓)</th>
-	  <th><%= current_customer.last_name %></th>
+	  <th><%= @customer.last_name %></th>
   </tr>
   <tr>
 	  <th>名前(名)</th>
-	  <th><%= current_customer.first_name %></th>
+	  <th><%= @customer.first_name %></th>
   </tr>
   <tr>
 	  <th>紹介文</th>
-	  <th><%= current_customer.introduction %></th>
+	  <th><%= @customer.introduction %></th>
   </tr>
    <tr>
 	  <th>フォロー</th>
@@ -33,7 +33,7 @@
   </tr>
   </table>
   <div class='row'>
-    <%= link_to edit_customer_customer_path(current_customer), class: "btn btn-outline-secondary btn-block" do %>
+    <%= link_to edit_customer_customer_path(@customer), class: "btn btn-outline-secondary btn-block" do %>
     <i class="fas fa-user-cog"></i>
     <% end %>
   </div>

@@ -4,7 +4,7 @@
   <1>投稿写真編集フォーム</1>
     <div id="error_explanation">
 
-    <%= form_with model:@photo do |f| %>
+    <%= form_with model:@photo, url: customer_photo_path, method: :patch do |f| %>
       <div class="form-group">
         <label for="title">タイトル</label>
         <%= f.text_field :title, class:'form-control photo_title' %>

@@ -1,13 +1,18 @@
 class Customer::CustomersController < ApplicationController
 
   def show
+    @customer = Customer.find(params[:id])
+    @customer_new = Customer.new
   end
 
   def mypage
     @photo = Photo.new
+    @customer = current_customer
   end
 
   def index
+    @customers = Customer.all
+    @customer = current_customer
   end
 
   def edit
