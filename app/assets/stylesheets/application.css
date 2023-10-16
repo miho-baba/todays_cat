@@ -19,6 +19,8 @@ header {
   padding: 15px 0;
   margin: 0 auto;
   text-align: center;
+  /* 柔らかい黄系の色 */
+  color: #f0e68c;
 }
 
 header .heading {
@@ -26,10 +28,26 @@ header .heading {
   font-size: 32px;
 }
 
+body{
+    /* 桜色 */
+  margin: 0;
+  padding: 0;
+  background-color: #fef4f4;
+}
+  /* 修正する */
+  .full-page {
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0,0,0,.3);
+}
+
 .nav-list {
   text-align: center;
   padding: 10px 0;
   margin: 0 auto;
+  /* 明るい灰みの青紫系の色 */
+  color: #b0c4de;
 }
 
 .nav-list-item {
@@ -40,7 +58,7 @@ header .heading {
 
 main-visual {
   width: 100%; /* 横幅いっぱい */
-  height: 300px; /* 高さ300px */
+  height: 200px; /* 高さ200px */
   background-image: url(top2.jpg);
   background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
   background-position: center; /* 背景画像を中央に配置 */
@@ -55,7 +73,6 @@ main-visual {
   .main-visual-text {
   color: #fff; /* 文字色を白に変更 */
   margin-top: 30px; /* 上側の外側の余白 */
-  color: #fff; /* 文字色を白に変更 */
   }
 
   .main {
@@ -80,9 +97,8 @@ footer {
   height: 120px;
   text-align: center;
   line-height: 120px;
-  background-color: #848282;
+  /* 柔らかい黄系の色 */
+  color: #f0e68c;
 }
 
-.footer-text {
-  color: #fff;
-}
+

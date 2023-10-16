@@ -6,130 +6,138 @@
     <!-- CSSファイルの読み込み -->
     <link rel="stylesheet" href="style.css" />
       <title>今日のお猫様</title>
-  </head>
-
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+    <meta name="viewport" content= "width=device-width, initial-scale=1, maximum-scale=1">
     <!-- 自身のKItCodeの記述-->
     <script src="https://kit.fontawesome.com/e0c0e0275e.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-      <h1 class="heading">
-    <h1>~今日のお猫様~<h1></br>
-    <h2>猫好きさんのためのSNSサイト<h2></br>
-      </h1>
-    </header>
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm">
+      <nav class="navbar navbar-light bg-warning navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/" ><%= image_tag 'kyounekosama.jpg', :size => "200x200" %></a>
+    <h1><span>~今日のお猫様~</span></h1></br>
+    <h6>猫好きさんのためのSNSサイト</h6>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
 
-    <main-visual>
-      <%= image_tag('top2.jpg') %>
-    </main-visual>
-
-    <nav>
-      <ul class="nav-list">
-        <li class="nav-list-item">
       <%# 会員側ログイン後の表示 %>
       <% if customer_signed_in? %>
-
       <url>
         <li class="nav-list-item">
-        <%= link_to "TOPページ", user_root_path %>
-      </url>
+        <%= link_to "TOPページ", user_root_path, class: 'nav-link text-light' %>
+        </li>
 
-      <url>
         <li class="nav-list-item">
-        <%= link_to "マイページ", mypage_customer_customers_path %>
-      </url>
+          <%= link_to "マイページ", mypage_customer_customers_path, class: 'nav-link text-light' %>
+        </li>
 
-      <url>
         <li class="nav-list-item">
-        <%= link_to "写真一覧", customer_photos_path %>
-      </url>
+          <%= link_to "写真一覧", customer_photos_path, class: 'nav-link text-light' %>
+        </li>
 
-      <url>
-        <li class="nav-list-item">
-        <%= link_to "今日猫会員一覧", customer_customers_path %>
-      </url>
 
-      <url>
         <li class="nav-list-item">
-        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-      </url>
+          <%= link_to "今日猫会員一覧", customer_customers_path, class: 'nav-link text-light' %>
+        </li>
+
+        <li class="nav-list-item">
+          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-light' %>
+        </li>
       <%# 管理側ログイン後の表示 %>
       <% elsif admin_signed_in? %>
-      <url>
-        <li class="nav-list-item">
-        <%= link_to "管理者TOP", admin_path %>
-      </url>
 
-      <url>
         <li class="nav-list-item">
-        <%= link_to "管理者マイページ", admin_mypage_path %>
-      </url>
+          <%= link_to "管理者TOP", admin_path, class: 'nav-link text-light' %>
+        </li>
 
-      <url>
-        <li class="nav-list-item">
-        <%= link_to "登録済み会員情報一覧", admin_customers_path %>
-      </url>
 
-      <url>
         <li class="nav-list-item">
-        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-      </url>
+          <%= link_to "管理者マイページ", admin_mypage_path, class: 'nav-link text-light' %>
+        </li>
+
+
+        <li class="nav-list-item">
+          <%= link_to "登録済み会員情報一覧", admin_customers_path, class: 'nav-link text-light' %>
+        </li>
+
+        <li class="nav-list-item">
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %>
+        </li>
 
       <%# ログイン前の表示 %>
       <% else %>
-      <url>
-        <li class="nav-list-item">
-        <%= link_to "TOPページ", user_root_path %>
-      </url>
 
-      <url>
         <li class="nav-list-item">
-        <%= link_to "猫写真一覧", customer_photos_path %>
-      </url>
+          <%= link_to "TOPページ", user_root_path, class: 'nav-link text-light' %>
+        </li>
 
-       <url>
         <li class="nav-list-item">
-        <%= link_to "ログイン", new_customer_session_path %>
-      </url>
+          <%= link_to "猫写真一覧", customer_photos_path, class: 'nav-link text-light' %>
+        </li>
 
-      <url>
         <li class="nav-list-item">
-        <%= link_to "新規登録", new_customer_registration_path %>
-      </url>
+          <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-light' %>
+        </li>
 
+
+        <li class="nav-list-item">
+          <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-light' %>
+        </li>
       <% end %>
-   </ul>
+          </ul>
+        </div>
+      </div>
     </nav>
-
-    <div class="main-visual">
-      <div class="main-visual-content">
-        <!-- pタグ（と文字）を追加 -->
-        <p class="main-visual-text">
-          ようこそ、今日のお猫様へ！！<br />
-         ※会員でない方も写真の閲覧可能です。<br />
-         投稿には、会員登録が必要です。
-        </p>
+  </header>
+</body>
+    <!-- topページの画像-->
+    <%= image_tag ('top2.jpg')%>
+    <!-- 修正する -->
+    <div class="full-page">
+    <main class="mb-auto">
+        <p id="notice"><%= notice %></p>
+      <div class="d-flex justify-content-center mb-2">
+      </div>
+        <p>
+          ようこそ、今日のお猫様へ！！
+        </p><br />
+        <p>
+          ※会員でない方も写真の閲覧可能です。
+        </p><br />
+        <p>
+          投稿には、会員登録が必要です。
+        </p><br />
       </div>
     </div>
 
-    <div class="main">
-      <div class="blog"></div>
-      <div class="sidebar"></div>
-    </div>
-
-  </header>
-
-    </body>
     <%= yield %>
+    </main>
+      <!-- 修正する -->
+     </div>
+    <!-- フッターの記述 -->
+  <foote class="bg-warning text-white pt-5 pb-4">
 
-  <footer>
-      <p class="footer-text">© kyonoonekosama.</p>
-    </footer>
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-md-12">
+          <div class="text-white mt-2 mb-3">
+    <ul class="p-0 list-unstyled">
+      <li class="text-white-100 text-center">
+          © kyonoonekosama.</p>
+      </li>
+    </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>
