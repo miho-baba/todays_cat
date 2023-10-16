@@ -1,7 +1,7 @@
 <div class='container'>
 <div class='row'>
 <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-  <1>投稿写真編集フォーム</1>
+  <h1>投稿写真編集フォーム</h1>
     <div id="error_explanation">
 
     <%= form_with model:@photo, url: customer_photo_path, method: :patch do |f| %>
@@ -25,7 +25,7 @@
         <%= f.text_area :photo_introduction, class:'form-control photo_introduction' %>
       </div>
       <div class="form-group">
-        <%= f.submit :'更新する', class:'btn btn-success' %>
+        <%= f.submit :'更新する', class:'btn btn-primary' %>
       </div>
     <% end %>
     		<%= link_to '詳細ページに戻る', customer_photo_path(@photo.id) %>

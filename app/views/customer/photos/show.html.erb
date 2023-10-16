@@ -28,14 +28,14 @@
         <% if @photo.customer == current_customer %>
       <tr>
         <td>
-          <%= link_to '編集する', edit_customer_photo_path(@photo), class: "btn btn-sm btn-success edit" %>
+          <%= link_to '編集する', edit_customer_photo_path(@photo), class: "btn btn-sm btn-warning edit" %>
         </td>
       </tr>
         <% end %>
         <% if @photo.customer == current_customer %>
       <tr>
         <td>
-          <%= link_to '削除する', customer_photo_path(@photo.id), method: :delete, class: 'btn btn-sm btn-danger destroy'%>
+          <%= link_to '削除する', customer_photo_path(@photo.id), method: :delete, class: 'btn btn-sm btn-dark destroy'%>
         </td>
       <tr>
         <% end %>

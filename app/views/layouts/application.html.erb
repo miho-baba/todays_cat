@@ -1,7 +1,13 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title>今日のお猫様</title>
+    <meta charset="UTF-8" />
+    <!-- CSSファイルの読み込み -->
+    <link rel="stylesheet" href="style.css" />
+      <title>今日のお猫様</title>
+  </head>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,75 +19,117 @@
 
   <body>
     <header>
-
+      <h1 class="heading">
     <h1>~今日のお猫様~<h1></br>
     <h2>猫好きさんのためのSNSサイト<h2></br>
+      </h1>
+    </header>
 
+    <main-visual>
+      <%= image_tag('top2.jpg') %>
+    </main-visual>
 
+    <nav>
+      <ul class="nav-list">
+        <li class="nav-list-item">
       <%# 会員側ログイン後の表示 %>
       <% if customer_signed_in? %>
-      <li>
+
+      <url>
+        <li class="nav-list-item">
         <%= link_to "TOPページ", user_root_path %>
-      </li>
+      </url>
 
-      <li>
+      <url>
+        <li class="nav-list-item">
         <%= link_to "マイページ", mypage_customer_customers_path %>
-      </li>
+      </url>
 
-      <li>
+      <url>
+        <li class="nav-list-item">
         <%= link_to "写真一覧", customer_photos_path %>
-      </li>
+      </url>
 
-      <li>
+      <url>
+        <li class="nav-list-item">
         <%= link_to "今日猫会員一覧", customer_customers_path %>
-      </li>
+      </url>
 
-      <li>
+      <url>
+        <li class="nav-list-item">
         <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-      </li>
+      </url>
       <%# 管理側ログイン後の表示 %>
       <% elsif admin_signed_in? %>
-      <li>
+      <url>
+        <li class="nav-list-item">
         <%= link_to "管理者TOP", admin_path %>
-      </li>
+      </url>
 
-      <li>
+      <url>
+        <li class="nav-list-item">
         <%= link_to "管理者マイページ", admin_mypage_path %>
-      </li>
+      </url>
 
-      <li>
+      <url>
+        <li class="nav-list-item">
         <%= link_to "登録済み会員情報一覧", admin_customers_path %>
-      </li>
+      </url>
 
-      <li>
+      <url>
+        <li class="nav-list-item">
         <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-      </li>
+      </url>
 
       <%# ログイン前の表示 %>
       <% else %>
-      <li>
+      <url>
+        <li class="nav-list-item">
         <%= link_to "TOPページ", user_root_path %>
-      </li>
-      <li>
+      </url>
+
+      <url>
+        <li class="nav-list-item">
         <%= link_to "猫写真一覧", customer_photos_path %>
-      </li>
+      </url>
 
-       <li>
+       <url>
+        <li class="nav-list-item">
         <%= link_to "ログイン", new_customer_session_path %>
-      </li>
+      </url>
 
-      <li>
+      <url>
+        <li class="nav-list-item">
         <%= link_to "新規登録", new_customer_registration_path %>
-      </li>
+      </url>
 
       <% end %>
+   </ul>
+    </nav>
+
+    <div class="main-visual">
+      <div class="main-visual-content">
+        <!-- pタグ（と文字）を追加 -->
+        <p class="main-visual-text">
+          ようこそ、今日のお猫様へ！！<br />
+         ※会員でない方も写真の閲覧可能です。<br />
+         投稿には、会員登録が必要です。
+        </p>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="blog"></div>
+      <div class="sidebar"></div>
+    </div>
+
   </header>
 
     </body>
     <%= yield %>
-<foote>
-  <ul>
-    kyonoonekosama
- </ul>
-</foote>
+
+  <footer>
+      <p class="footer-text">© kyonoonekosama.</p>
+    </footer>
+  </body>
 </html>
