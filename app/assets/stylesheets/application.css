@@ -14,26 +14,44 @@
  *= require_self
  */
 /* レイアウトcssの記述 */
-header {
-  width: 90%; /* 横幅90% */
-  padding: 15px 0;
-  margin: 0 auto;
-  text-align: center;
-  /* 柔らかい黄系の色 */
-  color: #f0e68c;
+
+  /* ブラウザがそれぞれ持っているCSSをリセットするための記述 */
+
+  a {
+  text-decoration: none;
 }
 
-header .heading {
-  /* headerタグ内のheadingクラスにのみ反映される */
-  font-size: 32px;
-}
-
-body{
+  .body {
     /* 桜色 */
   margin: 0;
   padding: 0;
   background-color: #fef4f4;
 }
+
+  header {
+  width: 90%; /* 横幅90% */
+  padding: 15px 0;
+  margin: 0 auto;
+  text-align: center;
+  background-image: image-url("kyounekosama.jpg");
+  /* 柔らかい黄系の色 */
+  color: #f0e68c;
+}
+
+  .nav {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+  /* 明るい灰みの青紫系の色 */
+  color: #b0c4de;
+}
+
+  .nav-list-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+}
+
   /* 修正する */
   .full-page {
   width: 100vw;
@@ -42,54 +60,12 @@ body{
   background: rgba(0,0,0,.3);
 }
 
-.nav-list {
-  text-align: center;
-  padding: 10px 0;
-  margin: 0 auto;
-  /* 明るい灰みの青紫系の色 */
-  color: #b0c4de;
-}
-
-.nav-list-item {
-  list-style: none;
-  display: inline-block;
-  margin: 0 20px;
-}
-
-main-visual {
+  .main {
   width: 100%; /* 横幅いっぱい */
   height: 200px; /* 高さ200px */
-  background-image: url(top2.jpg);
+  background-image: image-url("top2.jpg");
   background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
   background-position: center; /* 背景画像を中央に配置 */
-}
-
-  .main-visual-content {
-    width: 350px; /* 横幅350px */
-    height: 300px; /* 親の高さに揃える */
-    text-align: center; /* 文字を中央揃えにする */
-  }
-
-  .main-visual-text {
-  color: #fff; /* 文字色を白に変更 */
-  margin-top: 30px; /* 上側の外側の余白 */
-  }
-
-  .main {
-    width: 840px; /* 横幅840px */
-    display: flex; /* Flexboxの利用 */
-    justify-content: center; /* 要素の横並び・中央寄せ */
-    margin: 0 auto;
-  }
-
-  .blog {
-    width: 600px; /* 横幅600px */
-    height: 1400px; /* 高さ1400px */
-  }
-
-.sidebar {
-  width: 240px; /* 横幅240px */
-  height: 1400px; /* 高さ1400px */
 }
 
 footer {
@@ -100,5 +76,3 @@ footer {
   /* 柔らかい黄系の色 */
   color: #f0e68c;
 }
-
-
