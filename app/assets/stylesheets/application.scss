@@ -17,6 +17,12 @@
 
   /* ブラウザがそれぞれ持っているCSSをリセットするための記述 */
 
+  * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
   a {
   text-decoration: none;
 }
@@ -35,16 +41,28 @@
   text-align: center;
   background-image: image-url("kyounekosama.jpg");
   /* 柔らかい黄系の色 */
-  color: #f0e68c;
+   /* color: #f0e68c; */
 }
 
-  .nav {
-  text-align: center;
-  padding: 10px 0;
-  margin: 0 auto;
-  /* 明るい灰みの青紫系の色 */
-  color: #b0c4de;
-}
+  .container {
+  position: relative;
+  }
+
+  .navbar-brand p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  /*文字の装飾は省略*/
+  }
+
+  .img_tag {
+  width: 100%;
+  }
 
   .nav-list-item {
   list-style: none;
@@ -56,7 +74,6 @@
   .full-page {
   width: 100vw;
   height: 100vh;
-
   background: rgba(0,0,0,.3);
 }
 
@@ -74,5 +91,5 @@ footer {
   text-align: center;
   line-height: 120px;
   /* 柔らかい黄系の色 */
-  color: #f0e68c;
+   /*color: #f0e68c;*/
 }

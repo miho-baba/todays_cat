@@ -5,8 +5,9 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  #アソシエーションの記述
+  #１：Nの関連の記述
   has_many :photos, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_one_attached :profile_image
 
   #新規登録のバリデーション

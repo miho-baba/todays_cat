@@ -17,6 +17,8 @@
         タイトル<br><%= @photo.title %>
       </td>
 
+      <td>いいね<%= render "favorites/btn", photo: @photo %></td>
+
       <td>
         猫の毛色<br><%= @photo.cat_color %>
       </td>

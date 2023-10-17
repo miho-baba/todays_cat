@@ -7,7 +7,14 @@ class Customer::PhotosController < ApplicationController
   end
 
   def index
-    @photos = Photo.all
+    #必要なら戻す@photos = Photo.all
+    to = Time.current.at_end_of_day
+    from = (to - 6.day).at_beginning_of_day
+    @photos = Photo.includes(:favorited_customers).
+      sort_by {|x|
+        x.favorited_customers.includes(:favorites).where(created_at: from...to).size
+      }.reverse
+    @photo = Photo.new
   end
 
   def edit

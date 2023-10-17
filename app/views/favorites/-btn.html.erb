@@ -1,0 +1,13 @@
+
+<% if photo.favorited_by?(current_customer) %>
+
+    <%= link_to photo_favorites_path(photo), class: 'text-danger', method: :delete, remote: true, data: {"turbolinks" => false} do %>
+      <i class="fas fa-heart"></i><%= photo.favorites.count %>いいね！
+    <% end %>
+
+    <% else %>
+        <%= link_to photo_favorites_path(photo), class: 'text-info', method: :post, remote: true, data: {"turbolinks" => false} do %>
+          <i class="fas fa-heart"></i><%= photo.favorites.count %>いいね
+    <% end %>
+
+<% end %>

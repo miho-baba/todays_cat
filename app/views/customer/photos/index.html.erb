@@ -12,17 +12,24 @@
   </thead>
     <tbody>
       <% @photos.each do |photo| %>
-        <tr>
-          <td><%= link_to(customer_photo_path(photo.id)) do %>
-            <% if photo.image.attached? %>
-            <%= image_tag photo.image, :size =>'200x200' %>
-            <% end %>
-            <% end %>
-          <td><%= link_to photo.title,customer_photo_path(photo.id), class: "photo_#{photo.id}" %></td>
-          <td><%= current_customer.last_name %>様</td>
-          <td><%= photo.updated_at %></td>
+      <tr>
+        <td><%= link_to(customer_photo_path(photo.id)) do %>
+          <% if photo.image.attached? %>
+          <%= image_tag photo.image, :size =>'200x200' %>
+          <% end %>
+      <% end %>
+
+            <td>
+              <%= link_to photo.title,customer_photo_path(photo.id), class: "photo_#{photo.id}" %>
+            </td>
+
+            <td><%= render "favorites/btn", photo: @photo %></td>
+
+            <td><%= current_customer.last_name %>様</td>
+
+            <td><%= photo.updated_at %></td>
           </td>
         </tr>
-        <% end %>
+      <% end %>
     </tbody>
 </table>
