@@ -7,6 +7,7 @@
       <th>タイトル</th>
       <th>投稿者</th>
       <th>投稿日時</th>
+      <th>お気に入り</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,11 +24,11 @@
               <%= link_to photo.title,customer_photo_path(photo.id), class: "photo_#{photo.id}" %>
             </td>
 
-            <td><%= render "favorites/btn", photo: @photo %></td>
-
             <td><%= current_customer.last_name %>様</td>
 
             <td><%= photo.updated_at %></td>
+
+            <td><%= render "favorites/btn", photo: photo, index: true %></td>
           </td>
         </tr>
       <% end %>

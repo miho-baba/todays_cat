@@ -1,15 +1,17 @@
 class Photo < ApplicationRecord
    #１：Nの関連の記述
   belongs_to :customer
-  has_many :favorite, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_customers, through: :favorites, source: :customer
+  
   has_one_attached :image
   #写真のバリデーションの記述を書く
   validates :title, presence: true
   validates :photo_introduction, length: { maximum: 200 }, presence: true
 
   #いいねしているか判定する
-  def favorited_by?(cutomer)
-    favorites.exists?(cutomer_id: cutomer.id)
+  def favorited_by?(customer)
+    favorites.exists?(customer_id: customer.id)
   end
 
 

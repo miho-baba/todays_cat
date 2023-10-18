@@ -31,52 +31,62 @@
     /* 桜色 */
   margin: 0;
   padding: 0;
-  background-color: #fef4f4;
+  color: #fef4f4;
 }
 
-  header {
-  width: 90%; /* 横幅90% */
-  padding: 15px 0;
-  margin: 0 auto;
+
+
+  .header {
+  width: 100%;
+  padding: 40px 0;
   text-align: center;
-  background-image: image-url("kyounekosama.jpg");
-  /* 柔らかい黄系の色 */
-   /* color: #f0e68c; */
+  color: #6c3524;
+  font-size: 50px;
 }
 
-  .container {
-  position: relative;
-  }
+.header strong {
+  font-size: 50px; /* strong要素のフォントサイズ */
+  display: block; /* strong要素をブロック要素として表示 */
+}
 
-  .navbar-brand p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  margin:0;
-  padding:0;
-  /*文字の装飾は省略*/
-  }
+.header h6 {
+  font-size: 20px; /* h6要素のフォントサイズ */
+  color: #6c3524; /* h6要素のテキスト色（必要に応じて設定） */
+}
+
 
   .img_tag {
   width: 100%;
   }
 
+ .navbar-brand {
+  float: left; /* 画像を左に浮動配置 */
+  margin-right: 80px; /* 他の要素との間隔を設定（必要に応じて調整） */
+}
   .nav-list-item {
   list-style: none;
+  /* 横に並べる */
   display: inline-block;
   margin: 0 20px;
 }
 
-  /* 修正する */
-  .full-page {
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,.3);
+  //画像に文字を入れた記述
+.full-page {
+  .top-image {
+    p {
+      padding-top: 500px;
+      //深い青紫系の色
+      color: #6495ed;
+      font-size: 30px;
+      font-weight: bold;
+    }
+    height: 900px;
+    background-image: image-url("top2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
-
   .main {
   width: 100%; /* 横幅いっぱい */
   height: 200px; /* 高さ200px */

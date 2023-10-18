@@ -3,40 +3,39 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <!-- CSSファイルの読み込み -->
-    <link rel="stylesheet" href="style.css" />
+    <!-- CSSファイルの記述は今回なしにする -->
       <title>今日のお猫様</title>
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
     <meta name="viewport" content= "width=device-width, initial-scale=1, maximum-scale=1">
     <!-- 自身のKItCodeの記述-->
     <script src="https://kit.fontawesome.com/e0c0e0275e.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="d-flex flex-column vh-100">
-    <header class="shadow-sm">
-      <nav class="navbar navbar-light bg-warning navbar-expand-lg navbar-dark">
+    <header class="shadow-sm bg-warning">
+      <nav class="navbar navbar-light navbar-expand-lg navbar-dark">
         <div class="container">
-          <a class="navbar-brand" href="/" ><%= image_tag 'kyounekosama.jpg', :size => "200x200" %></a>
-          <p>
-            ようこそ、今日のお猫様へ！！<br />
-
-            ※投稿と写真の閲覧は、会員登録が必要です。<br />
-          </p>
+          <div class="header">
+            <a class="navbar-brand" href="/" >
+              <%= image_tag 'kyounekosama.jpg', :size => "200x200" %>
+            </a>
+            <strong>今日のお猫様</strong></br>
+            <h6>~猫好きさんのためのSNSサイト~</h6>
+          </div>
         </div>
-    <h1><span>今日のお猫様</span></h1></br>
-    <h6>~猫好きさんのためのSNSサイト~</h6>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-
-          <%# 会員側ログイン後の記述 %>
+    </nav>
+              <%# 会員側ログイン後の記述 %>
     <% if customer_signed_in? %>
-      <ul>
+      <ul class="bg-dark">
         <li class="nav-list-item">
           <%= link_to user_root_path, class: 'nav-link text-light' do %>
             TOPページ<i class="fa-solid fa-paw"></i>
@@ -59,27 +58,9 @@
           <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-light' %>
         </li>
       </ul>
-    <%# 会員側ログイン前の記述 %>
-    <% elsif %>
-      <ul>
-        <li class="nav-list-item">
-          <%= link_to user_root_path, class: 'nav-link text-light' do %>
-            TOPページ<i class="fa-solid fa-paw"></i>
-          <% end %>
-        </li>
-
-        <li class="nav-list-item">
-          <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-light' %>
-        </li>
-        <li class="nav-list-item">
-          <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-light' %>
-        </li>
-      </ul>
-    <% end %>
-
-    <%# 管理側ログイン後の記述 %>
-    <% if admin_signed_in? %>
-      <ul>
+    <%# 会員側ログイン前の場合は、管理者側が表示する %>
+    <% elsif admin_signed_in? %>
+     <ul>
         <li class="nav-list-item">
           <%= link_to admin_path, class: 'nav-link text-light' do %>
             管理者TOP<i class="fa-solid fa-gear"></i>
@@ -95,12 +76,13 @@
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %>
         </li>
       </ul>
-    <%# 管理者側ログイン前の記述 %>
+      <!-- 会員・管理側でもログインしていない場合(urlで判定する)-->
     <% else %>
+      <% if request.path.starts_with?('/admin') %>
       <ul>
         <li class="nav-list-item">
           <%= link_to admin_path, class: 'nav-link text-light' do %>
-            管理者TOP<i class="fa-solid fa-gear"></i>
+            管理者TOPページ<i class="fa-solid fa-gear"></i>
           <% end %>
         </li>
         <li class="nav-list-item">
@@ -110,25 +92,42 @@
           <%= link_to "新規登録", new_admin_registration_path, class: 'nav-link text-light' %>
         </li>
       </ul>
+      <% else %>
+      <ul>
+        <li class="nav-list-item">
+          <%= link_to user_root_path, class: 'nav-link text-light' do %>
+            TOPページ<i class="fa-solid fa-paw"></i>
+          <% end %>
+        </li>
+
+        <li class="nav-list-item">
+          <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-light' %>
+        </li>
+        <li class="nav-list-item">
+          <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-light' %>
+        </li>
+      </ul>
+      <% end %>
     <% end %>
-    </nav>
   </header>
 </body>
     <!-- topページの画像-->
-    <%= image_tag ('top2.jpg')%>
-    <!-- 修正する -->
     <div class="full-page">
+      <div class="top-image">
+        <p class="text-center">
+          ようこそ、今日のお猫様へ！！<br />
+          ※投稿と写真の閲覧は、会員登録が必要です。<br />
+        </p>
+      </div>
     <main class="mb-auto">
         <p id="notice"><%= notice %></p>
       <div class="d-flex justify-content-center mb-2">
       </div>
       </div>
     </div>
-
     <%= yield %>
     </main>
-      <!-- 修正する -->
-     </div>
+  </div>
     <!-- フッターの記述 -->
   <foote class="bg-warning text-white pt-5 pb-4">
 
