@@ -1,14 +1,14 @@
-<h2>管理者ログイン</h2>
+<h2><i class="fa-solid fa-key"></i>管理者ログイン</h2>
 
 <%# form_withで記述したら遷移しなかっため記述を変更%>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :メールアドレス %><br />
+    <i class="fa-solid fa-star-of-life"></i><%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード %><br />
+    <i class="fa-solid fa-star-of-life"></i><%= f.label :パスワード %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
@@ -20,7 +20,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "ログイン" %>
+    </i><%= f.submit "ログイン" %>
   </div>
 <% end %>
 

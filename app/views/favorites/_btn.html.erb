@@ -2,12 +2,12 @@
 <% if photo.favorited_by?(current_customer) %>
 
     <%= link_to customer_photo_favorites_path(photo, index: index), class: 'text-danger', method: :delete do %>
-      <i class="fas fa-heart"></i><%= photo.favorites.count %>いいね！
+      <i class="fa-solid fa-paw"></i><%= photo.favorites.count %>
     <% end %>
 
     <% else %>
-        <%= link_to customer_photo_favorites_path(photo, index: index), class: 'text-info', method: :post do %>
-          <i class="fas fa-heart"></i><%= photo.favorites.count %>
+        <%= link_to customer_photo_favorites_path(photo, index: index), class: 'text-secondary', method: :post do %>
+          <i class="fa-solid fa-paw"></i><%= photo.favorites.count %>
     <% end %>
 
 <% end %>

@@ -1,9 +1,10 @@
-<h1>今日猫会員情報詳細</h1>
+
+<h1><i class="fa-solid fa-face-smile"></i>今日猫会員情報詳細<i class="fa-solid fa-face-smile"></i></h1>
 
 <div class="container">
   <div class="row-8 my-3">
     <div class="col-lg-4 text-right">
-<h4><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h4>
+<h4><i class="fa-solid fa-star-of-life"></i><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h4>
 </div>
 </div>
 
@@ -17,30 +18,30 @@
 
         <tbody>
             <tr>
-                <td>会員番号</td>
+                <td><i class="fa-solid fa-circle"></i>会員番号</td>
                 <td><%= @customer.id %></td>
             </tr>
             <tr>
-                <td>名前</td>
+                <td><i class="fa-solid fa-circle"></i>名前</td>
                 <td><%= f.text_field :last_name %></td>
                 <td><%= f.text_field :first_name %></td>
             </tr>
             <tr>
-                <td>フリガナ</td>
+                <td><i class="fa-solid fa-circle"></i>フリガナ</td>
                 <td><%= f.text_field :last_name_kana %></td>
                 <td><%= f.text_field :first_name_kana %></td>
             </tr>
 
             <tr>
-                <td>電話番号</td>
+                <td><i class="fa-solid fa-circle"></i>電話番号</td>
                 <td><%= f.text_field :phone_number %></td>
             </tr>
             <tr>
-                <td>メールアドレス</td>
+                <td><i class="fa-solid fa-circle"></i>メールアドレス</td>
                 <td><%= f.text_field :email %></td>
             </tr>
             <tr>
-                <td>会員ステータス</td>
+                <td><i class="fa-solid fa-circle"></i>会員ステータス</td>
                 <td>
                     <%= f.radio_button :is_deleted, :false, checked: true %>
                     <%= f.label :is_deleted, "有効" %>

@@ -1,15 +1,15 @@
-<h2>管理者新規登録</h2>
+<h2><i class="fa-solid fa-pen-nib"></i>管理者新規登録</h2>
 
 <%= form_with model: @admin, url: admin_registration_path do |f| %>
   <%= render "admin/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :メールアドレス %><br />
+    <i class="fa-solid fa-leaf"></i><%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード %>
+    <i class="fa-solid fa-leaf"></i><%= f.label :パスワード %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
@@ -17,7 +17,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :パスワード確認 %><br />
+    <i class="fa-solid fa-leaf"></i><%= f.label :パスワード確認 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 

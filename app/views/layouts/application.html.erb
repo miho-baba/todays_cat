@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <!-- CSSファイルの記述は今回なしにする -->
-      <title>今日のお猫様</title>
+      <title>＊今日のお猫様＊</title>
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
     <meta name="viewport" content= "width=device-width, initial-scale=1, maximum-scale=1">
@@ -23,8 +23,8 @@
             <a class="navbar-brand" href="/" >
               <%= image_tag 'kyounekosama.jpg', :size => "200x200" %>
             </a>
-            <strong>今日のお猫様</strong></br>
-            <h6>~猫好きさんのためのSNSサイト~</h6>
+            <h6><strong><i class="fa-solid fa-paw"></i>今日のお猫様<i class="fa-solid fa-paw"></i></strong></br>
+              ~猫好きさんのためのSNSサイト<%= image_tag 'title.jpg', :size => "30x30" %>~</h6>
           </div>
         </div>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
     </nav>
               <%# 会員側ログイン後の記述 %>
     <% if customer_signed_in? %>
-      <ul class="bg-dark">
+      <ul class="bg">
         <li class="nav-list-item">
           <%= link_to user_root_path, class: 'nav-link text-light' do %>
             TOPページ<i class="fa-solid fa-paw"></i>

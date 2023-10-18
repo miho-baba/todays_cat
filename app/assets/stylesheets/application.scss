@@ -44,16 +44,19 @@
   font-size: 50px;
 }
 
-.header strong {
+  .header strong {
   font-size: 50px; /* strong要素のフォントサイズ */
   display: block; /* strong要素をブロック要素として表示 */
 }
 
-.header h6 {
+  .header h6 {
   font-size: 20px; /* h6要素のフォントサイズ */
   color: #6c3524; /* h6要素のテキスト色（必要に応じて設定） */
 }
 
+  .ul {
+  background-color: #000000;
+}
 
   .img_tag {
   width: 100%;
@@ -97,9 +100,5 @@
 
 footer {
   width: 100%;
-  height: 120px;
-  text-align: center;
-  line-height: 120px;
-  /* 柔らかい黄系の色 */
-   /*color: #f0e68c;*/
+  text-align: center
 }

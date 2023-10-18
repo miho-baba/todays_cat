@@ -1,7 +1,7 @@
 
-<h1><%= @customer.last_name%>様の会員プロフィール</h1>
+<h1><i class="fa-solid fa-fish"></i><%= @customer.last_name%>様の会員プロフィール</h1>
 
-  <table class='table'>
+  <table class='table table-hover table-inverse'>
   <tr>
     <th>プロフィール画像</th>
     <th><%= image_tag @customer.get_profile_image(100,100) %></th>
