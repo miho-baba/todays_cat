@@ -1,4 +1,7 @@
 
+<div style="color: white">
+  <h4>猫好きユーザーを探す<i class="fa-solid fa-magnifying-glass"></i></h4>
+</div>
 <% if customer_signed_in? %>
   <%= form_with url:  customer_search_path, method: :get, local: true do |f| %>
     <%= f.text_field :content %>

@@ -32,105 +32,116 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-    </nav>
-              <%# 会員側ログイン後の記述 %>
-              <div style="background-color: black">
-    <% if customer_signed_in? %>
-      <ul class="bg">
-        <li class="nav-list-item">
-          <%= link_to user_root_path, class: 'nav-link text-light' do %>
-            TOPページ<i class="fa-solid fa-paw"></i>
+      </nav>
+        <%# 会員側ログイン後の記述 %>
+        <div style="background-color: black">
+          <% if customer_signed_in? %>
+          <ul class="bg">
+          <li class="nav-list-item">
+            <%= link_to user_root_path, class: 'nav-link text-light' do %>
+              TOPページ<i class="fa-solid fa-paw"></i>
           <% end %>
-        </li>
+          </li>
 
-        <li class="nav-list-item">
-          <%= link_to "マイページ", mypage_customer_customers_path, class: 'nav-link text-light' %>
-        </li>
+          <li class="nav-list-item">
+            <%= link_to "マイページ", mypage_customer_customers_path, class: 'nav-link text-light' %>
+          </li>
 
-        <li class="nav-list-item">
-          <%= link_to "猫写真", customer_photos_path, class: 'nav-link text-light' %>
-        </li>
+          <li class="nav-list-item">
+            <%= link_to "猫写真", customer_photos_path, class: 'nav-link text-light' %>
+          </li>
 
-        <li class="nav-list-item">
-          <%= link_to "今日猫会員", customer_customers_path, class: 'nav-link text-light' %>
-        </li>
+          <li class="nav-list-item">
+            <%= link_to "今日猫会員", customer_customers_path, class: 'nav-link text-light' %>
+          </li>
 
-        <li class="nav-list-item">
-          <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
-            <i class="fa-solid fa-right-from-bracket"></i>ログアウト
-          <% end %>
-        </li>
+          <li class="nav-list-item">
+            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
+              <i class="fa-solid fa-right-from-bracket"></i>ログアウト
+            <% end %>
+          </li>
+      <!-- 検索フォームの記述 -->
+      <div class="row pb-2 mr-2">
+        <div class="col-12" style="text-align: right;">
+        <%= render "customer/searches/form" %>
+        </div>
+      </div>
+
       </ul>
     <%# 会員側ログイン前の場合は、管理者側が表示する %>
     <% elsif admin_signed_in? %>
-     <ul>
+      <ul>
         <li class="nav-list-item">
           <%= link_to admin_path, class: 'nav-link text-light' do %>
             管理者TOP<i class="fa-solid fa-gear"></i>
           <% end %>
         </li>
+
         <li class="nav-list-item">
           <%= link_to "管理者マイページ", admin_mypage_path, class: 'nav-link text-light' %>
         </li>
+
         <li class="nav-list-item">
           <%= link_to "登録済み会員情報一覧", admin_customers_path, class: 'nav-link text-light' %>
         </li>
+
         <li class="nav-list-item">
           <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
             <i class="fa-solid fa-right-from-bracket"></i>ログアウト
           <% end %>
         </li>
+
       </ul>
       <!-- 会員・管理側でもログインしていない場合(urlで判定する)-->
-    <% else %>
-      <% if request.path.starts_with?('/admin') %>
-      <ul>
-        <li class="nav-list-item">
-          <%= link_to admin_path, class: 'nav-link text-light' do %>
-            管理者TOPページ<i class="fa-solid fa-gear"></i>
-          <% end %>
-        </li>
-        <li class="nav-list-item">
-          <%= link_to "ログイン", new_admin_session_path, class: 'nav-link text-light' %>
-        </li>
-        <li class="nav-list-item">
-          <%= link_to "新規登録", new_admin_registration_path, class: 'nav-link text-light' %>
-        </li>
-      </ul>
-      <% else %>
-      <ul>
-        <li class="nav-list-item">
-          <%= link_to user_root_path, class: 'nav-link text-light' do %>
-            TOPページ<i class="fa-solid fa-paw"></i>
-          <% end %>
-        </li>
+          <% else %>
+            <% if request.path.starts_with?('/admin') %>
+            <ul>
+              <li class="nav-list-item">
+                <%= link_to admin_path, class: 'nav-link text-light' do %>
+                  管理者TOPページ<i class="fa-solid fa-gear"></i>
+                <% end %>
+              </li>
 
-        <li class="nav-list-item">
-          <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-light' %>
-        </li>
-        <li class="nav-list-item">
-          <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-light' %>
-        </li>
-      </ul>
-      <% end %>
-    <% end %>
-  <!-- 検索フォームの記述 -->
-  <div class="row pb-2 mr-2">
-    <div class="col-12" style="text-align: right;">
-    <div style="color: white">
-    <h4>猫好きユーザーを探す</h4>
-    </div>
-    <%= render "customer/searches/form" %>
-    </div>
-  </div>
-  </div>
-  </header>
-</body>
+              <li class="nav-list-item">
+                <%= link_to "ログイン", new_admin_session_path, class: 'nav-link text-light' %>
+              </li>
+
+              <li class="nav-list-item">
+                <%= link_to "新規登録", new_admin_registration_path, class: 'nav-link text-light' %>
+              </li>
+            </ul>
+
+            <% else %>
+          <ul>
+              <li class="nav-list-item">
+                <%= link_to user_root_path, class: 'nav-link text-light' do %>
+                  TOPページ<i class="fa-solid fa-paw"></i>
+                <% end %>
+              </li>
+
+              <li class="nav-list-item">
+                <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-light' %>
+              </li>
+              <li class="nav-list-item">
+                <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-light' %>
+              </li>
+
+             <!-- 検索フォームの記述 -->
+            <div class="row pb-2 mr-2">
+              <div class="col-12" style="text-align: right;">
+                  <%= render "customer/searches/form" %>
+              </div>
+            </div>
+          </ul>
+            <% end %>
+          <% end %>
+    </header>
+  </body>
 
     <main class="mb-auto">
-        <p id="notice"><%= notice %></p>
-      <div class="d-flex justify-content-center mb-2">
-      </div>
+      <p id="notice"><%= notice %></p>
+        <div class="d-flex justify-content-center mb-2">
+        </div>
       </div>
     </div>
     <%= yield %>
