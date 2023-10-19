@@ -8,6 +8,7 @@
       <th>投稿者</th>
       <th>投稿日時</th>
       <th>お気に入り数</th>
+      <th>コメント</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -29,6 +30,9 @@
             <td><%= photo.updated_at %></td>
 
             <td><%= render "favorites/btn", photo: photo, index: true %></td>
+
+            <td>コメント数<%= photo.photo_comments.count %></td>
+
           </td>
         </tr>
       <% end %>

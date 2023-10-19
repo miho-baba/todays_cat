@@ -27,7 +27,8 @@ Rails.application.routes.draw do
       end
     end
     resources :photos, only: [:index, :show, :edit, :update, :create, :destroy] do
-    resource :favorites, only: [:create, :destroy]
+      resources :photo_comments, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
     end
   end
 

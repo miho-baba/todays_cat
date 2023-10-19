@@ -1,0 +1,21 @@
+
+<table>
+  <tbody>
+    <% photo.photo_comments.each do |photo_comment| %>
+    <tr>
+      <td>
+        <%= link_to customer_mypage_path(photo_comment.customer) do %>
+          <%= image_tag photo_comment.customer.get_profile_image(50,50) %><br>
+          <%= photo_comment.customer.last_name %>
+        <% end %>
+      </td>
+      <td><%= photo_comment.comment %></td>
+      <td>
+        <% if photo_comment.customer == current_customer %>
+          <%= link_to "削除する", customer_photo_photo_comment_path(photo, photo_comment), method: :delete, class: "btn btn-sm btn-danger float-end" %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

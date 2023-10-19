@@ -1,0 +1,2 @@
+module Customer::PhotoCommentsHelper
+end

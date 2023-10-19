@@ -1,9 +1,10 @@
 class Customer::PhotosController < ApplicationController
 
   def show
-  @photo = Photo.find(params[:id])
-  @photo_new = Photo.new
-  @customer = @photo.customer
+    @photo = Photo.find(params[:id])
+    @photo_new = Photo.new
+    @customer = @photo.customer
+    @photo_comment = PhotoComment.new
   end
 
   def index
