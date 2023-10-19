@@ -28,4 +28,17 @@ class Customer < ApplicationRecord
     end
      profile_image.variant(resize_to_limit: [width, height]).processed
   end
+
+  #検索条件の記述
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Customer.where('last_name': content).or(Customer.where("first_name": content))
+    elsif method == 'forward'
+      Customer.where('last_name LIKE ?', content + '%').or(Customer.where("first_name LIKE ?", content + '%'))
+    elsif method == 'backward'
+      Customer.where('last_name LIKE ?', '%' + content).or(Customer.where("first_name LIKE ?", '%' + content))
+    else
+      Customer.where('last_name LIKE ?', '%' + content + '%').or(Customer.where('last_name LIKE ?', '%' + content + '%'))
+    end
+  end
 end

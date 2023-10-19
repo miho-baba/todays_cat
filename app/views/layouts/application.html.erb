@@ -34,6 +34,7 @@
         <ul class="navbar-nav ml-auto">
     </nav>
               <%# 会員側ログイン後の記述 %>
+              <div style="background-color: black">
     <% if customer_signed_in? %>
       <ul class="bg">
         <li class="nav-list-item">
@@ -55,7 +56,9 @@
         </li>
 
         <li class="nav-list-item">
-          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-light' %>
+          <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
+            <i class="fa-solid fa-right-from-bracket"></i>ログアウト
+          <% end %>
         </li>
       </ul>
     <%# 会員側ログイン前の場合は、管理者側が表示する %>
@@ -73,7 +76,9 @@
           <%= link_to "登録済み会員情報一覧", admin_customers_path, class: 'nav-link text-light' %>
         </li>
         <li class="nav-list-item">
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %>
+          <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+            <i class="fa-solid fa-right-from-bracket"></i>ログアウト
+          <% end %>
         </li>
       </ul>
       <!-- 会員・管理側でもログインしていない場合(urlで判定する)-->
@@ -109,16 +114,19 @@
       </ul>
       <% end %>
     <% end %>
+  <!-- 検索フォームの記述 -->
+  <div class="row pb-2 mr-2">
+    <div class="col-12" style="text-align: right;">
+    <div style="color: white">
+    <h4>猫好きユーザーを探す</h4>
+    </div>
+    <%= render "customer/searches/form" %>
+    </div>
+  </div>
+  </div>
   </header>
 </body>
-    <!-- topページの画像-->
-    <div class="full-page">
-      <div class="top-image">
-        <p class="text-center">
-          ようこそ、今日のお猫様へ！！<br />
-          ※投稿と写真の閲覧は、会員登録が必要です。<br />
-        </p>
-      </div>
+
     <main class="mb-auto">
         <p id="notice"><%= notice %></p>
       <div class="d-flex justify-content-center mb-2">

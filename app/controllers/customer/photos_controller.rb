@@ -20,11 +20,11 @@ class Customer::PhotosController < ApplicationController
 
   def edit
     @photo = Photo.find(params[:id])
-  if @photo.customer == current_customer
-    render :edit
-  else
-  redirect_to edit_customer_photo_path
-  end
+    if @photo.customer == current_customer
+      render :edit
+    else
+      redirect_to edit_customer_photo_path
+    end
   end
 
   def new
@@ -35,8 +35,8 @@ class Customer::PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @photo.customer_id = current_customer.id
     if @photo.save
-    flash[:notice] = "投稿に成功しました."
-    redirect_to customer_photo_path(@photo.id)
+      flash[:notice] = "投稿に成功しました."
+      redirect_to customer_photo_path(@photo.id)
     else
       @customer = current_customer
       @photos = Photo.all

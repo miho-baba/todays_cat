@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       resources :photo_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
+    get "/search", to: "searches#search"
   end
 
   namespace :user do

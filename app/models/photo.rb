@@ -25,5 +25,17 @@ class Photo < ApplicationRecord
       profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
+  #猫の特徴&タイトル：検索条件の記述
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Photo.where('title': content).or(Photo.where("cat_color": content))
+    elsif method == 'forward'
+      Photo.where('title LIKE ?', content + '%').or(Photo.where("cat_color LIKE ?", content + '%'))
+    elsif method == 'backward'
+      Photo.where('title LIKE ?', '%' + content).or(Photo.where("cat_color LIKE ?", '%' + content))
+    else
+      Photo.where('title LIKE ?', '%' + content + '%').or(Photo.where("cat_color LIKE ?", '%' + content + '%'))
+    end
+  end
 
 end
