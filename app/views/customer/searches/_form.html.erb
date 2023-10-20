@@ -1,12 +1,13 @@
 
 <div style="color: white">
-  <h4>猫好きユーザーを探す<i class="fa-solid fa-magnifying-glass"></i></h4>
+  <h4>猫好きユーザー<i class="fa-solid fa-heart"></i>を探す<i class="fa-solid fa-magnifying-glass"></i></h4>
 </div>
 <% if customer_signed_in? %>
   <%= form_with url:  customer_search_path, method: :get, local: true do |f| %>
     <%= f.text_field :content %>
     <%= f.select :model, options_for_select({"Customer" => "customer", "Photo" => "photo"}) %>
     <%= f.select :method, options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}) %>
-    <%= f.submit "検索する" %>
+    <%= f.submit "検索する", class: "btn btn-info" %>
+
   <% end %>
 <% end %>

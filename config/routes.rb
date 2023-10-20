@@ -22,10 +22,14 @@ Rails.application.routes.draw do
   namespace :customer do
     resources :mypages, only: [:show, :edit, :create, :update, :index]
     resources :customers, only: [:index, :show, :edit, :update] do
+      resource :relationships, only: [:create, :destroy]
+      	get "followings" => "relationships#followings", as: "followings"
+      	get "followers" => "relationships#followers", as: "followers"
       collection do
         get :mypage
       end
     end
+
     resources :photos, only: [:index, :show, :edit, :update, :create, :destroy] do
       resources :photo_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]

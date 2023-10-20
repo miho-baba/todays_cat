@@ -1,40 +1,55 @@
 
 <h2><i class="fa-solid fa-paw"></i><%= @customer.last_name%>様の会員情報<i class="fa-solid fa-paw"></i></h2>
 
-<table class='table'>
-  <tr>
-    <th><i class="fa-solid fa-feather"></i>プロフィール画像</th>
-    <th><%= image_tag @customer.get_profile_image(100,100) %></th>
-  </tr>
-  <tr>
-	  <th><i class="fa-solid fa-feather"></i>名前(姓)</th>
-	  <th><%= @customer.last_name %></th>
-  </tr>
-  <tr>
-	  <th><i class="fa-solid fa-feather"></i>名前(名)</th>
-	  <th><%= @customer.first_name %></th>
-  </tr>
-  <tr>
-	  <th><i class="fa-solid fa-feather"></i>紹介文</th>
-	  <th><%= @customer.introduction %></th>
-  </tr>
-   <tr>
-	  <th><i class="fa-solid fa-feather"></i>フォロー</th>
-      <th><%#= link_to follows_user_path(user) do %>
-       <%#= user.followers.count %>
-      <%# end %></th>
-  </tr>
-  <tr>
-	  <th><i class="fa-solid fa-feather"></i>フォロワー</th>
-      <th><%#= link_to followers_user_path(user) do %>
-        <%#= user.followeds.count %>
-      <%# end %></th>
-  </tr>
-  </tr>
+  <table class='table'>
+    <tr>
+      <th><i class="fa-solid fa-feather"></i>プロフィール画像</th>
+      <th><%= image_tag @customer.get_profile_image(100,100) %></th>
+    </tr>
+
+    <tr>
+  	  <th><i class="fa-solid fa-feather"></i>名前(姓)</th>
+  	  <th><%= @customer.last_name %></th>
+    </tr>
+
+    <tr>
+  	  <th><i class="fa-solid fa-feather"></i>名前(名)</th>
+  	  <th><%= @customer.first_name %></th>
+    </tr>
+
+    <tr>
+  	  <th><i class="fa-solid fa-feather"></i>紹介文</th>
+  	  <th><%= @customer.introduction %></th>
+    </tr>
+
+    <tr>
+  	  <th><i class="fa-solid fa-feather"></i>フォロー</th>
+        <th>
+          <%= link_to customer_customer_followings_path(@customer), class: "btn btn-outline-primary btn-block" do %>
+            <%= @customer.followings.count %>人
+          <% end %>
+        </th>
+    </tr>
+
+    <tr>
+  	  <th><i class="fa-solid fa-feather"></i>フォロワー</th>
+        <th>
+          <%= link_to customer_customer_followers_path(@customer), class: "btn btn-outline-success btn-block" do %>
+            <%= @customer.followers.count %>人
+          <% end %>
+        </th>
+    </tr>
+
+    </tr>
   </table>
+
   <div class='row'>
-    <%= link_to edit_customer_customer_path(@customer), class: "btn btn-outline-secondary btn-block" do %>
-    <i class="fa-solid fa-gear"></i>
+      <% if current_customer != @customer %>
+        <td><%= render "relationships/btn", customer: customer, options: { class: ""} %></td>
+      <% else %>
+        <%= link_to edit_customer_customer_path(@customer), class: "btn btn-outline-secondary btn-block" do %>
+        <i class="fa-solid fa-gear"></i>
+      <% end %>
     <% end %>
   </div>
 
@@ -48,7 +63,7 @@
 
     <div class="form-group">
       <label for="image"><i class="fa-solid fa-star-of-david"></i>写真</label>
-      <%= f.file_field :image, class:'form-control photo_image' %>
+      <%= f.file_field :image, class:'form-control- photo_image' %>
     </div>
 
     <div class="form-group">
