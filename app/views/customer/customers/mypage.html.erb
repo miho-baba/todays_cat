@@ -1,7 +1,10 @@
-
-<h2><i class="fa-solid fa-paw"></i><%= @customer.last_name%>様の会員情報<i class="fa-solid fa-paw"></i></h2>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 
   <table class='table'>
+    <h2><i class="fa-solid fa-paw"></i><%= @customer.last_name%>様の会員情報<i class="fa-solid fa-paw"></i></h2>
+
     <tr>
       <th><i class="fa-solid fa-feather"></i>プロフィール画像</th>
       <th><%= image_tag @customer.get_profile_image(100,100) %></th>
@@ -53,8 +56,9 @@
     <% end %>
   </div>
 
-  <h2><i class="fa-solid fa-paw"></i>猫写真投稿フォーム<i class="fa-solid fa-paw"></i></h2>
+
   <%= form_with model: @photo, url: customer_photos_path do |f| %>
+<h2><i class="fa-solid fa-paw"></i>猫写真投稿フォーム<i class="fa-solid fa-paw"></i></h2>
 
     <div class="form-group">
       <label for="title"><i class="fa-solid fa-star-of-david"></i>タイトル</label>
@@ -80,3 +84,7 @@
       <%= f.submit :'投稿する', class:'btn btn-danger' %>
     </div>
 <% end %>
+
+</div>
+</div>
+</div>

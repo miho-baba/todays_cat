@@ -1,7 +1,12 @@
-<h2><i class="fa-solid fa-key"></i>管理者ログイン</h2>
+
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 
 <%# form_withで記述したら遷移しなかっため記述を変更%>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <h2><i class="fa-solid fa-key"></i>管理者ログイン</h2>
+
   <div class="field">
     <i class="fa-solid fa-star-of-life"></i><%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -25,3 +30,7 @@
 <% end %>
 
 <%= render "admin/shared/links" %>
+
+    </div>
+  </div>
+</div>

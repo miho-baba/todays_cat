@@ -1,6 +1,12 @@
-<h2><i class="fa-solid fa-paw"></i>ログインフォーム<i class="fa-solid fa-paw"></i></h2>
+
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
 
 <%= form_with model: @customer, url: customer_session_path do |f| %>
+  <h2><i class="fa-solid fa-paw"></i>ログインフォーム<i class="fa-solid fa-paw"></i></h2>
+
   <div class="field">
     <i class="fa-solid fa-key"></i><%= f.label :"メールアドレス" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -24,3 +30,7 @@
 <% end %>
 
 <%= render "customer/shared/links" %>
+
+    </div>
+  </div>
+</div>

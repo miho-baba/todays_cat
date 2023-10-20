@@ -3,21 +3,21 @@
 
 <table class='table table-hover table-inverse'>
   <tr>
-    <th>プロフィール画像</th>
+    <th><%= image_tag 'aikon.jpg', :size => "35x30" %>プロフィール画像</th>
     <th><%= image_tag @customer.get_profile_image(100,100) %></th>
   </tr>
   <tr>
-	  <th>名前(姓)</th>
+	  <th><%= image_tag 'aikon.jpg', :size => "35x30" %>名前(姓)</th>
 	  <th><%= @customer.last_name %></th>
   </tr>
   <tr>
 
-	<th>名前(名)</th>
+	<th><%= image_tag 'aikon.jpg', :size => "35x30" %>名前(名)</th>
 	  <th><%= @customer.first_name %></th>
   </tr>
 
   <tr>
-	  <th>紹介文</th>
+	  <th><%= image_tag 'aikon.jpg', :size => "35x30" %>紹介文</th>
 	  <th><%= @customer.introduction %></th>
   </tr>
    <tr>

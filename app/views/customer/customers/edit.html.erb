@@ -1,5 +1,4 @@
 
-<h2><i class="fa-solid fa-paw"></i>プロフィール編集フォーム<i class="fa-solid fa-paw"></i></h2>
 
 <div class='container'>
   <div class='row'>
@@ -16,6 +15,9 @@
     </ul>
     <% end %>
   </div>
+
+    <h2><i class="fa-solid fa-paw"></i>プロフィール編集フォーム<i class="fa-solid fa-paw"></i></h2>
+
     <div class="form-group">
       <i class="fa-solid fa-sun"></i><%= f.label :プロフィール画像 %>
       <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>

@@ -4,9 +4,9 @@
     <% photo.photo_comments.each do |photo_comment| %>
     <tr>
       <td>
-        <%= link_to customer_mypage_path(photo_comment.customer) do %>
-          <%= image_tag photo_comment.customer.get_profile_image(50,50) %><br>
-          <%= photo_comment.customer.last_name %>
+        <%= link_to customer_customer_path(photo_comment.customer) do %>
+            <%= image_tag photo_comment.customer.get_profile_image(50,50) %><br>
+            <%= photo_comment.customer.last_name %><%= photo_comment.customer.first_name %>様
         <% end %>
       </td>
       <td><%= photo_comment.comment %></td>

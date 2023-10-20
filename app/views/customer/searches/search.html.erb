@@ -1,10 +1,10 @@
 
 <% if @model == 'customer' %>
-    <h3>今日猫会員検索結果 "<%= @content %>"</h3>
+    <h3><i class="fa-solid fa-magnifying-glass"></i>今日猫会員検索結果 "<%= @content %>"</h3>
   <%= render 'customer/searches/customer', customers: @records %>
 
 <% elsif @model == 'photo' %>
-    <h3>キーワード検索結果"<%= @content %>"</h3>
+    <h3><i class="fa-solid fa-magnifying-glass"></i>キーワード検索結果"<%= @content %>"</h3>
   <%= render 'customer/searches/photo', photos: @records %>
 
 <% end %>
