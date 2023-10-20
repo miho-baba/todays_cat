@@ -15,12 +15,4 @@ class Customer::SearchesController < ApplicationController
     end
   end
 
-
-
-
-
-
-
-
-
 end

@@ -60,14 +60,14 @@
               <i class="fa-solid fa-right-from-bracket"></i>ログアウト
             <% end %>
           </li>
-      <!-- 検索フォームの記述 -->
+      <!-- 会員側用の検索フォームの記述 -->
       <div class="row pb-2 mr-2">
         <div class="col-12" style="text-align: right;">
         <%= render "customer/searches/form" %>
         </div>
       </div>
-
       </ul>
+
     <%# 会員側ログイン前の場合は、管理者側が表示する %>
     <% elsif admin_signed_in? %>
       <ul>
@@ -90,8 +90,14 @@
             <i class="fa-solid fa-right-from-bracket"></i>ログアウト
           <% end %>
         </li>
-
+      <!-- 管理者側用の検索フォームの記述 -->
+      <div class="row pb-2 mr-2">
+        <div class="col-12" style="text-align: right;">
+        <%= render "admin/searches/form" %>
+        </div>
+      </div>
       </ul>
+
       <!-- 会員・管理側でもログインしていない場合(urlで判定する)-->
           <% else %>
             <% if request.path.starts_with?('/admin') %>
@@ -109,10 +115,11 @@
               <li class="nav-list-item">
                 <%= link_to "新規登録", new_admin_registration_path, class: 'nav-link text-light' %>
               </li>
+
             </ul>
 
             <% else %>
-          <ul>
+            <ul>
               <li class="nav-list-item">
                 <%= link_to user_root_path, class: 'nav-link text-light' do %>
                   TOPページ<i class="fa-solid fa-paw"></i>
@@ -126,15 +133,12 @@
                 <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-light' %>
               </li>
 
-             <!-- 検索フォームの記述 -->
-            <div class="row pb-2 mr-2">
-              <div class="col-12" style="text-align: right;">
-                  <%= render "customer/searches/form" %>
               </div>
             </div>
           </ul>
             <% end %>
           <% end %>
+
       </nav>
     </header>
   </body>
@@ -248,9 +252,6 @@
           </ul>
             <% end %>
           <% end %>
-
-
-
     </ul>
           </div>
         </div>

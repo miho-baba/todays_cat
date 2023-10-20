@@ -101,5 +101,13 @@
 
 footer {
   width: 100%;
-  text-align: center
+  text-align: center;
+  background-color: #ffc107;
 }
+
+//後ほどレスポンシブ対応記述を追加する
+//@media screen and (max-width:768px) {
+  //header {
+    //height: 50px;
+    //width: 100%;
+//}

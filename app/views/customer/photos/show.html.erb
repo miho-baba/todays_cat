@@ -56,6 +56,10 @@
         <% end %>
         <% if @photo.customer == current_customer %>
           <%= link_to '削除する', customer_photo_path(@photo.id), method: :delete, class: 'btn btn-sm btn-dark destroy'%>
+
+        <% if @photo.customer == current_customer %>
+  <%= link_to 'マイページに戻る', mypage_customer_customers_path, class: 'btn btn-sm btn-dark destroy' %>
+<% end %>
             </td>
           <tr>
         <% end %>

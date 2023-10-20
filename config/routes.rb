@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get "mypage" => "mypages#show"
     resources :admins, only: [:show]
     resources :customers, only: [:index, :show, :edit, :update]
+    get "/search", to: "searches#search"
   end
 
   #会員用

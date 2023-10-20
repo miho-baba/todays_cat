@@ -1,7 +1,8 @@
 class Admin::CustomersController < ApplicationController
 
   def index
-    @customers = Customer.page(params[:page]).per(6)
+    #ページネーションの記述
+    @customers = Customer.page(params[:page]).per(5)# 1ページに5個の写真を表示
   end
 
   def show

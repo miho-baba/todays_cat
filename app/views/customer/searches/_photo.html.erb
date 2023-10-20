@@ -24,7 +24,7 @@
               <%= link_to photo.title,customer_photo_path(photo.id), class: "photo_#{photo.id}" %>
             </td>
 
-            <td><%= photo.customer.last_name %>様</td>
+            <td><%= photo.customer.last_name %><%= photo.customer.first_name %>様</td>
 
             <td><%= photo.updated_at %></td>
 
