@@ -1,3 +1,9 @@
+
 <h1><i class="fa-solid fa-paw"></i>猫写真一覧<i class="fa-solid fa-paw"></i></h1>
 
 <%= render 'customer/searches/photo', photos: @photos %>
+
+  <div class="col-lg-5 mx-auto" style="width: 200px;">
+    <%= paginate @photos %>
+  </div>
+

@@ -31,7 +31,9 @@
 
       <tr>
         <th><%= image_tag 'aikon.jpg', :size => "30x25" %>お気に入り数</th>
-          <td><%= render "favorites/btn", photo: @photo, index: false %></td>
+            <td id="favorite_btn_<%= @photo.id %>">
+              <%= render "customer/favorites/btn", photo: @photo, index: false %>
+            </td>
       <tr>
 
       <tr>
@@ -46,7 +48,9 @@
 
       <tr>
         <th><%= image_tag 'aikon.jpg', :size => "30x25" %>コメント数</th>
-          <td><%= @photo.photo_comments.count %></td>
+          <td id="comment_counter">
+            <%= render "customer/photo_comments/comment", photo: @photo %>
+          </td>
       </tr>
 
         <% if @photo.customer == current_customer %>

@@ -17,7 +17,7 @@ class Customer::CustomersController < ApplicationController
   end
 
   def index
-    @customers = Customer.all
+    @customers = Customer.all.page(params[:page]).per(1) # 1ページに6個の写真を表示
     @customer = current_customer
   end
 

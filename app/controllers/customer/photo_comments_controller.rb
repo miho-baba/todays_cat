@@ -2,11 +2,12 @@ class Customer::PhotoCommentsController < ApplicationController
 
   #新しいコメントを作成する記述
   def create
-    photo = Photo.find(params[:photo_id])
+    @photo = Photo.find(params[:photo_id])
     comment = current_customer.photo_comments.new(photo_comment_params)
-    comment.photo_id = photo.id
+    comment.photo_id = @photo.id
     comment.save
-    redirect_to request.referer
+    #非同期通信化のためコメントアウトする
+    #redirect_to request.referer
   end
 
   #コメントを削除する記述
@@ -14,7 +15,8 @@ class Customer::PhotoCommentsController < ApplicationController
     comment = PhotoComment.find(params[:id])
     @photo = comment.photo
     comment.destroy
-    redirect_to request.referer
+    #非同期通信化のためコメントアウトする
+    #redirect_to request.referer
   end
 
   private

@@ -8,24 +8,18 @@ class Customer::PhotosController < ApplicationController
   end
 
   def index
-    #必要なら戻す@photos = Photo.all
-    to = Time.current.at_end_of_day
-    from = (to - 6.day).at_beginning_of_day
-    @photos = Photo.includes(:favorited_customers).
-      sort_by {|x|
-        x.favorited_customers.includes(:favorites).where(created_at: from...to).size
-      }.reverse
-    @photo = Photo.new
-  end
-
-  def edit
-    @photo = Photo.find(params[:id])
-    if @photo.customer == current_customer
-      render :edit
-    else
-      redirect_to edit_customer_photo_path
-    end
-  end
+  to = Time.current.at_end_of_day
+  from = (to - 6.day).at_beginning_of_day
+  # Photoモデルのデータを取得し、お気に入り（いいね）のカウントでソート
+  @photos = Photo.includes(:favorites)
+               .left_joins(:favorites)
+               .where(favorites: { created_at: from...to })
+               .group('photos.id')
+               .order('COUNT(favorites.id) DESC')
+               .page(params[:page])
+               .per(2)
+  @photo = Photo.new
+end
 
   def new
     @photo = Photo.new
@@ -35,7 +29,7 @@ class Customer::PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @photo.customer_id = current_customer.id
     if @photo.save
-      flash[:notice] = "投稿に成功しました."
+    flash[:notice] = "投稿に成功しました."
       redirect_to customer_photo_path(@photo.id)
     else
       @customer = current_customer

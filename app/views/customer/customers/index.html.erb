@@ -1,3 +1,9 @@
+
 <h1><i class="fa-solid fa-fish"></i>今日猫会員一覧<i class="fa-solid fa-fish"></i></h1>
 
   <%= render 'customer/searches/customer', customers: @customers %>
+
+    <div class="col-lg-5 mx-auto" style="width: 200px;">
+      <%= paginate @customers %>
+    </div>
+

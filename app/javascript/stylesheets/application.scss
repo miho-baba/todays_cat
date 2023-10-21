@@ -1,1 +1,112 @@
 @use '~bootstrap/scss/bootstrap';
+
+.style {
+  height: 50px;
+  width: 100%;
+  background-color: #a9a9a9;//灰色
+  border-top: 5px solid;
+}
+
+
+.test{
+    color: red;
+  }
+
+body {
+  width: 100%; /* 横幅いっぱい */
+  height: 200px; /* 高さ200px */
+  background-image: url("../images/back_image.jpg");
+  background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
+  background-position: center; /* 背景画像を中央に配置 */
+}
+
+  * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+  a {
+  text-decoration: none;
+}
+
+  body {
+    /* 桜色 */
+  margin: 0;
+  padding: 0;
+  color: black;//後で修正する
+}
+
+
+  .header {
+  width: 100%;
+  padding: 40px 0;
+  text-align: center;
+  color: #6c3524;
+  font-size: 50px;
+}
+
+  .header strong {
+  font-size: 50px; /* strong要素のフォントサイズ */
+  display: block; /* strong要素をブロック要素として表示 */
+}
+
+  .header h6 {
+  font-size: 20px; /* h6要素のフォントサイズ */
+  color: #6c3524; /* h6要素のテキスト色（必要に応じて設定） */
+}
+
+  .ul {
+  background-color: #000000;
+}
+
+  .img_tag {
+  width: 100%;
+  }
+
+ .navbar-brand {
+  float: left; /* 画像を左に浮動配置 */
+  margin-right: 80px; /* 他の要素との間隔を設定（必要に応じて調整） */
+}
+  .nav-list-item {
+  list-style: none;
+  /* 横に並べる */
+  display: inline-block;
+  margin: 0 20px;
+}
+
+  //画像に文字を入れた記述
+.full-page {
+  .top-image {
+    p {
+      padding-top: 500px;
+      //深い青紫系の色
+      color: #6495ed;
+      font-size: 30px;
+      font-weight: bold;
+    }
+    height: 900px;
+    //background-image: image-url("top2.jpg");
+    background-image: url("../images/top2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+  .main {
+  width: 100%; /* 横幅いっぱい */
+  height: 200px; /* 高さ200px */
+  //background-image: image-url("top2.jpg");
+  background-image: url("../images/top2.jpg");
+  background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
+  background-position: center; /* 背景画像を中央に配置 */
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  background-color: #ffc107;
+}
+
+//後ほどレスポンシブ対応記述を追加する

@@ -3,6 +3,7 @@ class Photo < ApplicationRecord
   belongs_to :customer
   has_many :favorites, dependent: :destroy
   has_many :favorited_customers, through: :favorites, source: :customer
+  has_many :week_favorites, -> { where(created_at: 1.week.ago.beginning_of_day..Time.current.end_of_day) }
   has_many :photo_comments, dependent: :destroy
   has_one_attached :image
   #写真のバリデーションの記述を書く

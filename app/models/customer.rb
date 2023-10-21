@@ -53,7 +53,7 @@ class Customer < ApplicationRecord
     followings.include?(customer)
   end
 
-  #検索条件の記述
+  #会員検索条件の記述
   def self.search_for(content, method)
     if method == 'perfect'
       Customer.where('last_name': content).or(Customer.where("first_name": content))
@@ -65,4 +65,22 @@ class Customer < ApplicationRecord
       Customer.where('last_name LIKE ?', '%' + content + '%').or(Customer.where('last_name LIKE ?', '%' + content + '%'))
     end
   end
+
+   #管理者検索条件の記述
+  def self.admin_search_for(content, method)
+    if method == 'perfect'
+      Customer.where('last_name': content).or(Customer.where("first_name": content)).or(Customer.where(id: content))
+    elsif method == 'forward'
+      Customer.where('last_name LIKE ?', content + '%').or(Customer.where("first_name LIKE ?", content + '%'))or(Customer.where("id LIKE ?", content + '%'))
+    elsif method == 'backward'
+      Customer.where('last_name LIKE ?', '%' + content).or(Customer.where("first_name LIKE ?", '%' + content)).or(Customer.where("id LIKE ?", '%' + content))
+    else
+      Customer.where('last_name LIKE ?', '%' + content + '%')..or(Customer.where('first_name LIKE ?', '%' + content + '%'))or(Customer.where('id LIKE ?', '%' + content + '%'))
+    end
+  end
+
+
+
+
+
 end

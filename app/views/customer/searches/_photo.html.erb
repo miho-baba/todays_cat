@@ -28,7 +28,9 @@
 
             <td><%= photo.updated_at %></td>
 
-            <td><%= render "favorites/btn", photo: photo, index: true %></td>
+            <td id="favorite_btn_<%= photo.id %>">
+                <%= render "customer/favorites/btn", photo: photo, index: true %>
+            </td>
 
             <td>コメント数<%= photo.photo_comments.count %></td>
 

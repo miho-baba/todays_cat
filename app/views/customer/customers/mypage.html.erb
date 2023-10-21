@@ -97,6 +97,7 @@
   <thead>
     <tr>
       <th>投稿写真</th>
+      <th>タイトル</th>
       <th>投稿日時</th>
       <th>お気に入り数</th>
       <th>コメント数</th>
@@ -113,8 +114,15 @@
             <% end %>
           <% end %>
         </td>
+
+        <td>
+          <%= link_to photo.title,customer_photo_path(photo.id), class: "photo_#{photo.id}" %>
+        </td>
+
         <td><%= photo.updated_at %></td>
-        <td><%= render "favorites/btn", photo: photo, index: true %></td>
+
+        <td><%= render "customer/favorites/btn", photo: photo, index: true %></td>
+
         <td>コメント数<%= photo.photo_comments.count %></td>
       </tr>
     <% end %>
