@@ -16,8 +16,8 @@ class Customer::PhotosController < ApplicationController
                .where(favorites: { created_at: from...to })
                .group('photos.id')
                .order('COUNT(favorites.id) DESC')
-               .page(params[:page])
-               .per(2)
+               .page(params[:page]) # 1ページに6個の写真を表示
+               .per(6)
   @photo = Photo.new
 end
 

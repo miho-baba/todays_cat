@@ -9,7 +9,7 @@ class Customer::CustomersController < ApplicationController
     @photo = Photo.new
     @customer = current_customer
     @photos = Photo.where(customer_id: @customer.id)
-    @photos = @customer.photos.page(params[:page]).per(12) # 1ページに12個の写真を表示
+    @photos = @customer.photos.page(params[:page]).per(4) # 1ページに12個の写真を表示
     #必要なら戻す
     #@customers = Customer.page(params[:page]).per(1)
     #@photos = Photo.all # または適切なデータベースクエリを実行してデータを取得
@@ -17,7 +17,7 @@ class Customer::CustomersController < ApplicationController
   end
 
   def index
-    @customers = Customer.all.page(params[:page]).per(1) # 1ページに6個の写真を表示
+    @customers = Customer.all.page(params[:page]).per(6) # 1ページに6人の会員を表示
     @customer = current_customer
   end
 

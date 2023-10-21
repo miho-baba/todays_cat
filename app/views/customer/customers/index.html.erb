@@ -3,7 +3,9 @@
 
   <%= render 'customer/searches/customer', customers: @customers %>
 
-    <div class="col-lg-5 mx-auto" style="width: 200px;">
-      <%= paginate @customers %>
+    <div class="col-lg-5 mx-auto" style="width: 265px;">
+      <div class="pagination">
+        <%= paginate @customers, :class => 'pagination' %>
+      </div>
     </div>
 

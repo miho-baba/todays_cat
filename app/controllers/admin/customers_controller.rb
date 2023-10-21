@@ -2,7 +2,7 @@ class Admin::CustomersController < ApplicationController
 
   def index
     #ページネーションの記述
-    @customers = Customer.page(params[:page]).per(5)# 1ページに5個の写真を表示
+    @customers = Customer.page(params[:page]).per(6)# 1ページに6人の会員を表示
   end
 
   def show
