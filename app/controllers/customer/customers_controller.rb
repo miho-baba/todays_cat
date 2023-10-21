@@ -9,7 +9,7 @@ class Customer::CustomersController < ApplicationController
     @photo = Photo.new
     @customer = current_customer
     @photos = Photo.where(customer_id: @customer.id)
-    @photos = @customer.photos.page(params[:page]).per(5) # 1ページに5個の写真を表示
+    @photos = @customer.photos.page(params[:page]).per(12) # 1ページに12個の写真を表示
     #必要なら戻す
     #@customers = Customer.page(params[:page]).per(1)
     #@photos = Photo.all # または適切なデータベースクエリを実行してデータを取得

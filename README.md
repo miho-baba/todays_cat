@@ -30,7 +30,7 @@
 
 ​
 ## 設計書
-　https://gyazo.com/9761d337d1211a261e2c0392b2f526bb
+　https://gyazo.com/b2f8016944212cd755d3f1e421869dc9
 ​
 ## 開発環境
 * OS：Linux(CentOS)

@@ -17,6 +17,10 @@ class Customer < ApplicationRecord
   has_many :followings, through: :active_relationships, source: :followed
   # フォロワーを取得
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :customer_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
+  has_many :rooms, through: :customer_rooms
+  #プロフィール画像の記述
   has_one_attached :profile_image
 
   #新規登録のバリデーション

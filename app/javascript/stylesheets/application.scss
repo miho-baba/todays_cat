@@ -1,9 +1,25 @@
 @use '~bootstrap/scss/bootstrap';
 
+//マイページの投稿画像の記述
+.image-container {
+  position: relative;
+  display: inline-block; /* 画像とアイコンを横並びにする */
+}
+
+//マイページの投稿画像の中のアイコンの場所の記述
+.like-icon {
+  position: absolute;
+  top: 10%; /* 画像の中央に配置 */
+  left: 10px;
+  right: 0px; /* 右端に配置 */
+  transform: translate(0, -50%); /* アイコンを中央に配置 */
+}
+
+
 .style {
   height: 50px;
   width: 100%;
-  background-color: #a9a9a9;//灰色
+  background-color: #a9a9a9;//ヘッダーの下あたりの（灰色）記述
   border-top: 5px solid;
 }
 
@@ -31,10 +47,10 @@ body {
 }
 
   body {
-    /* 桜色 */
+    /* 会員マイページの文字部分とボーダーラインの線 */
   margin: 0;
   padding: 0;
-  color: black;//後で修正する
+  color: #c53d43;//赤紅色
 }
 
 

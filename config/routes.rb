@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
     get "/search", to: "searches#search"
+    resources :chats, only: [:show, :create, :destroy]
   end
 
   namespace :user do
