@@ -9,7 +9,7 @@ class Customer::CustomersController < ApplicationController
     @photo = Photo.new
     @customer = current_customer
     @photos = Photo.where(customer_id: @customer.id)
-    @photos = @customer.photos.page(params[:page]).per(4) # 1ページに12個の写真を表示
+    @photos = @customer.photos.page(params[:page]).per(12) # 1ページに12個の写真を表示
     #必要なら戻す
     #@customers = Customer.page(params[:page]).per(1)
     #@photos = Photo.all # または適切なデータベースクエリを実行してデータを取得
@@ -28,10 +28,12 @@ class Customer::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
       if @customer.update(customer_params)
-        flash[:notice] = "更新成功しました！"#無事投稿できたら表示する記述
-        redirect_to mypage_customer_customers_path
+        flash[:notice] = "編集の更新に成功しました！"#無事投稿できたら表示する記述
+        redirect_to mypage_customer_customers_path(@customer)
       else
-        render :edit
+        #render :edit
+        flash[:alert] = "編集の更新に失敗しました。"
+        render 'customer/customers/edit' # 編集ページにリダイレクトし、エラーメッセージを表示
       end
   end
 

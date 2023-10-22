@@ -25,16 +25,20 @@ end
     @photo = Photo.new
   end
 
-  def create
+  def create#写真投稿の動作の記述
     @photo = Photo.new(photo_params)
     @photo.customer_id = current_customer.id
     if @photo.save
-    flash[:notice] = "投稿に成功しました."#無事写真投稿できたら表示する記述
+    flash[:notice] = "写真の投稿に成功しました！"#動作ok!写真投稿できたら表示する記述
       redirect_to customer_photo_path(@photo.id)
     else
       @customer = current_customer
-      @photos = Photo.all
-      render :index
+      flash[:alert] = "写真の投稿に失敗しました。"  # 動作ok!写真投稿失敗した記述
+      @photos = @customer.photos.page(params[:page]) # 1ページに12個の写真を表示
+                          .per(12)
+      render 'customer/customers/mypage'
+
+
     end
   end
 
@@ -44,17 +48,16 @@ end
 
   def update
     @photo = Photo.find(params[:id])
-    if @photo.customer_id == current_customer.id
+    #if @photo.customer_id == current_customer.id
       if @photo.update(photo_params)
       flash[:notice] = "編集の更新に成功しました！"#写真の編集に成功したら表示する記述
       redirect_to customer_photo_path(@photo.id)
-    else
+      else
       #render :editredirect_to customer_photo_path(@photo.id)
-      render :edit
+      #render :edit
+      flash[:alert] = "編集の更新に失敗しました。"
+      render 'customer/photos/edit' # 編集ページにリダイレクトし、エラーメッセージを表
     end
-    else
-    flash[:error] = "編集権限がありません"
-    redirect_to customer_photo_path(@photo)
   end
 end
 
@@ -70,4 +73,4 @@ end
   def photo_params
     params.require(:photo).permit(:title, :image, :cat_color, :photo_introduction)
   end
-end
+

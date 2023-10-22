@@ -2,34 +2,34 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <%= render "admin/shared/error_messages", resource: resource %>
+        <%# form_withで記述したら遷移しなかっため記述を変更%>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <h2><i class="fa-solid fa-key"></i>管理者ログイン</h2>
 
-<%# form_withで記述したら遷移しなかっため記述を変更%>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <h2><i class="fa-solid fa-key"></i>管理者ログイン</h2>
+            <div class="field">
+              <i class="fa-solid fa-star-of-life"></i><%= f.label :メールアドレス %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
 
-  <div class="field">
-    <i class="fa-solid fa-star-of-life"></i><%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+            <div class="field">
+              <i class="fa-solid fa-star-of-life"></i><%= f.label :パスワード %><br />
+              <%= f.password_field :password, autocomplete: "current-password" %>
+            </div>
 
-  <div class="field">
-    <i class="fa-solid fa-star-of-life"></i><%= f.label :パスワード %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+            <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :自動登録する %>
+              </div>
+            <% end %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :自動登録する %>
-    </div>
-  <% end %>
+            <div class="actions">
+              </i><%= f.submit "ログイン", class: "btn btn-primary" %>
+            </div>
+          <% end %>
 
-  <div class="actions">
-    </i><%= f.submit "ログイン", class: "btn btn-primary" %>
-  </div>
-<% end %>
-
-<%= render "admin/shared/links" %>
+          <%= render "admin/shared/links" %>
 
     </div>
   </div>

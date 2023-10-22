@@ -1,4 +1,21 @@
 
+<!-- フラッシュメッセージの記述 -->
+      <% if flash[:notice] %><!-- フラッシュメッセージ成功の記述 -->
+      <div class="flash-message notice">
+        <p id="notice">
+          <%= notice %>
+        </p>
+      </div>
+      <% end %>
+
+    <% if flash[:alert] %><!-- フラッシュメッセージ失敗の記述 -->
+      <div class="flash-message alert">
+        <p id="aleart">
+          <%= alert %>
+        </p>
+      </div>
+    <% end %>
+
 
 <div class='col-md-8 offset-md-1'>
   <h1><%= image_tag 'blackcat.jpg', :size => "35x35" %></i>猫ちゃんの詳細<%= image_tag 'blackcat1.jpg', :size => "27x27" %></h1>

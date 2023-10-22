@@ -1,8 +1,16 @@
-
+<!-- フラッシュメッセージの記述 -->
+      <% if flash[:notice] %><!-- フラッシュメッセージ成功の記述 -->
+      <div class="flash-message notice">
+        <p id="notice">
+          <%= notice %>
+        </p>
+      </div>
+      <% end %>
 <!-- topページの画像-->
     <div class="full-page">
       <div class="top-image">
         <p class="text-center">
+
           ようこそ<i class="fa-solid fa-paw"></i>今日のお猫様へ！！<br />
           ※投稿、写真の閲覧、検索は、会員登録が必要です。<br />
         </p>

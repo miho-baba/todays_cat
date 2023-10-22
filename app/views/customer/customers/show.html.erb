@@ -1,4 +1,8 @@
 
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
 <h1><i class="fa-solid fa-fish"></i><%= @customer.last_name%>様の会員プロフィール</h1>
 
 <table class='table table-hover table-inverse'>
@@ -23,7 +27,7 @@
    <tr>
   	   <td>
         <% if current_customer != @customer && current_customer.following?(@customer) && @customer.following?(current_customer) %>
-          <%= link_to 'チャットルーム', customer_chat_path(@customer.id), class: "ml-3" %>
+          <%= link_to 'チャットルーム', customer_chat_path(@customer.id), class: "ml-3 btn btn-outline-success" %>
         <% end %>
       <td>
    </tr>
@@ -31,3 +35,7 @@
   <td><%= link_to '戻る', customer_customers_path, class: "btn btn-sm btn-warning index" %></td>
   </tr>
 </table>
+
+    </div>
+  </div>
+</div>

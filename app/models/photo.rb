@@ -7,9 +7,9 @@ class Photo < ApplicationRecord
   has_many :photo_comments, dependent: :destroy
   has_one_attached :image
   #写真のバリデーションの記述を書く
-  validates :title, presence: true
-  validates :photo_introduction, length: { maximum: 200 }, presence: true
-  validates :cat_color, presence: true
+  validates :title, presence: true, length: { in: 1..20 }# 1文字以上20文字以下
+  validates :photo_introduction, presence: true, length: { maximum: 200 }# 最大200文字(200文字以下)
+  validates :cat_color, presence: true, length: { in: 1..20 }# 1文字以上20文字以下
 
 
   #いいねしているか判定する

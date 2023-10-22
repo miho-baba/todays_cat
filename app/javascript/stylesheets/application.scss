@@ -1,5 +1,26 @@
 @use '~bootstrap/scss/bootstrap';
 
+//フラッシュメッセージの記述
+.flash-message {
+  border-radius: 5px;
+  padding: 10px 16px;
+  margin: 16px 0px;
+   width: 200px; /* 例として200pxに設定 */
+  text-align: center; /* テキストを中央揃えにする */
+}
+//フラッシュメッセージの記述
+.flash-message.notice {//成功の場合
+  background-color: #66ffff; //軽い青緑系の色
+  color: #0000ff; //あざやかな青紫系の色
+  border: solid 1px #0000ff;
+}
+//フラッシュメッセージの記述
+.flash-message.alert {//失敗の場合
+  background-color: #ff4500; //あざやかな赤系の色
+  color: #ffe5cc; //とても淡い橙系の色
+  border: solid 1px #ffe5cc;
+}
+
 //会員・管理者側のページネーションのデザイン
 .pagination {
   display: inline-block;
@@ -43,7 +64,7 @@
   border-top: 5px solid;
 }
 
-
+//会員側topページの一部のテキストの記述
 .test{
     color: red;
   }
@@ -72,7 +93,7 @@ body {
   color: #333333;//とても暗い無彩色
 }
 
-
+//黄色のヘッダーのあたりの記述
   .header {
   width: 100%;
   padding: 40px 0;
@@ -80,16 +101,28 @@ body {
   color: #6c3524;
   font-size: 50px;
 }
+/* 肉球アイコンの色を全てチェリーピンクに設定 */
+.fa-paw {
+  color: #eb6ea0;//チェリーピンク
+}
 
+//今日のお猫様の文字の記述
   .header strong {
   font-size: 50px; /* strong要素のフォントサイズ */
   display: block; /* strong要素をブロック要素として表示 */
-}
-
+  font-family: 'M PLUS Rounded 1c', sans-serif;//極太の丸ゴシック
+  font-weight: 700;/* "ab-yurumin" フォントを優先し、代替フォントを指定 */
+  font-style: normal;
+  color: #6a1917; /* チョコレート色） */
+  margin-top: 30px; /* 上方向に10pxのマージンを追加（必要に応じて調整） */
+  }
+//~猫好きさんのためのSNSサイト~文字の記述
   .header h6 {
   font-size: 20px; /* h6要素のフォントサイズ */
-  color: #6c3524; /* h6要素のテキスト色（必要に応じて設定） */
-}
+  color: #6c3524; /* チョコレート色） */
+  font-family: 'Noto Serif JP';
+  margin-top: 30px; /* 上方向に10pxのマージンを追加（必要に応じて調整） */
+  }
 
   .ul {
   background-color: #000000;
@@ -103,12 +136,34 @@ body {
   float: left; /* 画像を左に浮動配置 */
   margin-right: 80px; /* 他の要素との間隔を設定（必要に応じて調整） */
 }
+
+  //目次のリンクボタンの文字の記述//ヘッダー
   .nav-list-item {
   list-style: none;
   /* 横に並べる */
   display: inline-block;
   margin: 0 20px;
-}
+  font-family: 'Noto Serif JP';
+  }
+
+  //目次のリンクボタンの文字の記述//ヘッダー
+  .green-text {
+    color: #dbebc4;//アスパラガスグリーン
+  }
+
+  //目次のリンクボタンの文字の記述//フッター
+  .nav-list-items {
+  list-style: none;
+  /* 横に並べる */
+  display: inline-block;
+  margin: 0 20px;
+  font-family: 'Noto Serif JP';
+  }
+
+  //目次のリンクボタンの文字の記述//フッター
+  .green1-text {
+    color: #dbebc4;//アスパラガスグリーン
+  }
 
   //画像に文字を入れた記述
 .full-page {

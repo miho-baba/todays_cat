@@ -30,8 +30,9 @@ class Customer < ApplicationRecord
   validates :first_name_kana, presence: true
   validates :phone_number, presence: true
   validates :email, presence: true
+
   #会員紹介文のバリデーション
-  validates :introduction,length: { maximum: 50 }
+  validates :introduction,length: { maximum: 50 }# 最大50文字(50文字以下)
 
    #画像設定の記述
   def get_profile_image(width, height)

@@ -1,14 +1,21 @@
+
 <div class='container'>
-<h1><i class="fa-solid fa-circle"></i>このページは、管理者側の画面です<i class="fa-solid fa-magnifying-glass"></i></h1><br>
-<%= image_tag 'top1.jpg', :size => "900x700" %>
+<h1 style="margin-left: 180px;"><i class="fa-solid fa-circle"></i>このページは、管理者側の画面です<i class="fa-solid fa-magnifying-glass"></i></h1><br>
+<!-- フラッシュメッセージの記述 -->
+      <% if flash[:notice] %><!-- フラッシュメッセージ成功の記述 -->
+      <div class="flash-message notice">
+        <p id="notice">
+          <%= notice %>
+        </p>
+      </div>
+      <% end %>
+
+<%= image_tag 'top1.jpg', style: "width: 700px; margin-left: 180px;" %>
 
 <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 
-
-
-
-  <ul>
+  <ul style="text-align: center;">
     <%= link_to "ログインする", new_admin_session_path, class: "btn btn-warning" %><i class="fa-solid fa-left-long"></i>
   </ul>
 

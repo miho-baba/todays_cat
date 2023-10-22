@@ -10,6 +10,7 @@
     <meta name="viewport" content= "width=device-width, initial-scale=1, maximum-scale=1">
     <!-- 自身のKItCodeの記述-->
     <script src="https://kit.fontawesome.com/e0c0e0275e.js" crossorigin="anonymous"></script>
+    <%#= 今回は、javascriptのscssファイルに書いていくのでコメントアウトにする %>
     <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -23,6 +24,7 @@
             <a class="navbar-brand" href="/" >
               <%= image_tag 'kyounekosama.jpg', :size => "200x200" %>
             </a>
+            <!--今日のお猫様に使用する文字フォントの記述-->
             <h6><strong><i class="fa-solid fa-paw"></i>今日のお猫様<i class="fa-solid fa-paw"></i></strong></br>
               ~猫好きさんのためのSNSサイト<%= image_tag 'title.jpg', :size => "30x30" %>~</h6>
           </div>
@@ -38,25 +40,25 @@
           <% if customer_signed_in? %>
           <ul class="bg">
           <li class="nav-list-item">
-            <%= link_to user_root_path, class: 'nav-link text-light' do %>
+            <%= link_to user_root_path, class: 'green-text' do %>
               TOPページ<i class="fa-solid fa-paw"></i>
           <% end %>
           </li>
 
           <li class="nav-list-item">
-            <%= link_to "マイページ", mypage_customer_customers_path, class: 'nav-link text-light' %>
+            <%= link_to "マイページ", mypage_customer_customers_path, class: 'green-text' %>
           </li>
 
           <li class="nav-list-item">
-            <%= link_to "猫写真", customer_photos_path, class: 'nav-link text-light' %>
+            <%= link_to "猫写真", customer_photos_path, class: 'green-text' %>
           </li>
 
           <li class="nav-list-item">
-            <%= link_to "今日猫会員", customer_customers_path, class: 'nav-link text-light' %>
+            <%= link_to "今日猫会員", customer_customers_path, class: 'green-text' %>
           </li>
 
           <li class="nav-list-item">
-            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
+            <%= link_to destroy_customer_session_path, method: :delete, class: 'green-text' do %>
               <i class="fa-solid fa-right-from-bracket"></i>ログアウト
             <% end %>
           </li>
@@ -72,21 +74,21 @@
     <% elsif admin_signed_in? %>
       <ul>
         <li class="nav-list-item">
-          <%= link_to admin_path, class: 'nav-link text-light' do %>
+          <%= link_to admin_path, class: 'green-text' do %>
             管理者TOP<i class="fa-solid fa-gear"></i>
           <% end %>
         </li>
 
         <li class="nav-list-item">
-          <%= link_to "管理者マイページ", admin_mypage_path, class: 'nav-link text-light' %>
+          <%= link_to "管理者マイページ", admin_mypage_path, class: 'green-text' %>
         </li>
 
         <li class="nav-list-item">
-          <%= link_to "登録済み会員情報一覧", admin_customers_path, class: 'nav-link text-light' %>
+          <%= link_to "登録済み会員情報一覧", admin_customers_path, class: 'green-text' %>
         </li>
 
         <li class="nav-list-item">
-          <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+          <%= link_to destroy_admin_session_path, method: :delete, class: 'green-text' do %>
             <i class="fa-solid fa-right-from-bracket"></i>ログアウト
           <% end %>
         </li>
@@ -103,17 +105,17 @@
             <% if request.path.starts_with?('/admin') %>
             <ul>
               <li class="nav-list-item">
-                <%= link_to admin_path, class: 'nav-link text-light' do %>
+                <%= link_to admin_path, class: 'green-text' do %>
                   管理者TOPページ<i class="fa-solid fa-gear"></i>
                 <% end %>
               </li>
 
               <li class="nav-list-item">
-                <%= link_to "ログイン", new_admin_session_path, class: 'nav-link text-light' %>
+                <%= link_to "ログイン", new_admin_session_path, class: 'green-text' %>
               </li>
 
               <li class="nav-list-item">
-                <%= link_to "新規登録", new_admin_registration_path, class: 'nav-link text-light' %>
+                <%= link_to "新規登録", new_admin_registration_path, class: 'green-text' %>
               </li>
 
             </ul>
@@ -121,16 +123,16 @@
             <% else %>
             <ul>
               <li class="nav-list-item">
-                <%= link_to user_root_path, class: 'nav-link text-light' do %>
+                <%= link_to user_root_path, class: 'green-text' do %>
                   TOPページ<i class="fa-solid fa-paw"></i>
                 <% end %>
               </li>
 
               <li class="nav-list-item">
-                <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-light' %>
+                <%= link_to "ログイン", new_customer_session_path, class: 'green-text' %>
               </li>
               <li class="nav-list-item">
-                <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-light' %>
+                <%= link_to "新規登録", new_customer_registration_path, class: 'green-text' %>
               </li>
 
               </div>
@@ -146,8 +148,7 @@
 
   </body>
 
-    <main class="mb-auto">
-      <p id="notice"><%= notice %></p>
+      <main class="mb-auto">
         <div class="d-flex justify-content-center mb-2">
         </div>
       </div>
@@ -171,25 +172,25 @@
           <% if customer_signed_in? %>
           <ul class="bg">
           <li class="nav-list-item">
-            <%= link_to user_root_path, class: 'nav-link text-light' do %>
+            <%= link_to user_root_path, class: 'nav-link green1-text' do %>
               TOPページ<i class="fa-solid fa-paw"></i>
           <% end %>
           </li>
 
-          <li class="nav-list-item">
-            <%= link_to "マイページ", mypage_customer_customers_path, class: 'nav-link text-light' %>
+          <li class="nav-list-items">
+            <%= link_to "マイページ", mypage_customer_customers_path, class: 'nav-link green1-text' %>
           </li>
 
-          <li class="nav-list-item">
-            <%= link_to "猫写真", customer_photos_path, class: 'nav-link text-light' %>
+          <li class="nav-list-items">
+            <%= link_to "猫写真", customer_photos_path, class: 'nav-link green1-text' %>
           </li>
 
-          <li class="nav-list-item">
-            <%= link_to "今日猫会員", customer_customers_path, class: 'nav-link text-light' %>
+          <li class="nav-list-items">
+            <%= link_to "今日猫会員", customer_customers_path, class: 'nav-link green1-text' %>
           </li>
 
-          <li class="nav-list-item">
-            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
+          <li class="nav-list-items">
+            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link green1-text' do %>
               <i class="fa-solid fa-right-from-bracket"></i>ログアウト
             <% end %>
           </li>
@@ -198,22 +199,22 @@
     <%# 会員側ログイン前の場合は、管理者側が表示する %>
     <% elsif admin_signed_in? %>
       <ul>
-        <li class="nav-list-item">
-          <%= link_to admin_path, class: 'nav-link text-light' do %>
+        <li class="nav-list-items">
+          <%= link_to admin_path, class: 'nav-link green1-text' do %>
             管理者TOP<i class="fa-solid fa-gear"></i>
           <% end %>
         </li>
 
-        <li class="nav-list-item">
-          <%= link_to "管理者マイページ", admin_mypage_path, class: 'nav-link text-light' %>
+        <li class="nav-list-items">
+          <%= link_to "管理者マイページ", admin_mypage_path, class: 'nav-link green1-text' %>
         </li>
 
-        <li class="nav-list-item">
-          <%= link_to "登録済み会員情報一覧", admin_customers_path, class: 'nav-link text-light' %>
+        <li class="nav-list-items">
+          <%= link_to "登録済み会員情報一覧", admin_customers_path, class: 'nav-link green1-text' %>
         </li>
 
-        <li class="nav-list-item">
-          <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+        <li class="nav-list-items">
+          <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link green1-text' do %>
             <i class="fa-solid fa-right-from-bracket"></i>ログアウト
           <% end %>
         </li>
@@ -223,34 +224,34 @@
           <% else %>
             <% if request.path.starts_with?('/admin') %>
             <ul>
-              <li class="nav-list-item">
-                <%= link_to admin_path, class: 'nav-link text-light' do %>
+              <li class="nav-list-items">
+                <%= link_to admin_path, class: 'nav-link green1-text' do %>
                   管理者TOPページ<i class="fa-solid fa-gear"></i>
                 <% end %>
               </li>
 
-              <li class="nav-list-item">
-                <%= link_to "ログイン", new_admin_session_path, class: 'nav-link text-light' %>
+              <li class="nav-list-items">
+                <%= link_to "ログイン", new_admin_session_path, class: 'nav-link green1-text' %>
               </li>
 
-              <li class="nav-list-item">
-                <%= link_to "新規登録", new_admin_registration_path, class: 'nav-link text-light' %>
+              <li class="nav-list-items">
+                <%= link_to "新規登録", new_admin_registration_path, class: 'nav-link green1-text' %>
               </li>
             </ul>
 
             <% else %>
           <ul>
-              <li class="nav-list-item">
-                <%= link_to user_root_path, class: 'nav-link text-light' do %>
+              <li class="nav-list-items">
+                <%= link_to user_root_path, class: 'nav-link green1-text' do %>
                   TOPページ<i class="fa-solid fa-paw"></i>
                 <% end %>
               </li>
 
-              <li class="nav-list-item">
-                <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-light' %>
+              <li class="nav-list-items">
+                <%= link_to "ログイン", new_customer_session_path, class: 'nav-link green1-text' %>
               </li>
-              <li class="nav-list-item">
-                <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-light' %>
+              <li class="nav-list-items">
+                <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link green1-text' %>
               </li>
           </ul>
             <% end %>
