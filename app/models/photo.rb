@@ -9,6 +9,8 @@ class Photo < ApplicationRecord
   #写真のバリデーションの記述を書く
   validates :title, presence: true
   validates :photo_introduction, length: { maximum: 200 }, presence: true
+  validates :cat_color, presence: true
+
 
   #いいねしているか判定する
   def favorited_by?(customer)

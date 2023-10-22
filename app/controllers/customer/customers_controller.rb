@@ -28,7 +28,7 @@ class Customer::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
       if @customer.update(customer_params)
-        flash[:notice] = "更新成功しました！"
+        flash[:notice] = "更新成功しました！"#無事投稿できたら表示する記述
         redirect_to mypage_customer_customers_path
       else
         render :edit

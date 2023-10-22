@@ -29,7 +29,7 @@ end
     @photo = Photo.new(photo_params)
     @photo.customer_id = current_customer.id
     if @photo.save
-    flash[:notice] = "投稿に成功しました."
+    flash[:notice] = "投稿に成功しました."#無事写真投稿できたら表示する記述
       redirect_to customer_photo_path(@photo.id)
     else
       @customer = current_customer
@@ -38,16 +38,26 @@ end
     end
   end
 
+  def edit
+  @photo = Photo.find(params[:id])
+  end
+
   def update
     @photo = Photo.find(params[:id])
-    @photo.customer_id = current_customer.id
-    if @photo.update(photo_params)
-      flash[:notice] = "更新が成功しました！"
+    if @photo.customer_id == current_customer.id
+      if @photo.update(photo_params)
+      flash[:notice] = "編集の更新に成功しました！"#写真の編集に成功したら表示する記述
       redirect_to customer_photo_path(@photo.id)
     else
+      #render :editredirect_to customer_photo_path(@photo.id)
       render :edit
     end
+    else
+    flash[:error] = "編集権限がありません"
+    redirect_to customer_photo_path(@photo)
   end
+end
+
 
   def destroy
     @photo = Photo.find(params[:id])

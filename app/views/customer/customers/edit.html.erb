@@ -7,7 +7,7 @@
     <%= form_with model: @customer, url:customer_customer_path(@customer) do |f| %>
        <div id="error_explanation">
     <% if @customer.errors.any? %>
-    <%= @customer.errors.count %>error prohibited this obj from being saved:
+    <%= @customer.errors.count %>つのエラーにより編集の保存に失敗しました！
     <ul>
       <% @customer.errors.full_messages.each do |message| %>
       <li><%= message %></li>

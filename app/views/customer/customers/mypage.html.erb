@@ -51,15 +51,11 @@
     </tr>
   </table>
 
-  <div class='row'>
-      <% if current_customer != @customer %>
-        <td><%= render "relationships/btn", customer: customer, options: { class: ""} %></td>
-      <% else %>
+    <div class='row'>
         <%= link_to edit_customer_customer_path(@customer), class: "btn btn-outline-secondary btn-block" do %>
-        <i class="fa-solid fa-gear"></i>
-      <% end %>
-    <% end %>
-  </div>
+          <i class="fa-solid fa-gear"></i>設定
+        <% end %>
+    </div>
 
 
   <%= form_with model: @photo, url: customer_photos_path do |f| %>

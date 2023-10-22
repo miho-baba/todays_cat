@@ -12,6 +12,7 @@ class Admin::CustomersController < ApplicationController
   def update
     customer = Customer.find(params[:id])
     customer.update(customer_params)
+    flash[:notice] = "編集の更新に成功しました！"#無事編集できたら表示する記述
     redirect_to admin_customer_path(customer.id)
   end
 

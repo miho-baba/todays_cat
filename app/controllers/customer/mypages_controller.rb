@@ -9,7 +9,7 @@ class Customer::MypagesController < ApplicationController
   def edit
     @customer = Customer.find(params[:id])
       if @customer.id == current_customer.id
-        flash[:notice] = "更新成功しました！"
+        flash[:notice] = "編集の更新に成功しました！"#無事編集できたら表示する記述
         render :edit
       else
         redirect_to customer_mypage_path(current_customer)

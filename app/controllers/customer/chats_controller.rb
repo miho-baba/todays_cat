@@ -36,7 +36,7 @@ class Customer::ChatsController < ApplicationController
   # チャットメッセージの送信
   def create
     # フォームから送信されたメッセージを取得し、現在のユーザーに関連付けて保存
-    @chat = current_.chats.new(chat_params)
+    @chat = current_customer.chats.new(chat_params)
 
     # バリデーションに合格しない場合はエラーを表示
     render :validate unless @chat.save
@@ -69,10 +69,3 @@ class Customer::ChatsController < ApplicationController
 end
 
 
-
-
-
-
-
-
-end
