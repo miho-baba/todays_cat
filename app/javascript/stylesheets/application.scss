@@ -55,9 +55,20 @@
   right: 0px; /* 右端に配置 */
   transform: translate(0, -50%); /* アイコンを中央に配置 */
 }
-//虫メガネの記述
+
+//ログアウトアイコンの記述
+.fa-right-from-bracket {
+  color: #b22222;//あざやかな赤系の色
+}
+
+//虫メガネアイコンの記述
 .fa-magnifying-glass {
-  color: #00ffff;
+  color: #00ffff;//水色
+}
+
+/* ハートアイコンの色を全てサーモンピンクに設定 */
+.fa-heart {
+  color: #f3a68c;//サーモンピンク
 }
 
 .style {
@@ -99,9 +110,8 @@ body {
 .fa-fish {
   color: #0073a8;
 }
-
+ /* 会員マイページの文字部分とボーダーラインの線 */
   body {
-    /* 会員マイページの文字部分とボーダーラインの線 */
   margin: 0;
   padding: 0;
   color: #333333;//とても暗い無彩色
@@ -134,7 +144,7 @@ body {
   margin-top: 50px; /* 上方向に10pxのマージンを追加（必要に応じて調整） */
   }
 /* 肉球アイコンの色を全てチェリーピンクに設定 */
-fa-paw {
+.fa-paw {
   color: #eb6ea0;//チェリーピンクに変化
 }
 
@@ -218,21 +228,276 @@ color: #ff0000;//赤色
 font-family: 'Noto Serif JP';
 }
 
-/* 羽の色を全て銀鼠に設定 */
+/* 羽の色を全て淡い青紫に設定 */
 .fa-feather {
   color: #a3d1ff;//淡い青紫系の色
 }
+/* 六角星の色を全て黄金に設定 */
 .fa-star-of-david {
-  color: #d7c447;//有楽町線ゴールドの色
+  color: #d7c447;//黄金の色
 }
 
 //フッターの記述
-footer {
+.footer {
   width: 100%;
   text-align: center;
-  background-color: #ffc107;
+  font-family: 'Noto Serif JP';
+}
+//フッターのアルファベットのテキストの記述
+.footer-text {
+  color: #6c3524; /* チョコレート色） */
 }
 
+//レスポンシブ対応記述を追加する
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
 
+//フラッシュメッセージデザインの記述
+.flash-message {
+  border-radius: 5px;
+  padding: 10px 16px;
+  margin: 16px 0px auto;
+   width: 200%; /* 例として200pxに設定 */
+  text-align: center; /* テキストを中央揃えにする */
+}
+//フラッシュメッセージの記述
+.flash-message.notice {//成功の場合
+  background-color: #66ffff; //軽い青緑系の色
+  color: #0000ff; //あざやかな青紫系の色
+  border: solid 1px #0000ff;
+}
+//フラッシュメッセージの記述
+.flash-message.alert {//失敗の場合
+  background-color: #ff4500; //あざやかな赤系の色
+  color: #ffe5cc; //とても淡い橙系の色
+  border: solid 1px #ffe5cc;
+}
 
-//後ほどレスポンシブ対応記述を追加する
+//会員・管理者側のページネーションのデザイン
+.pagination {
+  display: inline-block;
+}
+//会員・管理者側のページネーションのデザイン
+.pagination a {
+  color: #7f7fff;//軽い青紫系の色
+  padding: 1px 16px;
+  text-decoration: none;
+  border: 1px solid #7f7fff; /* 軽い青紫系の色リンクにボーダーを追加 */
+  margin: 2px auto; /* リンク間のマージンを追加 */
+  border-radius: 3px; /* リンクを角丸にする */
+  background-color: #e5ccff; /* とても淡い紫系の色リンクの背景色 */
+}
+//会員・管理者側のページネーションのデザイン
+.pagination a:hover {
+  background-color: #ffc1ff; /* 淡い紫系の色ホバー時の背景色 */
+  margin-top: -20px auto; /* 上に20ピクセル移動 */
+}
+
+//マイページの投稿画像の記述
+.image-container {
+  position: relative;
+  display: inline-block; /* 画像とアイコンを横並びにする */
+}
+
+//マイページの投稿画像の中のアイコンの場所の記述
+.like-icon {
+  position: absolute;
+  top: 10%; /* 画像の中央に配置 */
+  left: 10px;
+  right: 0px; /* 右端に配置 */
+  transform: translate(0, -50%); /* アイコンを中央に配置 */
+}
+
+//ログアウトアイコンの記述
+.fa-right-from-bracket {
+  color: #b22222;//あざやかな赤系の色
+}
+
+//虫メガネアイコンの記述
+.fa-magnifying-glass {
+  color: #00ffff;//水色
+}
+
+/* ハートアイコンの色を全てサーモンピンクに設定 */
+.fa-heart {
+  color: #f3a68c;//サーモンピンク
+}
+
+.style {
+  height: 50px;
+  width: 100%;
+  background-color: #a9a9a9;//ヘッダーの下あたりの（灰色）記述
+  border-top: 5px solid;
+}
+
+//会員側topページの一部のテキストの記述
+.test{
+    color: red;
+  }
+//カラフルな肉球スタンプの背景の記述
+body {
+  width: 100%; /* 横幅いっぱい */
+  height: 200px; /* 高さ200px */
+  background-image: url("../images/back_image.jpg");
+  background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
+  background-position: center; /* 背景画像を中央に配置 */
+}
+
+  * {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+  //黒の目次バーの長さを変える記述
+  a {
+  text-decoration: none;
+  margin-right: 15px auto;
+}
+
+  /* ギア１つアイコンの色を全て銀鼠に設定 */
+.fa-gear {
+  color: #a0a0a0;//銀鼠
+}
+//魚のアイコン
+.fa-fish {
+  color: #0073a8;
+}
+ /* 会員マイページの文字部分とボーダーラインの線 */
+  body {
+  margin: 0 auto;
+  padding: 0;
+  color: #333333;//とても暗い無彩色
+}
+
+//黄色のヘッダーのあたりの記述
+  .header {
+  width: 100%;
+  padding: 40px 0;
+  text-align: center;
+  color: #6c3524;
+  font-size: 50px;
+}
+
+//今日のお猫様の文字の記述
+  .header strong {
+  font-size: 60px; /* strong要素のフォントサイズ */
+  display: block; /* strong要素をブロック要素として表示 */
+  font-family: 'M PLUS Rounded 1c', sans-serif;//極太の丸ゴシック
+  font-weight: 700;/* "ab-yurumin" フォントを優先し、代替フォントを指定 */
+  font-style: normal;
+  color: #6a1917; /* チョコレート色） */
+  margin-top: 30px auto; /* 上方向に10pxのマージンを追加（必要に応じて調整） */
+  }
+//~猫好きさんのためのSNSサイト~文字の記述
+.header h6 {
+  font-size: 20px; /* h6要素のフォントサイズ */
+  color: #6c3524; /* チョコレート色） */
+  font-family: 'Noto Serif JP';
+  margin-top: 50px; /* 上方向に10pxのマージンを追加（必要に応じて調整） */
+  }
+/* 肉球アイコンの色を全てチェリーピンクに設定 */
+.fa-paw {
+  color: #eb6ea0;//チェリーピンクに変化
+}
+
+  .ul {//まだ何も定義していない
+  background-color: #000000;
+}
+
+  .img_tag {//まだ何も定義していない
+  width: 100%;
+  }
+//上の写真やらタイトルやら場所を整える記述
+ .navbar-brand {
+  float: left; /* 画像を左に浮動配置 */
+  /* 他の要素との間隔を設定（必要に応じて調整） */
+}
+
+  //目次のリンクボタンの文字の記述//ヘッダー
+  .nav-list-item {
+  list-style: none;
+  /* 横に並べる */
+  display: inline-block;
+  margin: 0 20px auto;
+  font-family: 'Noto Serif JP';
+  }
+
+  //目次のリンクボタンの文字の記述//ヘッダー
+  .green-text {
+    color: #dbebc4;//アスパラガスグリーン
+  }
+
+  //目次のリンクボタンの文字の記述//フッター
+  .nav-list-items {
+  list-style: none;
+  /* 横に並べる */
+  display: inline-block;
+  margin: 0 20px auto;
+  font-family: 'Noto Serif JP';
+  }
+
+  //目次のリンクボタンの文字の記述//フッター
+  .green1-text {
+    color: #dbebc4;//アスパラガスグリーン
+    font-family: 'Noto Serif JP';
+  }
+
+  //topページの猫３匹の画像に文字を入れた記述①
+.full-page {
+  .top-image {
+    p {
+      padding-top: 500px;
+      //深い青紫系の色
+      color: #6495ed;
+      font-size: 30px;
+      font-weight: bold;
+    }
+    height: 900px;
+    //background-image: image-url("top2.jpg");
+    background-image: url("../images/top2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+  //topページの猫３匹の画像に文字を入れた記述②
+  .main {
+  width: 100%; /* 横幅いっぱい */
+  height: 200px; /* 高さ200px */
+  //background-image: image-url("top2.jpg");
+  background-image: url("../images/top2.jpg");
+  background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
+  background-position: center; /* 背景画像を中央に配置 */
+  }
+//太陽アイコンに色をつける記述
+.fa-sun {//オレンジ
+  color : #ee7800;
+}
+
+//会員側のtopページテキストの記述
+.title {
+color: #ff0000;//赤色
+font-family: 'Noto Serif JP';
+}
+
+/* 羽の色を全て淡い青紫に設定 */
+.fa-feather {
+  color: #a3d1ff;//淡い青紫系の色
+}
+/* 六角星の色を全て黄金に設定 */
+.fa-star-of-david {
+  color: #d7c447;//黄金の色
+}
+
+//フッターの記述
+.footer {
+  width: 100%;
+  text-align: center;
+  font-family: 'Noto Serif JP';
+}
+//フッターのアルファベットのテキストの記述
+.footer-text {
+  color: #6c3524; /* チョコレート色） */
+}
+
+}

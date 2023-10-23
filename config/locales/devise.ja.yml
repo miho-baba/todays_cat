@@ -1,0 +1,17 @@
+
+ja:
+  devise:
+    sessions:
+      customer:
+        signed_out: 'ログアウトしました！'
+        signed_in: 'ログインしました！'
+      admin:
+        signed_out: 'ログアウトしました！'
+        signed_in: 'ログインしました！'
+    registrations:
+      customer:
+        signed_up: '新規登録に成功しました！'
+      admin:
+        signed_up: '新規登録に成功しました！'
+
+    # 他のDeviseのメッセージを必要に応じて追加

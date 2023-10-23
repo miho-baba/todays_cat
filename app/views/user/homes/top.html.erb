@@ -1,11 +1,7 @@
-<!-- フラッシュメッセージの記述 -->
-      <% if flash[:notice] %><!-- フラッシュメッセージ成功の記述 -->
-      <div class="flash-message notice">
-        <p id="notice">
-          <%= notice %>
-        </p>
-      </div>
-      <% end %>
+
+<%#会員側と管理者側で使用するフラッシュメッセージの記述%>
+ <%= render "layouts/flash" %>
+
 <!-- topページの画像-->
     <div class="full-page">
       <div class="top-image">

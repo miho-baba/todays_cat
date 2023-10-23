@@ -1,20 +1,6 @@
-<!-- フラッシュメッセージの記述 -->
-      <% if flash[:notice] %><!-- フラッシュメッセージ成功の記述 -->
-      <div class="flash-message notice">
-        <p id="notice">
-          <%= notice %>
-        </p>
-      </div>
-      <% end %>
 
-    <% if flash[:alert] %><!-- フラッシュメッセージ失敗の記述 -->
-      <div class="flash-message alert">
-        <p id="aleart">
-          <%= alert %>
-        </p>
-      </div>
-    <% end %>
-
+<%#会員側と管理者側で使用するフラッシュメッセージの記述%>
+ <%= render "layouts/flash" %>
 
 <div class='container px-5 px-sm-0'>
   <div class='row'>
@@ -138,11 +124,11 @@
         <% @photos.each do |photo| %>
           <%= link_to customer_photo_path(photo) do %>
             <div class="image-container move-left">
-            <%= image_tag photo.image, size: '220x200' %>
+              <%= image_tag photo.image, size: '220x200' %>
+            </div>
             <div class="like-icon">
-          <%= render "customer/favorites/btn", photo: photo, index: true %>
-          </div>
-        </div>
+              <%= render "customer/favorites/btn", photo: photo, index: true %>
+            </div>
           <% end %>
         <% end %>
 

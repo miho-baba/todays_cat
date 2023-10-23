@@ -57,9 +57,9 @@ end
       #render :edit
       flash[:alert] = "編集の更新に失敗しました。"
       render 'customer/photos/edit' # 編集ページにリダイレクトし、エラーメッセージを表
-    end
+      end
   end
-end
+
 
 
   def destroy
@@ -73,4 +73,4 @@ end
   def photo_params
     params.require(:photo).permit(:title, :image, :cat_color, :photo_introduction)
   end
-
+end

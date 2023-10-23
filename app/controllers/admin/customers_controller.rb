@@ -9,7 +9,7 @@ class Admin::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
 
-   def update
+  def update
   @customer = Customer.find(params[:id])
   if @customer.update(customer_params)
     flash[:notice] = "編集の更新に成功しました！"
@@ -18,12 +18,11 @@ class Admin::CustomersController < ApplicationController
     flash[:alert] = "編集の更新に失敗しました。"
     render 'admin/customers/show' # 編集ページにリダイレクトし、エラーメッセージを表示
   end
-end
+  end
         #customer = current_customer
           #flash[:alert] = "編集の更新に失敗しました。"  # 動作ok!写真投稿失敗した記述
           #render :editredirect_to customer_photo_path(@photo.id)
           #render 'admin/customers/show'
-
 
   private
 
