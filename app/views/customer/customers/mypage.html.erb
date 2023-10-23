@@ -137,7 +137,7 @@
 
         <% @photos.each do |photo| %>
           <%= link_to customer_photo_path(photo) do %>
-            <div class="image-container">
+            <div class="image-container move-left">
             <%= image_tag photo.image, size: '220x200' %>
             <div class="like-icon">
           <%= render "customer/favorites/btn", photo: photo, index: true %>

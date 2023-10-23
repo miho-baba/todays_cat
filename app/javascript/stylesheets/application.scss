@@ -1,6 +1,6 @@
 @use '~bootstrap/scss/bootstrap';
 
-//フラッシュメッセージの記述
+//フラッシュメッセージデザインの記述
 .flash-message {
   border-radius: 5px;
   padding: 10px 16px;
@@ -55,7 +55,10 @@
   right: 0px; /* 右端に配置 */
   transform: translate(0, -50%); /* アイコンを中央に配置 */
 }
-
+//虫メガネの記述
+.fa-magnifying-glass {
+  color: #00ffff;
+}
 
 .style {
   height: 50px;
@@ -68,7 +71,7 @@
 .test{
     color: red;
   }
-
+//カラフルな肉球スタンプの背景の記述
 body {
   width: 100%; /* 横幅いっぱい */
   height: 200px; /* 高さ200px */
@@ -82,8 +85,19 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+  //黒の目次バーの長さを変える記述
   a {
   text-decoration: none;
+  margin-right: 15px;
+}
+
+  /* ギア１つアイコンの色を全て銀鼠に設定 */
+.fa-gear {
+  color: #a0a0a0;//銀鼠
+}
+//魚のアイコン
+.fa-fish {
+  color: #0073a8;
 }
 
   body {
@@ -101,14 +115,10 @@ body {
   color: #6c3524;
   font-size: 50px;
 }
-/* 肉球アイコンの色を全てチェリーピンクに設定 */
-.fa-paw {
-  color: #eb6ea0;//チェリーピンク
-}
 
 //今日のお猫様の文字の記述
   .header strong {
-  font-size: 50px; /* strong要素のフォントサイズ */
+  font-size: 60px; /* strong要素のフォントサイズ */
   display: block; /* strong要素をブロック要素として表示 */
   font-family: 'M PLUS Rounded 1c', sans-serif;//極太の丸ゴシック
   font-weight: 700;/* "ab-yurumin" フォントを優先し、代替フォントを指定 */
@@ -117,24 +127,28 @@ body {
   margin-top: 30px; /* 上方向に10pxのマージンを追加（必要に応じて調整） */
   }
 //~猫好きさんのためのSNSサイト~文字の記述
-  .header h6 {
+.header h6 {
   font-size: 20px; /* h6要素のフォントサイズ */
   color: #6c3524; /* チョコレート色） */
   font-family: 'Noto Serif JP';
-  margin-top: 30px; /* 上方向に10pxのマージンを追加（必要に応じて調整） */
+  margin-top: 50px; /* 上方向に10pxのマージンを追加（必要に応じて調整） */
   }
+/* 肉球アイコンの色を全てチェリーピンクに設定 */
+fa-paw {
+  color: #eb6ea0;//チェリーピンクに変化
+}
 
-  .ul {
+  .ul {//まだ何も定義していない
   background-color: #000000;
 }
 
-  .img_tag {
+  .img_tag {//まだ何も定義していない
   width: 100%;
   }
-
+//上の写真やらタイトルやら場所を整える記述
  .navbar-brand {
   float: left; /* 画像を左に浮動配置 */
-  margin-right: 80px; /* 他の要素との間隔を設定（必要に応じて調整） */
+  /* 他の要素との間隔を設定（必要に応じて調整） */
 }
 
   //目次のリンクボタンの文字の記述//ヘッダー
@@ -163,9 +177,10 @@ body {
   //目次のリンクボタンの文字の記述//フッター
   .green1-text {
     color: #dbebc4;//アスパラガスグリーン
+    font-family: 'Noto Serif JP';
   }
 
-  //画像に文字を入れた記述
+  //topページの猫３匹の画像に文字を入れた記述①
 .full-page {
   .top-image {
     p {
@@ -183,7 +198,7 @@ body {
     background-position: center;
   }
 }
-
+  //topページの猫３匹の画像に文字を入れた記述②
   .main {
   width: 100%; /* 横幅いっぱい */
   height: 200px; /* 高さ200px */
@@ -191,12 +206,33 @@ body {
   background-image: url("../images/top2.jpg");
   background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
   background-position: center; /* 背景画像を中央に配置 */
+  }
+//太陽アイコンに色をつける記述
+.fa-sun {//オレンジ
+  color : #ee7800;
 }
 
+//会員側のtopページテキストの記述
+.title {
+color: #ff0000;//赤色
+font-family: 'Noto Serif JP';
+}
+
+/* 羽の色を全て銀鼠に設定 */
+.fa-feather {
+  color: #a3d1ff;//淡い青紫系の色
+}
+.fa-star-of-david {
+  color: #d7c447;//有楽町線ゴールドの色
+}
+
+//フッターの記述
 footer {
   width: 100%;
   text-align: center;
   background-color: #ffc107;
 }
+
+
 
 //後ほどレスポンシブ対応記述を追加する
