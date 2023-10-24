@@ -17,5 +17,5 @@ ja:
       customer:
         not_found_in_database: 'ログインに失敗しました!'
         inactive: 'このアカウントは、登録されていません！'
-
+        invalid: 'メールアドレスまたはパスワードが無効です。'
     # 他のDeviseのメッセージを必要に応じて追加

@@ -64,7 +64,7 @@
           </li>
 
           <li class="nav-list-item">
-            <%= link_to destroy_customer_session_path, method: :delete, class: 'green-text' do %>
+            <%= link_to customer_customer_check_path(current_customer), class: 'green-text' do %>
             退会手続き<i class="fa-solid fa-user-slash"></i>
           <% end %>
           </li>
