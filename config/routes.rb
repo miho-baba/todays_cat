@@ -26,6 +26,10 @@ Rails.application.routes.draw do
       resource :relationships, only: [:create, :destroy]
       	get "followings" => "relationships#followings", as: "followings"
       	get "followers" => "relationships#followers", as: "followers"
+        # 退会確認画面
+        get  "/check" => "customers#check"
+        # 論理削除用のルーティング
+        patch  '/withdraw' => 'customers#withdraw'
       collection do
         get :mypage
       end

@@ -5,7 +5,7 @@
   border-radius: 5px;
   padding: 10px 16px;
   margin: 16px 0px;
-   width: 200px; /* 例として200pxに設定 */
+  width: 200px; /* 例として200pxに設定 */
   text-align: center; /* テキストを中央揃えにする */
 }
 //フラッシュメッセージの記述
@@ -13,12 +13,14 @@
   background-color: #66ffff; //軽い青緑系の色
   color: #0000ff; //あざやかな青紫系の色
   border: solid 1px #0000ff;
+  font-family: 'Noto Serif JP';
 }
 //フラッシュメッセージの記述
 .flash-message.alert {//失敗の場合
   background-color: #ff4500; //あざやかな赤系の色
   color: #ffe5cc; //とても淡い橙系の色
   border: solid 1px #ffe5cc;
+  font-family: 'Noto Serif JP';
 }
 
 //会員・管理者側のページネーションのデザイン
@@ -40,25 +42,35 @@
   background-color: #ffc1ff; /* 淡い紫系の色ホバー時の背景色 */
   margin-top: -20px; /* 上に20ピクセル移動 */
 }
-
-//マイページの投稿画像の記述
+  //マイページの投稿画像と肉球アイコンの場所の記述
 .image-container {
   position: relative;
-  display: inline-block; /* 画像とアイコンを横並びにする */
-}
+  display: inline-block;/* 画像とアイコンを横並びにする */
+  width: 230px; /* お好みのサイズに調整してください */
+  text-align: center; /* 画像とアイコンを中央揃えにします */
 
-//マイページの投稿画像の中のアイコンの場所の記述
+}//マイページの投稿画像の中の肉球アイコンの場所の記述
 .like-icon {
   position: absolute;
-  top: 10%; /* 画像の中央に配置 */
-  left: 10px;
-  right: 0px; /* 右端に配置 */
-  transform: translate(0, -50%); /* アイコンを中央に配置 */
+  top: 15%;/* 画像の中央に配置 */
+}//マイページの投稿画像の中の肉球アイコンの場所の記述
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}//マイページの投稿画像の中の肉球アイコンの場所の記述
+.col-md-4 {
+  flex: 0 0 33.33%;
+  max-width: 33.33%;
+  padding: 10px;
 }
-
 //ログアウトアイコンの記述
 .fa-right-from-bracket {
   color: #b22222;//あざやかな赤系の色
+}
+
+//退会手続きアイコンの記述
+.fa-user-slash {
+  color: #fddea5;//蜂蜜色
 }
 
 //虫メガネアイコンの記述
@@ -80,8 +92,9 @@
 
 //会員側topページの一部のテキストの記述
 .test{
-    color: red;
-  }
+  color: red;
+  font-family: 'Noto Serif JP';
+}
 //カラフルな肉球スタンプの背景の記述
 body {
   width: 100%; /* 横幅いっぱい */
@@ -90,7 +103,7 @@ body {
   background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
   background-position: center; /* 背景画像を中央に配置 */
 }
-
+//一度リセットされる記述
   * {
   padding: 0;
   margin: 0;
@@ -108,7 +121,7 @@ body {
 }
 //魚のアイコン
 .fa-fish {
-  color: #0073a8;
+  color: #0073a8;//濃い青色
 }
  /* 会員マイページの文字部分とボーダーラインの線 */
   body {
@@ -173,6 +186,7 @@ body {
   //目次のリンクボタンの文字の記述//ヘッダー
   .green-text {
     color: #dbebc4;//アスパラガスグリーン
+    font-family: 'Noto Serif JP';
   }
 
   //目次のリンクボタンの文字の記述//フッター
@@ -199,6 +213,7 @@ body {
       color: #6495ed;
       font-size: 30px;
       font-weight: bold;
+      font-family: 'Noto Serif JP';
     }
     height: 900px;
     //background-image: image-url("top2.jpg");
@@ -222,10 +237,45 @@ body {
   color : #ee7800;
 }
 
+//葉アイコンに色をつける記述
+.fa-leaf {//あざやかな緑系の色
+  color : #008000;
+}
+
 //会員側のtopページテキストの記述
 .title {
 color: #ff0000;//赤色
 font-family: 'Noto Serif JP';
+}
+
+//丸アイコンに色をつける記述
+.fa-circle {//深い青紫系の色
+  color : #4682b4;
+}
+
+//歯車２個アイコンに色をつける記述
+.fa-gears {//明るい灰みの青紫系の色
+  color : #b0c4de;
+}
+
+//鉛筆アイコンに色をつける記述
+.fa-pen {//暗い黄緑系の色
+  color : #556b2f;
+}
+
+/* 雪のアイコンの色を全て明るい灰みの青系の色 */
+.fa-star-of-life {
+  color: #a2d7dd;//明るい灰みの青系の色に変化
+}
+
+//鍵アイコンに色をつける記述
+.fa-key {//とても暗い無彩色
+  color : #404040;
+}
+
+//ペンアイコンに色をつける記述
+.fa-pen-nib {//明るい灰みの青紫系の色
+  color : #b0c4de;
 }
 
 /* 羽の色を全て淡い青紫に設定 */
@@ -235,6 +285,11 @@ font-family: 'Noto Serif JP';
 /* 六角星の色を全て黄金に設定 */
 .fa-star-of-david {
   color: #d7c447;//黄金の色
+}
+
+/* 矢印アイコンの色を赤色に設定 */
+.fa-left-long {
+  color: #ff0000;//赤色に変化
 }
 
 //フッターの記述
@@ -265,12 +320,14 @@ font-family: 'Noto Serif JP';
   background-color: #66ffff; //軽い青緑系の色
   color: #0000ff; //あざやかな青紫系の色
   border: solid 1px #0000ff;
+  font-family: 'Noto Serif JP';
 }
 //フラッシュメッセージの記述
 .flash-message.alert {//失敗の場合
   background-color: #ff4500; //あざやかな赤系の色
   color: #ffe5cc; //とても淡い橙系の色
   border: solid 1px #ffe5cc;
+  font-family: 'Noto Serif JP';
 }
 
 //会員・管理者側のページネーションのデザイン
@@ -293,24 +350,36 @@ font-family: 'Noto Serif JP';
   margin-top: -20px auto; /* 上に20ピクセル移動 */
 }
 
-//マイページの投稿画像の記述
+  //マイページの投稿画像と肉球アイコンの場所の記述
 .image-container {
   position: relative;
-  display: inline-block; /* 画像とアイコンを横並びにする */
-}
+  display: inline-block;/* 画像とアイコンを横並びにする */
+  width: 230px; /* お好みのサイズに調整してください */
+  text-align: center; /* 画像とアイコンを中央揃えにします */
 
-//マイページの投稿画像の中のアイコンの場所の記述
+}//マイページの投稿画像の中の肉球アイコンの場所の記述
 .like-icon {
   position: absolute;
-  top: 10%; /* 画像の中央に配置 */
-  left: 10px;
-  right: 0px; /* 右端に配置 */
-  transform: translate(0, -50%); /* アイコンを中央に配置 */
+  top: 15%;/* 画像の中央に配置 */
+}//マイページの投稿画像の中の肉球アイコンの場所の記述
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}//マイページの投稿画像の中の肉球アイコンの場所の記述
+.col-md-4 {
+  flex: 0 0 33.33%;
+  max-width: 33.33%;
+  padding: 10px;
 }
 
 //ログアウトアイコンの記述
 .fa-right-from-bracket {
   color: #b22222;//あざやかな赤系の色
+}
+
+//退会手続きアイコンの記述
+.fa-user-slash {
+  color: #fddea5;//蜂蜜色
 }
 
 //虫メガネアイコンの記述
@@ -333,6 +402,7 @@ font-family: 'Noto Serif JP';
 //会員側topページの一部のテキストの記述
 .test{
     color: red;
+    font-family: 'Noto Serif JP';
   }
 //カラフルな肉球スタンプの背景の記述
 body {
@@ -367,7 +437,8 @@ body {
   margin: 0 auto;
   padding: 0;
   color: #333333;//とても暗い無彩色
-}
+  font-family: 'Noto Serif JP';
+  }
 
 //黄色のヘッダーのあたりの記述
   .header {
@@ -425,6 +496,7 @@ body {
   //目次のリンクボタンの文字の記述//ヘッダー
   .green-text {
     color: #dbebc4;//アスパラガスグリーン
+    font-family: 'Noto Serif JP';
   }
 
   //目次のリンクボタンの文字の記述//フッター
@@ -451,6 +523,7 @@ body {
       color: #6495ed;
       font-size: 30px;
       font-weight: bold;
+      font-family: 'Noto Serif JP';
     }
     height: 900px;
     //background-image: image-url("top2.jpg");
@@ -474,10 +547,45 @@ body {
   color : #ee7800;
 }
 
+//葉アイコンに色をつける記述
+.fa-leaf {//あざやかな緑系の色
+  color : #008000;
+}
+
+//鍵アイコンに色をつける記述
+.fa-key {//とても暗い無彩色
+  color : #404040;
+}
+
+//ペンアイコンに色をつける記述
+.fa-pen-nib {//明るい灰みの青紫系の色
+  color : #b0c4de;
+}
+
 //会員側のtopページテキストの記述
 .title {
 color: #ff0000;//赤色
 font-family: 'Noto Serif JP';
+}
+
+//丸アイコンに色をつける記述
+.fa-circle {//深い青紫系の色
+  color : #4682b4;
+}
+
+//歯車２個アイコンに色をつける記述
+.fa-gears {//明るい灰みの青紫系の色
+  color : #b0c4de;
+}
+
+//鉛筆アイコンに色をつける記述
+.fa-pen {//暗い黄緑系の色
+  color : #556b2f;
+}
+
+/* 雪のアイコンの色を全て明るい灰みの青系の色 */
+.fa-star-of-life {
+  color: #a2d7dd;//明るい灰みの青系の色に変化
 }
 
 /* 羽の色を全て淡い青紫に設定 */
@@ -487,6 +595,11 @@ font-family: 'Noto Serif JP';
 /* 六角星の色を全て黄金に設定 */
 .fa-star-of-david {
   color: #d7c447;//黄金の色
+}
+
+/* 矢印アイコンの色を赤色に設定 */
+.fa-left-long {
+  color: #ff0000;//赤色に変化
 }
 
 //フッターの記述

@@ -13,5 +13,9 @@ ja:
         signed_up: '新規登録に成功しました！'
       admin:
         signed_up: '新規登録に成功しました！'
+    failure:
+      customer:
+        not_found_in_database: 'ログインに失敗しました!'
+        inactive: 'このアカウントは、登録されていません！'
 
     # 他のDeviseのメッセージを必要に応じて追加

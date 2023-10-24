@@ -33,9 +33,9 @@ ja:
   activerecord:
     # モデル名
     models:
-      #user: ユーザー
-      #item: アイテム
-    # モデルごとの属性
+      customer:  # この部分はモデル名として 'customer' を指定
+      photo:
+      admin:
     attributes:
       customer:
         last_name: 名前(姓)

@@ -119,18 +119,24 @@
 </div>
 
     <div class='col-md-8 offset-md-1'>
-      <h2><i class="fa-solid fa-paw"></i><%= @customer.last_name%>様の投稿履歴一覧<i class="fa-solid fa-paw"></i></h2>
-
-        <% @photos.each do |photo| %>
-          <%= link_to customer_photo_path(photo) do %>
-            <div class="image-container move-left">
-              <%= image_tag photo.image, size: '220x200' %>
+  <h2><i class="fa-solid fa-paw"></i><%= @customer.last_name %>様の投稿履歴一覧<i class="fa-solid fa-paw"></i></h2>
+  <div class="row">
+    <% @photos.each do |photo| %>
+      <div class="col-md-4">
+        <%= link_to customer_photo_path(photo) do %>
+          <div class="image-container move-left">
+            <div class="image-wrapper">
+              <%= image_tag photo.image, size: '200x200' %>
+              <div class="like-icon">
+                <%= render "customer/favorites/btn", photo: photo, index: true %>
+              </div>
             </div>
-            <div class="like-icon">
-              <%= render "customer/favorites/btn", photo: photo, index: true %>
-            </div>
-          <% end %>
+          </div>
         <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
     <div class="col-lg-5 mx-auto" style="width: 265px;">
       <div class="pagination">
