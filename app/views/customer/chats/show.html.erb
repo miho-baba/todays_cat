@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-<h2 id="room" data-room="<%= @room.id %>" data-user="<%= current_customer.id %>"><%= image_tag '/editcat.jpg', :size => "50x50" %><%= @customer.last_name %> さんとのチャット<i class="fa-solid fa-envelope"></i></h2>
+<h2 id="room" data-room="<%= @room.id %>" data-user="<%= current_customer.id %>"><%= image_tag 'editcat.jpg', :size => "50x50" %><%= @customer.last_name %> さんとのチャット<i class="fa-solid fa-envelope"></i></h2>
 
 <div class="message" style="width: 400px;">
   <% @chats.each do |chat| %>
