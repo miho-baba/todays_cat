@@ -34,7 +34,7 @@ class Customer < ApplicationRecord
   #会員紹介文のバリデーション
   validates :introduction,length: { maximum: 50 }# 最大50文字(50文字以下)
 
-   #画像設定の記述
+  #画像設定の記述
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image1.jpg')
