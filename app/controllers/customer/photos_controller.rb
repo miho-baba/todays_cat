@@ -19,7 +19,7 @@ class Customer::PhotosController < ApplicationController
                .page(params[:page]) # 1ページに6個の写真を表示
                .per(6)
   @photo = Photo.new
-end
+  end
 
   def new
     @photo = Photo.new
@@ -37,8 +37,6 @@ end
       @photos = @customer.photos.page(params[:page]) # 1ページに12個の写真を表示
                           .per(12)
       render 'customer/customers/mypage'
-
-
     end
   end
 
@@ -59,8 +57,6 @@ end
       render 'customer/photos/edit' # 編集ページにリダイレクトし、エラーメッセージを表
       end
   end
-
-
 
   def destroy
     @photo = Photo.find(params[:id])

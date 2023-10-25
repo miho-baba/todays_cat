@@ -11,13 +11,10 @@ class Photo < ApplicationRecord
   validates :photo_introduction, presence: true, length: { maximum: 200 }# 最大200文字(200文字以下)
   validates :cat_color, presence: true, length: { in: 1..20 }# 1文字以上20文字以下
 
-
   #いいねしているか判定する
   def favorited_by?(customer)
     favorites.exists?(customer_id: customer.id)
   end
-
-
 
   #画像の記述
   def get_image(width, height)

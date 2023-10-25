@@ -19,4 +19,7 @@ ja:
         inactive: 'このアカウントは、登録されていません！'
         invalid: 'メールアドレスまたはパスワードが無効です。'
         already_authenticated: "すでに認証されています"
+      admin:
+        already_authenticated: "すでに認証されています"
+
     # 他のDeviseのメッセージを必要に応じて追加

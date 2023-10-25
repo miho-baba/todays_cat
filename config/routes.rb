@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   #管理者用
   devise_for :admins,skip: [:passwords], controllers: {
-    sessions: "admin/sessions",
-    registrations: 'admin/registrations'
+    sessions: "admin/sessions"
   }
   #ルートパスの記述
   get "/" => "user/homes#top"
