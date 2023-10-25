@@ -1,11 +1,9 @@
 
-<div class='container'>
-  <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-
+<div class='col-md-8 offset-md-1'>
+  <div class="row">
 <h1><i class="fa-solid fa-fish"></i><%= @customer.last_name%>様の会員プロフィール</h1>
 
-<table class='table table-hover table-inverse'>
+<table class='table'>
   <tr>
     <th><%= image_tag 'aikon.jpg', :size => "35x30" %>プロフィール画像</th>
     <th><%= image_tag @customer.get_profile_image(100,100) %></th>
@@ -32,10 +30,37 @@
       <td>
    </tr>
    <tr>
-  <td><%= link_to '戻る', customer_customers_path, class: "btn btn-sm btn-warning index" %></td>
+  <td><%= link_to '会員一覧に戻る', customer_customers_path, class: "btn btn-sm btn-warning index" %></td>
   </tr>
 </table>
-
     </div>
   </div>
 </div>
+
+<%#ここから追記#%>
+   <div class='col-md-8 offset-md-1'>
+  <h2><i class="fa-solid fa-paw"></i>投稿写真一覧<i class="fa-solid fa-paw"></i></h2>
+  <div class="row">
+    <% @customers.each do |photo| %>
+      <div class="col-md-4">
+        <%= link_to customer_photo_path(photo) do %>
+          <div class="image-container move-left">
+            <div class="image-wrapper">
+              <%= image_tag photo.image, size: '250x250' %>
+              <div class="like-icon">
+                <%= render "customer/favorites/btn", photo: photo, index: true %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="col-lg-5 mx-auto" style="width: 265px;">
+      <div class="pagination">
+        <%= paginate @photos %>
+      </div>
+    </div>
+
+  </div>
+</div>
+<%#ここまで追記#%>

@@ -69,4 +69,5 @@ class Customer::PhotosController < ApplicationController
   def photo_params
     params.require(:photo).permit(:title, :image, :cat_color, :photo_introduction)
   end
+
 end

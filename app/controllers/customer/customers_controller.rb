@@ -3,18 +3,16 @@ class Customer::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @customer_new = Customer.new
+    @photo_comment = PhotoComment.new
+    @photos = @customer.photos.page(params[:page]).per(12) # 1ページに12個の写真を表示
+    @customers = @photos.order(created_at: :desc) # 写真を最新のものから順に並び替え
   end
 
   def mypage
-    @photo = Photo.new
-    @customer = current_customer
-    @photos = Photo.where(customer_id: @customer.id)
-    @photos = @customer.photos.page(params[:page]).per(12) # 1ページに12個の写真を表示
-    #必要なら戻す
-    #@customers = Customer.page(params[:page]).per(1)
-    #@photos = Photo.all # または適切なデータベースクエリを実行してデータを取得
-      render 'customer/customers/mypage'
-  end
+  @customer = current_customer
+  @photos = @customer.photos.page(params[:page]).per(12).order(created_at: :desc) # 1ページに12個の写真を表示し、最新のものから順に並べ替える
+  render 'customer/customers/mypage'
+end
 
   def index
     @customers = Customer.all.page(params[:page]).per(6) # 1ページに6人の会員を表示

@@ -22,7 +22,7 @@ class Photo < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
       image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-      profile_image.variant(resize_to_limit: [width, height]).processed
+      image.variant(resize_to_limit: [width, height]).processed
   end
 
   #猫の特徴&タイトル：検索条件の記述
