@@ -339,8 +339,8 @@ font-family: 'Noto Serif JP';
 }
 
 //レスポンシブ対応記述を追加する
-/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
-@media screen and (max-width:768px) {
+/* タブレット縦置きサイズ（1024px）以下の際に適用される設定 */
+@media screen and (max-width:1024px) {
 
 //フラッシュメッセージデザインの記述
 .flash-message {
