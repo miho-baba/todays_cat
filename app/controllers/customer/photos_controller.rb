@@ -8,17 +8,13 @@ class Customer::PhotosController < ApplicationController
   end
 
   def index
-  to = Time.current.at_end_of_day
-  from = (to - 6.day).at_beginning_of_day
-  # Photoモデルのデータを取得し、お気に入り（いいね）のカウントでソート
-  @photos = Photo.includes(:favorites)
-              .left_joins(:favorites)
-              #.where(favorites: { created_at: from...to })
-              .group('photos.id')
-              .order('COUNT(favorites.id) DESC')
-              .page(params[:page]) # 1ページに6個の写真を表示
-              .per(6)
-  #byebug
+  @photos = Photo.all.page(params[:page]).per(6).order(created_at: :desc) # 1ページに6人の会員を表示し、最新のものから順に並べ替える
+  #@photos = Photo.includes(:favorites)
+                  #.left_joins(:favorites)
+                  #.group('photos.id')
+                  #.order(created_at: :desc)# 写真を最新のものから順に並び替える
+                  #.page(params[:page]) # 1ページに6個の写真を表示
+                  #.per(6)
   @photo = Photo.new
   end
 
