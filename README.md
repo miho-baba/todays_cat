@@ -27,13 +27,13 @@
 * 自身以外にも投稿した猫写真を検索したい時
 * お気に入りの猫写真にコメントやいいねを送りたい時
 * お気に入りの写真投稿者を検索したい時
+* お互いにメッセージのやり取りを行う時
 
-​
 ## 設計書
 　https://gyazo.com/beb3da6971e0bec57945a096c7eaa2a8
 ​
 ## 開発環境
-* OS：Linux(CentOS)
+* OS：Amazon Linux release 2 (Karoo)
 * 言語：HTML,CSS,JavaScript,Ruby,SQL
 * フレームワーク：Ruby on Rails
 * JSライブラリ：jQuery

@@ -11,11 +11,4 @@ class Admin::SearchesController < ApplicationController
     end
   end
 
-
-
-
-
-
-
-
 end

@@ -9,9 +9,9 @@ class Customer::CustomersController < ApplicationController
   end
 
   def mypage
-  @customer = current_customer
-  @photos = @customer.photos.page(params[:page]).per(12).order(created_at: :desc) # 1ページに12個の写真を表示し、最新のものから順に並べ替える
-  render 'customer/customers/mypage'
+    @customer = current_customer
+    @photos = @customer.photos.page(params[:page]).per(12).order(created_at: :desc) # 1ページに12個の写真を表示し、最新のものから順に並べ替える
+    render 'customer/customers/mypage'
   end
 
   def index
@@ -26,13 +26,12 @@ class Customer::CustomersController < ApplicationController
   def withdraw
     @customer = Customer.find(current_customer.id)
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    @customer.withdraw
     @customer.update(is_deleted: true)
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to user_root_path
   end
-
-
 
   def update
     @customer = Customer.find(params[:id])
@@ -40,7 +39,6 @@ class Customer::CustomersController < ApplicationController
         flash[:notice] = "編集の更新に成功しました！"#無事投稿できたら表示する記述
         redirect_to mypage_customer_customers_path(@customer)
       else
-        #render :edit
         flash[:alert] = "編集の更新に失敗しました。"
         render 'customer/customers/edit' # 編集ページにリダイレクトし、エラーメッセージを表示
       end

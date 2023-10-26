@@ -1,52 +1,47 @@
 
 <%#会員側と管理者側で使用するフラッシュメッセージの記述%>
- <%= render "layouts/flash" %>
+<%= render "layouts/flash" %>
 
-<!-- topページの画像-->
-    <div class="full-page">
-      <div class="top-image">
-        <p class="text-center">
+  <!-- topページの画像-->
+  <div class="full-page">
+    <div class="top-image">
 
-          ようこそ<i class="fa-solid fa-paw"></i>今日のお猫様へ！！<br />
-          ※投稿、写真の閲覧、検索は、会員登録が必要です。<br />
-        </p>
-      </div>
+      <p class="text-center">
+        ようこそ<i class="fa-solid fa-paw"></i>今日のお猫様へ！！<br />
+        ※投稿、写真の閲覧、検索は、会員登録が必要です。<br />
+      </p>
+  </div>
 
-<h1 style="margin-left: 470px;"><i class="fa-solid fa-paw"></i>サイト紹介<i class="fa-solid fa-paw"></i></h1><br>
-  <div class='col-md-8 offset-md-1'>
-    <table class="table table-hover table-inverse">
-      <thead>
-        <th><h1><%= image_tag 'top3.jpg', :size => "950x550" %></h1></th>
+    <h1 style="margin-left: 470px;"><i class="fa-solid fa-paw"></i>サイト紹介<i class="fa-solid fa-paw"></i></h1><br>
+      <div class='col-md-8 offset-md-1'>
+        <table class="table table-hover table-inverse">
+          <thead>
+            <th><h1><%= image_tag 'top3.jpg', :size => "950x550" %></h1></th>
+              <tr><h3 style="margin-left: 70px" class="title">今日のお猫様とは？</h3></tr>
+                <td>
+                  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
+                  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
+                  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
+                  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
+                  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
+                </td>
+              </tr>
+            </th>
+          </thead>
+        </table>
 
-          <tr><h3 style="margin-left: 70px" class="title">今日のお猫様とは？</h3></tr>
-
-  <td>
-  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
-  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
-  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
-  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
-  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
-  </td>
-
-      </tr>
-    </th>
-  </thead>
-</table>
-
-<table class="table table-hover table-inverse">
-      <thead>
-        <th><h1><%= image_tag 'home.jpg', :size => "950x550" %></h1></th>
-
-          <tr><h3 style="margin-left: 70px;" class="test">どんな機能があるの？</h3></tr>
-  <td>
-  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
-  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
-  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
-  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
-  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
-  </td>
-
-      </tr>
-    </th>
-  </thead>
-</table>
+        <table class="table table-hover table-inverse">
+          <thead>
+            <th><h1><%= image_tag 'home.jpg', :size => "950x550" %></h1></th>
+              <tr><h3 style="margin-left: 70px;" class="test">どんな機能があるの？</h3></tr>
+                <td>
+                  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
+                  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
+                  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
+                  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
+                  texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
+                </td>
+              </tr>
+            </th>
+          </thead>
+        </table>

@@ -1,17 +1,17 @@
 
 <!-- 会員と管理者側で使用するフラッシュメッセージの記述 -->
-      <% if flash[:notice] %><!-- フラッシュメッセージ成功の記述 -->
-      <div class="flash-message notice">
-        <p id="notice">
-          <%= notice %>
-        </p>
-      </div>
-      <% end %>
+<% if flash[:notice] %><!-- フラッシュメッセージ成功の記述 -->
+  <div class="flash-message notice">
+    <p id="notice">
+      <%= notice %>
+    </p>
+  </div>
+<% end %>
 
-    <% if flash[:alert] %><!-- フラッシュメッセージ失敗の記述 -->
-      <div class="flash-message alert">
-        <p id="aleart">
-          <%= alert %>
-        </p>
-      </div>
-    <% end %>
+<% if flash[:alert] %><!-- フラッシュメッセージ失敗の記述 -->
+  <div class="flash-message alert">
+    <p id="aleart">
+      <%= alert %>
+    </p>
+  </div>
+<% end %>

@@ -1,22 +1,18 @@
 class Customer::PhotoCommentsController < ApplicationController
 
   #新しいコメントを作成する記述
-  def create
+  def create#非同期通信化
     @photo = Photo.find(params[:photo_id])
     comment = current_customer.photo_comments.new(photo_comment_params)
     comment.photo_id = @photo.id
     comment.save
-    #非同期通信化のためコメントアウトする
-    #redirect_to request.referer
   end
 
   #コメントを削除する記述
-  def destroy
+  def destroy#非同期通信化
     comment = PhotoComment.find(params[:id])
     @photo = comment.photo
     comment.destroy
-    #非同期通信化のためコメントアウトする
-    #redirect_to request.referer
   end
 
   private

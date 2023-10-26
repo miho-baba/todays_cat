@@ -19,16 +19,11 @@ class Admin::CustomersController < ApplicationController
     render 'admin/customers/show' # 編集ページにリダイレクトし、エラーメッセージを表示
   end
   end
-        #customer = current_customer
-          #flash[:alert] = "編集の更新に失敗しました。"  # 動作ok!写真投稿失敗した記述
-          #render :editredirect_to customer_photo_path(@photo.id)
-          #render 'admin/customers/show'
 
   private
 
   def customer_params
         params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :phone_number, :email, :is_deleted)
   end
-
 
 end
