@@ -42,7 +42,7 @@
   background-color: #ffc1ff; /* 淡い紫系の色ホバー時の背景色 */
   margin-top: -20px; /* 上に20ピクセル移動 */
 }
-  //マイページの投稿画像と肉球アイコンの場所の記述
+//マイページの投稿画像と肉球アイコンの場所の記述
 .image-container {
   position: relative;
   display: inline-block;/* 画像とアイコンを横並びにする */
@@ -109,13 +109,13 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
-  //黒の目次バーの長さを変える記述
+//黒の目次バーの長さを変える記述
   a {
   text-decoration: none;
   margin-right: 15px;
 }
 
-  /* ギア１つアイコンの色を全て銀鼠に設定 */
+/* ギア１つアイコンの色を全て銀鼠に設定 */
 .fa-gear {
   color: #a0a0a0;//銀鼠
 }
@@ -223,15 +223,19 @@ body {
     background-position: center;
   }
 }
-  //topページの猫３匹の画像に文字を入れた記述②
+//topページの猫３匹の画像に文字を入れた記述②
   .main {
   width: 100%; /* 横幅いっぱい */
   height: 200px; /* 高さ200px */
-  //background-image: image-url("top2.jpg");
   background-image: url("../images/top2.jpg");
   background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
   background-position: center; /* 背景画像を中央に配置 */
   }
+
+//フォロワーアイコンに色をつける記述
+.fa-hand-holding-heart {//鈍い紫系の色
+  color : #da70d6;
+}
 
 //カメラアイコンに色をつける記述
 .fa-camera-retro {//柔らかい青紫系の色
@@ -463,7 +467,7 @@ body {
 .fa-fish {
   color: #0073a8;
 }
- /* 会員マイページの文字部分とボーダーラインの線 */
+/* 会員マイページの文字部分とボーダーラインの線 */
   body {
   margin: 0 auto;
   padding: 0;
@@ -524,13 +528,13 @@ body {
   font-family: 'Noto Serif JP';
   }
 
-  //目次のリンクボタンの文字の記述//ヘッダー
+//目次のリンクボタンの文字の記述//ヘッダー
   .green-text {
     color: #dbebc4;//アスパラガスグリーン
     font-family: 'Noto Serif JP';
   }
 
-  //目次のリンクボタンの文字の記述//フッター
+//目次のリンクボタンの文字の記述//フッター
   .nav-list-items {
   list-style: none;
   /* 横に並べる */
@@ -539,13 +543,13 @@ body {
   font-family: 'Noto Serif JP';
   }
 
-  //目次のリンクボタンの文字の記述//フッター
+//目次のリンクボタンの文字の記述//フッター
   .green1-text {
     color: #dbebc4;//アスパラガスグリーン
     font-family: 'Noto Serif JP';
   }
 
-  //topページの猫３匹の画像に文字を入れた記述①
+//topページの猫３匹の画像に文字を入れた記述①
 .full-page {
   .top-image {
     p {
@@ -557,7 +561,6 @@ body {
       font-family: 'Noto Serif JP';
     }
     height: 900px;
-    //background-image: image-url("top2.jpg");
     background-image: url("../images/top2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -568,11 +571,15 @@ body {
   .main {
   width: 100%; /* 横幅いっぱい */
   height: 200px; /* 高さ200px */
-  //background-image: image-url("top2.jpg");
   background-image: url("../images/top2.jpg");
   background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
   background-position: center; /* 背景画像を中央に配置 */
   }
+
+//フォロワーアイコンに色をつける記述
+.fa-hand-holding-heart {//鈍い紫系の色
+  color : #da70d6;
+}
 
 //カメラアイコンに色をつける記述
 .fa-camera-retro {//柔らかい青紫系の色
