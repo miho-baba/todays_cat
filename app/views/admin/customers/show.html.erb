@@ -6,18 +6,14 @@
     <div class='row'>
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
         <h1><%= image_tag 'aikon.jpg', :size => "60x50" %>今日猫会員情報詳細<%= image_tag 'twocat.jpg', :size => "40x40" %></h1>
-      </div>
-    </div>
-  </div>
 
-<div class="container">
-  <div class="row-8 my-3">
-    <div class="col-lg-4 text-right">
-      <div class="row my-5">
-        <div class="col-lg-7 mx-auto" style="width: 200px;">
+
+
+
+
 
           <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
-            <h4><%= image_tag 'editcat.jpg', :size => "60x60" %><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h4>
+            <h4><%= image_tag 'editcat.jpg', :size => "60x60" %><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h4><br>
 
               <table class="table table-borderless">
                 <tbody>
@@ -44,12 +40,12 @@
                   </tr>
 
                   <tr>
-                    <td><%= image_tag 'pinkpom.jpg', :size => "30x30" %>メールアドレス</td>
+                    <td><%= image_tag 'pinkpom.jpg', :size => "30x30" %>アドレス</td>
                     <td><%= f.text_field :email %></td>
                   </tr>
 
                   <tr>
-                    <td><%= image_tag 'pinkpom.jpg', :size => "30x30" %>会員ステータス</td>
+                    <td><%= image_tag 'pinkpom.jpg', :size => "30x30" %>ご利用</td>
                       <td>
                         <%= f.radio_button :is_deleted, :false, checked: true %>
                           <%= f.label :is_deleted, "有効" %>
@@ -60,13 +56,14 @@
 
                   <tr>
                     <td><%= f.submit '変更を保存', class: "btn btn-success" %></td>
-                  </tr>
 
-                  <tr>
-                    <td>
+                  <td>
                       <%= link_to '一覧に戻る', admin_customers_path, class: "btn btn-sm btn-dark index" %>
                     </td>
+
                   </tr>
+
+
 
                 </tbody>
               </table>
@@ -74,5 +71,4 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
+
