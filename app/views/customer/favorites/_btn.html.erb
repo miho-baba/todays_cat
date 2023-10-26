@@ -1,12 +1,12 @@
 
 <% if photo.favorited_by?(current_customer) %>
 
-    <%= link_to customer_photo_favorites_path(photo, index: index), class: 'text-danger', method: :delete, remote: true do %>
+    <%= link_to customer_photo_favorites_path(photo), class: 'text-danger', method: :delete, remote: true do %>
       <i class="fa-solid fa-paw" style="color: inherit;"></i><%= photo.favorites.count %>
     <% end %>
 
     <% else %>
-        <%= link_to customer_photo_favorites_path(photo, index: index), class: 'text-secondary', method: :post, remote: true do %>
+        <%= link_to customer_photo_favorites_path(photo), class: 'text-secondary', method: :post, remote: true do %>
           <i class="fa-solid fa-paw" style="color: inherit;"></i><%= photo.favorites.count %>
     <% end %>
 
