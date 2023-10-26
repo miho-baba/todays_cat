@@ -12,12 +12,13 @@ class Customer::PhotosController < ApplicationController
   from = (to - 6.day).at_beginning_of_day
   # Photoモデルのデータを取得し、お気に入り（いいね）のカウントでソート
   @photos = Photo.includes(:favorites)
-               .left_joins(:favorites)
-               .where(favorites: { created_at: from...to })
-               .group('photos.id')
-               .order('COUNT(favorites.id) DESC')
-               .page(params[:page]) # 1ページに6個の写真を表示
-               .per(6)
+              .left_joins(:favorites)
+              #.where(favorites: { created_at: from...to })
+              .group('photos.id')
+              .order('COUNT(favorites.id) DESC')
+              .page(params[:page]) # 1ページに6個の写真を表示
+              .per(6)
+  #byebug
   @photo = Photo.new
   end
 
