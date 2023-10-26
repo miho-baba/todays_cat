@@ -46,8 +46,18 @@ class Customer::CustomersController < ApplicationController
       end
   end
 
+  def toggle_favorite
+    @photo = Photo.find(params[:photo_id])
+    if current_customer.favorite?(@photo)
+      unfavorite_photo
+    else
+      favorite_photo
+    end
+  end
+
   private
     def customer_params
       params.require(:customer).permit(:profile_image, :last_name, :first_name, :introduction )
     end
+
 end

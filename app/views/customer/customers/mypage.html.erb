@@ -118,7 +118,7 @@
 <% end %>
 </div>
 
-    <div class='col-md-8 offset-md-1'>
+<div class='col-md-8 offset-md-1'>
   <h2><i class="fa-solid fa-paw"></i><%= @customer.last_name %>様の投稿履歴一覧<i class="fa-solid fa-paw"></i></h2>
   <div class="row">
     <% @photos.each do |photo| %>
@@ -128,7 +128,9 @@
             <div class="image-wrapper">
               <%= image_tag photo.image, size: '200x200' %>
               <div class="like-icon">
-                <%= render "customer/favorites/btn", photo: photo, index: true %>
+                <td id="favorite_btn_<%= photo.id %>">
+                  <%= render "customer/favorites/btn", photo: photo, index: true %>
+                </td>
               </div>
             </div>
           </div>

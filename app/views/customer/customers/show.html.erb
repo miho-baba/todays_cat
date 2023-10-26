@@ -48,7 +48,9 @@
             <div class="image-wrapper">
               <%= image_tag photo.image, size: '250x250' %>
               <div class="like-icon">
-                <%= render "customer/favorites/btn", photo: photo, index: true %>
+                <td id="favorite_btn_<%= photo.id %>">
+                  <%= render "customer/favorites/btn", photo: photo, index: true %>
+                </td>
               </div>
             </div>
           </div>
