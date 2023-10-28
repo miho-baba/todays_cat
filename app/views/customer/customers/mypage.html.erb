@@ -82,7 +82,7 @@
     </div>
 
 
-  <%= form_with model: @photo, url: customer_photos_path do |f| %>
+  <%= form_with model: @photo, url: customer_photos_path, method: :post do |f| %>
 <h2 class="mt-3"><i class="fa-solid fa-paw" style="color: inherit;"></i>投稿フォーム<i class="fa-solid fa-paw" style="color: inherit;"></i></h2>
 
     <div class="form-group">
