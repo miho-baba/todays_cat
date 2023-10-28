@@ -24,13 +24,12 @@ class Customer::CustomersController < ApplicationController
   end
 
   def withdraw
-    @customer = Customer.find(current_customer.id)
-    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
-    @customer.withdraw
-    @customer.update(is_deleted: true)
+    @customer = current_customer # current_customer メソッドを使用してユーザーを取得
+    if @customer.withdraw
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to user_root_path
+    end
   end
 
   def update
@@ -59,3 +58,4 @@ class Customer::CustomersController < ApplicationController
     end
 
 end
+
