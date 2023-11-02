@@ -30,8 +30,8 @@
 * お互いにメッセージのやり取りを行う時
 
 ## 設計書
-　https://gyazo.com/beb3da6971e0bec57945a096c7eaa2a8
-​
+![image](https://github.com/miho-baba/todays_cat/assets/139383807/89bd1343-f285-48a4-9251-f9588a7a9c8d)
+
 ## 開発環境
 * OS：Amazon Linux release 2 (Karoo)
 * 言語：HTML,CSS,JavaScript,Ruby,SQL
