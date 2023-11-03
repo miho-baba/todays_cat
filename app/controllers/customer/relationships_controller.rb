@@ -18,6 +18,7 @@ class Customer::RelationshipsController < ApplicationController
   def followings
     customer = Customer.find(params[:customer_id])
     @customers = customer.followings
+    #@followings = @customer.followings # 顧客がフォローしているユーザーを取得
   end
 
   #フォロワー：特定のユーザーをフォローしているユーザーの一覧を表示する記述

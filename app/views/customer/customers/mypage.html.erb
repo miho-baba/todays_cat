@@ -56,9 +56,18 @@
     </tr>
 
     <tr>
+  	  <th><i class="fa-solid fa-feather"></i>いいね
+        <%#ページが出来たらパスを変更する#%>
+        <%= link_to customer_photo_favorites_path(@customer), class: "btn btn-outline-danger btn-block" do %>
+          <i class="fa-solid fa-paw" style="color: inherit;"></i>
+        <% end %>
+      </th>
+    </tr>
+
+    <tr>
   	  <th><i class="fa-solid fa-feather"></i>フォロー
         <%= link_to customer_customer_followings_path(@customer), class: "btn btn-outline-primary btn-block" do %>
-          <i class="fa-solid fa-user-plus"></i><%#= @customer.followings.count 今回はなし%>
+          <i class="fa-solid fa-user-plus"></i>
         <% end %>
       </th>
     </tr>
@@ -67,7 +76,7 @@
   	  <th>
   	    <i class="fa-solid fa-feather"></i>フォロワー
           <%= link_to customer_customer_followers_path(@customer), class: "btn btn-outline-success btn-block" do %>
-            <i class="fa-solid fa-paw" style="color: inherit;"></i><%#= @customer.followers.count 今回はなし%>
+            <i class="fa-solid fa-user-plus"></i>
           <% end %>
       </th>
     </tr>

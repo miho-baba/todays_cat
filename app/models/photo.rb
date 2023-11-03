@@ -1,6 +1,7 @@
 class Photo < ApplicationRecord
    #１：Nの関連の記述
   belongs_to :customer
+  has_many :favorites
   has_many :favorites, dependent: :destroy
   has_many :favorited_customers, through: :favorites, source: :customer
   has_many :photo_comments, dependent: :destroy

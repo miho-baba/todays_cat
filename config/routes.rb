@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     resources :photos, only: [:index, :show, :edit, :update, :create, :destroy] do
       resources :photo_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
+      get '/favorites', to: 'favorites#index'#いいねの一覧ページの記述
     end
     get "/search", to: "searches#search"
     resources :chats, only: [:show, :create, :destroy]
