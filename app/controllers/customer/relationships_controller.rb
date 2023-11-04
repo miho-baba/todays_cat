@@ -17,14 +17,13 @@ class Customer::RelationshipsController < ApplicationController
   #特定のユーザーがフォローしているユーザーの一覧を表示する記述
   def followings
     customer = Customer.find(params[:customer_id])
-    @customers = customer.followings
-    #@followings = @customer.followings # 顧客がフォローしているユーザーを取得
+    @customers = customer.followings.page(params[:page]).per(6)# 1ページに6個の写真を表示
   end
 
   #フォロワー：特定のユーザーをフォローしているユーザーの一覧を表示する記述
   def followers
     customer = Customer.find(params[:customer_id])
-    @customers = customer.followers
+    @customers = customer.followers.page(params[:page]).per(6)# 1ページに6個の写真を表示
   end
 
 end

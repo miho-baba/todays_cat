@@ -7,6 +7,7 @@ class Customer < ApplicationRecord
 
   #１：Nの関連の記述
   has_many :photos, dependent: :destroy
+  has_many :favorites
   has_many :favorites, dependent: :destroy
   has_many :photo_comments, dependent: :destroy
   # フォローしている関連付け

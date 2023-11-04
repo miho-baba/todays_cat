@@ -42,27 +42,37 @@
   background-color: #ffc1ff; /* 淡い紫系の色ホバー時の背景色 */
   margin-top: -20px; /* 上に20ピクセル移動 */
 }
-//マイページの投稿画像と肉球アイコンの場所の記述
+//マイページ・会員詳細の投稿画像と肉球アイコンの場所の記述
 .image-container {
   position: relative;
   display: inline-block;/* 画像とアイコンを横並びにする */
   width: 230px; /* お好みのサイズに調整してください */
   text-align: center; /* 画像とアイコンを中央揃えにします */
-
-}//マイページの投稿画像の中の肉球アイコンの場所の記述
+  margin-left: 40px; /* 画像全体を右に移動 */
+}//マイページ・会員詳細の投稿画像の中の肉球アイコンの場所の記述
 .like-icon {
   position: absolute;
   top: 15%;/* 画像の中央に配置 */
-}//マイページの投稿画像の中の肉球アイコンの場所の記述
+}//マイページ・会員詳細の投稿画像の中の肉球アイコンの場所の記述
 .row {
   display: flex;
   flex-wrap: wrap;
-}//マイページの投稿画像の中の肉球アイコンの場所の記述
+}//マイページ・会員詳細の投稿画像の中の肉球アイコンの場所の記述
 .col-md-4 {
   flex: 0 0 33.33%;
   max-width: 33.33%;
   padding: 10px;
 }
+
+/* いいねした画像の内側に名前を含む要素のスタイル */
+.name {
+  color: #ffffff; /* テキストの色を白に変更 */
+  position: absolute; /* 画像内の絶対位置に配置 */
+  bottom: 10px; /* 画像の下部に配置 */
+  left: 10px; /* 画像の左端に配置 */
+  padding: 5px; /* テキストの周りの余白 */
+}
+
 //ログアウトアイコンの記述
 .fa-right-from-bracket {
   color: #b22222;//あざやかな赤系の色
@@ -391,7 +401,7 @@ font-family: 'Noto Serif JP';
   display: inline-block;/* 画像とアイコンを横並びにする */
   width: 230px; /* お好みのサイズに調整してください */
   text-align: center; /* 画像とアイコンを中央揃えにします */
-
+  margin-left: 40px; /* 画像全体を右に移動 */
 }//マイページの投稿画像の中の肉球アイコンの場所の記述
 .like-icon {
   position: absolute;
@@ -405,6 +415,15 @@ font-family: 'Noto Serif JP';
   flex: 0 0 33.33%;
   max-width: 33.33%;
   padding: 10px;
+}
+
+/* いいねした画像の内側に名前を含む要素のスタイル */
+.name {
+  color: #ffffff; /* テキストの色を白に変更 */
+  position: absolute; /* 画像内の絶対位置に配置 */
+  bottom: 10px; /* 画像の下部に配置 */
+  left: 10px; /* 画像の左端に配置 */
+  padding: 5px; /* テキストの周りの余白 */
 }
 
 //ログアウトアイコンの記述
