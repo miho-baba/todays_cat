@@ -31,8 +31,11 @@ class Customer::ChatsController < ApplicationController
   def create
     # フォームから送信されたメッセージを取得し、現在のユーザーに関連付けて保存
     @chat = current_customer.chats.new(chat_params)
-    # バリデーションに合格しない場合はエラーを表示
-    render :validate unless @chat.save
+      # 画像が存在する場合のみ添付する
+      if params[:chat][:image].present?
+        @chat.image.attach(params[:chat][:image])
+      end
+      render :validate unless @chat.save
   end
 
   # チャットメッセージの削除
@@ -43,9 +46,9 @@ class Customer::ChatsController < ApplicationController
 
   private
 
-  # フォームから送信されたパラメータを安全に取得
+  #DMの画像の記述
   def chat_params
-    params.require(:chat).permit(:message, :room_id)
+    params.require(:chat).permit(:message, :room_id, :image)
   end
 
   # 関連のない会員をブロックする
