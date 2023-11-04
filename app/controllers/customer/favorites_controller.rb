@@ -11,6 +11,9 @@ class Customer::FavoritesController < ApplicationController
     @photo = Photo.find(params[:photo_id])
     favorite = @photo.favorites.new(customer_id: current_customer.id)
     favorite.save
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy

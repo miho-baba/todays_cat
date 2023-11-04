@@ -7,19 +7,17 @@
         <div class="col-md-4">
           <%= link_to customer_photo_path(photo) do %>
             <div class="image-container move-left">
-              <div class="image-wrapper">
                 <%= image_tag photo.image, size: '250x250' %>
                 <div class="like-icon">
-                  <td id="favorite_btn_<%= photo.id %>">
+                  <div id="favorite_btn_<%= photo.id %>">
                     <%= render "customer/favorites/btn", photo: photo, index: true %>
-                  </td>
+                  </div>
                 </div>
                   <div class="name">
                     <% if photo.customer %>
                       by. <%= photo.customer.last_name %>様
                     <% end %>
                   </div>
-              </div>
             </div>
           <% end %>
         </div>
