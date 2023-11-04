@@ -1,5 +1,5 @@
 
-<h2><i class="fa-solid fa-hand-holding-heart" style="color: inherit;"></i>フォロー一覧：<%= @customers.count %> 人</h2>
+<h2><i class="fa-solid fa-hand-holding-heart" style="color: inherit;"></i>フォロー一覧：<%= @customers.total_count %> 人</h2>
 <% if @customers.exists? %>
   <%= render "customer/searches/customer", customers: @customers %>
 <div class="col-lg-5 mx-auto" style="width: 265px;">
