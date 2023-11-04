@@ -1,151 +1,147 @@
 
 <%#会員側と管理者側で使用するフラッシュメッセージの記述%>
- <%= render "layouts/flash" %>
+<%= render "layouts/flash" %>
 
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-3'>
-<h2><i class="fa-solid fa-paw" style="color: inherit;"></i>プロフィール<i class="fa-solid fa-paw" style="color: inherit;"></i></h2>
-  <table class='table'>
+      <h2><i class="fa-solid fa-paw" style="color: inherit;"></i>プロフィール<i class="fa-solid fa-paw" style="color: inherit;"></i></h2>
+      <table class='table'>
 
-    <tr>
-      <th>
-      <i class="fa-solid fa-feather"></i>プロフィール画像
-        <%= image_tag @customer.get_profile_image(130,130) %>
-      </th>
-    </tr>
+        <tr>
+          <th>
+          <i class="fa-solid fa-feather"></i>プロフィール画像
+            <%= image_tag @customer.get_profile_image(130,130) %>
+          </th>
+        </tr>
 
-    <tr>
-  	  <th>
-  	    <i class="fa-solid fa-feather"></i>名前:
-  	      <%= @customer.last_name %><%= @customer.first_name %>
-  	 </th>
-    </tr>
+        <tr>
+      	  <th>
+      	    <i class="fa-solid fa-feather"></i>名前:
+      	      <%= @customer.last_name %><%= @customer.first_name %>
+      	 </th>
+        </tr>
 
-    <tr>
-  	  <th>
-  	    <i class="fa-solid fa-feather"></i>フリガナ:
-  	      <%= @customer.last_name_kana %><%= @customer.first_name_kana %>
-  	  </th>
-    </tr>
+        <tr>
+      	  <th>
+      	    <i class="fa-solid fa-feather"></i>フリガナ:
+      	      <%= @customer.last_name_kana %><%= @customer.first_name_kana %>
+      	  </th>
+        </tr>
 
-    <tr>
-  	  <th><i class="fa-solid fa-feather"></i>会員ID:
-  	    <%= @customer.id %>
-  	  </th>
-    </tr>
+        <tr>
+      	  <th><i class="fa-solid fa-feather"></i>会員ID:
+      	    <%= @customer.id %>
+      	  </th>
+        </tr>
 
-    <tr>
-  	  <th>
-  	    <i class="fa-solid fa-feather"></i>アドレス:
-  	      <%= @customer.email %>
-  	  </th>
-    </tr>
+        <tr>
+      	  <th>
+      	    <i class="fa-solid fa-feather"></i>アドレス:
+      	      <%= @customer.email %>
+      	  </th>
+        </tr>
 
-    <tr>
-  	  <th>
-  	    <i class="fa-solid fa-feather"></i>電話番号:
-  	      <%= @customer.phone_number %>
-  	  </th>
-    </tr>
+        <tr>
+      	  <th>
+      	    <i class="fa-solid fa-feather"></i>電話番号:
+      	      <%= @customer.phone_number %>
+      	  </th>
+        </tr>
 
-    <tr>
-  	  <th><i class="fa-solid fa-feather"></i>紹介文:
-  	    <%= @customer.introduction %>
-  	  </th>
-    </tr>
+        <tr>
+      	  <th><i class="fa-solid fa-feather"></i>紹介文:
+      	    <%= @customer.introduction %>
+      	  </th>
+        </tr>
 
-    <tr>
-  	  <th><i class="fa-solid fa-feather"></i>いいね
-        <%#ページが出来たらパスを変更する#%>
-        <%= link_to customer_photo_favorites_path(@customer), class: "btn btn-outline-danger btn-block" do %>
-          <i class="fa-solid fa-paw" style="color: inherit;"></i>
-        <% end %>
-      </th>
-    </tr>
+        <tr>
+      	  <th><i class="fa-solid fa-feather"></i>いいね
+            <%#ページが出来たらパスを変更する#%>
+            <%= link_to customer_photo_favorites_path(@customer), class: "btn btn-outline-danger btn-block" do %>
+              <i class="fa-solid fa-paw" style="color: inherit;"></i>
+            <% end %>
+          </th>
+        </tr>
 
-    <tr>
-  	  <th><i class="fa-solid fa-feather"></i>フォロー
-        <%= link_to customer_customer_followings_path(@customer), class: "btn btn-outline-primary btn-block" do %>
-          <i class="fa-solid fa-user-plus"></i>
-        <% end %>
-      </th>
-    </tr>
+        <tr>
+      	  <th><i class="fa-solid fa-feather"></i>フォロー
+            <%= link_to customer_customer_followings_path(@customer), class: "btn btn-outline-primary btn-block" do %>
+              <i class="fa-solid fa-user-plus"></i>
+            <% end %>
+          </th>
+        </tr>
 
-    <tr>
-  	  <th>
-  	    <i class="fa-solid fa-feather"></i>フォロワー
-          <%= link_to customer_customer_followers_path(@customer), class: "btn btn-outline-success btn-block" do %>
-            <i class="fa-solid fa-user-plus"></i>
+        <tr>
+      	  <th>
+      	    <i class="fa-solid fa-feather"></i>フォロワー
+              <%= link_to customer_customer_followers_path(@customer), class: "btn btn-outline-success btn-block" do %>
+                <i class="fa-solid fa-user-plus"></i>
+              <% end %>
+          </th>
+        </tr>
+
+        </tr>
+      </table>
+
+      <div class='row'>
+          <%= link_to edit_customer_customer_path(@customer), class: "btn btn-outline-secondary btn-block" do %>
+            <i class="fa-solid fa-gear"></i>設定
           <% end %>
-      </th>
-    </tr>
+      </div>
 
-    </tr>
-  </table>
+      <%= form_with model: @photo, url: customer_photos_path, method: :post do |f| %>
+        <h2 class="mt-3"><i class="fa-solid fa-paw" style="color: inherit;"></i>投稿フォーム<i class="fa-solid fa-paw" style="color: inherit;"></i></h2>
 
-    <div class='row'>
-        <%= link_to edit_customer_customer_path(@customer), class: "btn btn-outline-secondary btn-block" do %>
-          <i class="fa-solid fa-gear"></i>設定
-        <% end %>
+        <div class="form-group">
+          <label for="title"><i class="fa-solid fa-star-of-david"></i>タイトル</label>
+          <%= f.text_field :title, class:'form-control photo_title' %>
+        </div>
+
+        <div class="form-group">
+          <label for="image"><i class="fa-solid fa-star-of-david"></i>写真</label>
+          <%= f.file_field :image, class:'form-control- photo_image' %>
+        </div>
+
+        <div class="form-group">
+          <label for="cat_color"><i class="fa-solid fa-star-of-david"></i>猫ちゃんの特徴（毛の色）</label>
+          <%= f.text_field :cat_color, class:'form-control photo_cat_color' %>
+        </div>
+
+        <div class="form-group">
+          <label for="photo_introduction"><i class="fa-solid fa-star-of-david"></i>写真の説明文</label>
+          <%= f.text_area :photo_introduction, class:'form-control photo_introduction' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit :'投稿する', class:'btn btn-danger' %>
+        </div>
+      <% end %>
     </div>
 
-
-  <%= form_with model: @photo, url: customer_photos_path, method: :post do |f| %>
-<h2 class="mt-3"><i class="fa-solid fa-paw" style="color: inherit;"></i>投稿フォーム<i class="fa-solid fa-paw" style="color: inherit;"></i></h2>
-
-    <div class="form-group">
-      <label for="title"><i class="fa-solid fa-star-of-david"></i>タイトル</label>
-      <%= f.text_field :title, class:'form-control photo_title' %>
-    </div>
-
-    <div class="form-group">
-      <label for="image"><i class="fa-solid fa-star-of-david"></i>写真</label>
-      <%= f.file_field :image, class:'form-control- photo_image' %>
-    </div>
-
-    <div class="form-group">
-      <label for="cat_color"><i class="fa-solid fa-star-of-david"></i>猫ちゃんの特徴（毛の色）</label>
-      <%= f.text_field :cat_color, class:'form-control photo_cat_color' %>
-    </div>
-
-    <div class="form-group">
-      <label for="photo_introduction"><i class="fa-solid fa-star-of-david"></i>写真の説明文</label>
-      <%= f.text_area :photo_introduction, class:'form-control photo_introduction' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.submit :'投稿する', class:'btn btn-danger' %>
-    </div>
-<% end %>
-</div>
-
-<div class='col-md-8 offset-md-1'>
-  <h2><i class="fa-solid fa-paw"></i><%= @customer.last_name %>様の投稿履歴一覧<i class="fa-solid fa-paw"></i></h2>
-  <div class="row">
-    <% @photos.each do |photo| %>
-      <div class="col-md-4">
-        <%= link_to customer_photo_path(photo) do %>
-          <div class="image-container move-left">
-            <%= image_tag photo.image, size: '200x200' %>
-              <div class="like-icon">
-                <div id="favorite_btn_<%= photo.id %>">
-                  <%= render "customer/favorites/btn", photo: photo, index: true %>
-                </div>
+    <div class='col-md-8 offset-md-1'>
+      <h2><i class="fa-solid fa-paw"></i><%= @customer.last_name %>様の投稿履歴一覧<i class="fa-solid fa-paw"></i></h2>
+      <div class="row">
+        <% @photos.each do |photo| %>
+          <div class="col-md-4">
+            <%= link_to customer_photo_path(photo) do %>
+              <div class="image-container move-left">
+                <%= image_tag photo.image, size: '200x200' %>
+                  <div class="like-icon">
+                    <div id="favorite_btn_<%= photo.id %>">
+                      <%= render "customer/favorites/btn", photo: photo, index: true %>
+                    </div>
+                  </div>
               </div>
+            <% end %>
           </div>
         <% end %>
+        <div class="col-lg-5 mx-auto" style="width: 265px;">
+          <div class="pagination">
+            <%= paginate @photos %>
+          </div>
+        </div>
       </div>
-    <% end %>
-    <div class="col-lg-5 mx-auto" style="width: 265px;">
-      <div class="pagination">
-        <%= paginate @photos %>
-      </div>
-    </div>
-
-  </div>
-</div>
-
     </div>
   </div>
 </div>
