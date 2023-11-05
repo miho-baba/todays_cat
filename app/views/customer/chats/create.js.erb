@@ -1,3 +1,8 @@
 
 $('.message').append('<%= j(render "customer/chats/chat", chat: @chat) %>');
 $('input[type=text]').val("")
+
+<% if @chat.image.attached? %>
+  var imageTag = '<img src="<%= rails_blob_path(@chat.image, disposition: "attachment") %>" alt="Chat Image">';
+  $('.message').append(imageTag);
+<% end %>

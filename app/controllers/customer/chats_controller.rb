@@ -40,10 +40,17 @@ class Customer::ChatsController < ApplicationController
 
   # チャットメッセージの削除
   def destroy
-    @chat = current_customer.chats.find(params[:id])# ログイン中の会員に関連するチャットメッセージを削除
-    @chat.destroy
+    @chat = current_customer.chats.find(params[:id])
+    if @chat.image.attached?
+      @chat.image.purge
+    end
+    if @chat.destroy
+      respond_to do |format|
+        format.html { redirect_to customer_chat_path, notice: 'チャットメッセージが削除されました' }
+        format.js
+      end
+    end
   end
-
   private
 
   #DMの画像の記述
@@ -55,12 +62,12 @@ class Customer::ChatsController < ApplicationController
   def block_non_related_customers
     # チャット相手の会員を取得
     customer = Customer.find(params[:id])
-
     # 会員がお互いにフォローしているか確認し、していない場合はリダイレクト
     unless current_customer.following?(customer) && customer.following?(current_customer)
-      redirect_to photos_path # リダイレクト先は適切なものに変更しましょう
+      redirect_to photos_path # リダイレクト先は適切なものに変更
     end
   end
+
 end
 
 
