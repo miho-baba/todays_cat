@@ -43,10 +43,10 @@
   padding-top: -10px; /* 上に10ピクセル移動 */
 }
 
-/* DM画像コンテナのスタイル */
-.dm-image {
-  max-width: 5px; /* 画像の最大幅を指定 */
-  max-height: 5px; /* 画像の最大高さを指定 */
+/* DM画像の記述 */
+.dm-image img {
+  max-width: 50%; /* 画像はコンテナの幅を超えません */
+  height: auto; /* アスペクト比を保持 */
 }
 
 //いいねページ・マイページ・会員詳細の投稿画像と肉球アイコンの場所の記述
@@ -55,6 +55,7 @@
   display: inline-block;/* 画像とアイコンを横並びにする */
   width: 230px; /* お好みのサイズに調整してください */
   text-align: center; /* 画像とアイコンを中央揃えにします */
+  left: 20px;
 }
 
 .like-icon {//いいねページ・マイページ・会員詳細の投稿画像の中の肉球アイコンの場所の記述
@@ -404,12 +405,6 @@ font-family: 'Noto Serif JP';
 .pagination a:hover {
   background-color: #ffc1ff; /* 淡い紫系の色ホバー時の背景色 */
   margin-top: -20px auto; /* 上に20ピクセル移動 */
-}
-
-/* DM画像コンテナのスタイル */
-.dm-image {
-  max-width: 5px; /* 画像の最大幅を指定 */
-  max-height: 5px; /* 画像の最大高さを指定 */
 }
 
 //いいねページ・マイページ・会員詳細の投稿画像と肉球アイコンの場所の記述

@@ -42,11 +42,14 @@ class Customer::ChatsController < ApplicationController
   def destroy
     @chat = current_customer.chats.find(params[:id])
     if @chat.image.attached?
-      @chat.image.purge
+      @chat.purge_image
     end
+    #相手のルームと会員IDを探しにいく記述
+    customer_id =CustomerRoom.where(room_id: @chat.room_id).where.not(customer_id: current_customer.id).limit(1)[0].customer_id
     if @chat.destroy
       respond_to do |format|
-        format.html { redirect_to customer_chat_path, notice: 'チャットメッセージが削除されました' }
+        #会員IDを探しにいき、削除する
+        format.html { redirect_to customer_chat_path(customer_id), notice: 'チャットメッセージが削除されました' }
         format.js
       end
     end

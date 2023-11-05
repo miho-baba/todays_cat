@@ -1,35 +1,34 @@
-
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
     <h2 id="room" data-room="<%= @room.id %>" data-user="<%= current_customer.id %>"><%= image_tag 'editcat.jpg', :size => "50x50" %><%= @customer.last_name %> さんとのチャット<i class="fa-solid fa-envelope"></i></h2>
-
-    <div class="message" style="width: 400px;">
-      <% @chats.each do |chat| %>
-        <% if chat.customer_id == current_customer.id %>
-          <%= render "customer/chats/chat", chat: chat %>
-        <% else %>
-          <div class="left-container d-flex">
-            <%= image_tag @customer.get_profile_image(30, 30), size: '30x30', style: 'border-radius: 50%' %>
-            <% if chat.image.attached? %>
-              <div class="dm-image">
-              <%= image_tag @chat.image %>
-            <% else %>
-              <p class=ml-1 style="text-align: left;">
-                <span style="background-color: #F5F5DC; padding: 5px; border-radius: 10px;"><%= chat.message %></span>
-              </p>
-            <% end %>
-          </div>
+      <div class='col-md-8 offset-md-1'>
+      <div class="message" style="width: 400px;">
+        <% @chats.each do |chat| %>
+          <% if chat.customer_id == current_customer.id %>
+            <%= render "customer/chats/chat", chat: chat %>
+          <% else %>
+            <div class="left-container d-flex">
+              <%= image_tag @customer.get_profile_image(40,40), size: '30x30', style: 'border-radius: 50%' %>
+              <% if chat.image.attached? %>
+                  <%= image_tag chat.image %>
+              <% else %>
+                <p class=ml-1 style="text-align: left;">
+                  <span style="background-color: #F5F5DC; padding: 5px; border-radius: 10px;"><%= chat.message %></span>
+                </p>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
 
-      <%= form_with model: @chat, url: customer_chats_path, local: false, data: { remote: true, multipart: true } do |f| %>
-        <%= f.text_field :message, class:'form-control-chat_message' %>
-        <%= f.file_field :image, accept: "image/*" %>
-        <%= f.submit "送信", class: "btn btn-info btn-sm" %>
-        <%= f.hidden_field :room_id, value: @room.id %>
-      <% end %>
+        <%= form_with model: @chat, url: customer_chats_path, local: false, data: { remote: true, multipart: true } do |f| %>
+          <%= f.text_field :message, class:'form-control-chat_message' %>
+          <%= f.file_field :image, accept: "image/*" %>
+          <%= f.submit "送信", class: "btn btn-info btn-sm" %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
