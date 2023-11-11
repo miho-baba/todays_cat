@@ -1,41 +1,40 @@
-
 <%#会員側と管理者側で使用するフラッシュメッセージの記述%>
  <%= render "layouts/flash" %>
 
 <div class='col-md-8 offset-md-1'>
   <h1><%= image_tag 'blackcat.jpg', :size => "35x35" %></i>猫ちゃんの詳細<%= image_tag 'blackcat1.jpg', :size => "27x27" %></h1>
 
-      <th>
+    <th>
       <td><% if @photo.image.attached? %>
         <%= image_tag @photo.image, :size =>'980x640' %>
         <% end %>
       </td>
-      </th>
+    </th>
 
   <table class="table table-hover table-inverse">
     <thead>
-    <tr>
+      <tr>
 
       <tr>
         <th><%= image_tag 'aikon.jpg', :size => "30x25" %>投稿者</th>
-          <td><%= @photo.customer.last_name %><%= @photo.customer.first_name %>様</td>
+        <td><%= @photo.customer.last_name %><%= @photo.customer.first_name %>様</td>
       </tr>
 
       <tr>
         <th><%= image_tag 'aikon.jpg', :size => "30x25" %>投稿時間</th>
-          <td><%= @photo.updated_at %></td>
+        <td><%= @photo.updated_at %></td>
       </tr>
 
       <tr>
         <th><%= image_tag 'aikon.jpg', :size => "30x25" %>タイトル</th>
-          <td><%= @photo.title %></td>
+        <td><%= @photo.title %></td>
       </tr>
 
       <tr>
         <th><%= image_tag 'aikon.jpg', :size => "30x25" %>お気に入り数</th>
-            <td id="favorite_btn_<%= @photo.id %>">
-              <%= render "customer/favorites/btn", photo: @photo, index: false %>
-            </td>
+        <td id="favorite_btn_<%= @photo.id %>">
+          <%= render "customer/favorites/btn", photo: @photo, index: false %>
+        </td>
       <tr>
 
       <tr>
@@ -55,22 +54,21 @@
           </td>
       </tr>
 
-        <% if @photo.customer == current_customer %>
-          <tr>
-            <td>
+      <% if @photo.customer == current_customer %>
+        <tr>
+          <td>
               <%= link_to '編集する', edit_customer_photo_path(@photo), class: "btn btn-sm btn-warning edit" %>
         <% end %>
+
         <% if @photo.customer == current_customer %>
           <%= link_to '削除する', customer_photo_path(@photo.id), method: :delete, class: 'btn btn-sm btn-dark destroy'%>
 
         <% if @photo.customer == current_customer %>
-  <%= link_to 'マイページに戻る', mypage_customer_customers_path, class: 'btn btn-sm btn-dark destroy' %>
-<% end %>
-            </td>
-          <tr>
+          <%= link_to 'マイページに戻る', mypage_customer_customers_path, class: 'btn btn-sm btn-dark destroy' %>
         <% end %>
-
-      </tr>
+          </td>
+        <% end %>
+        </tr>
     </thead>
   </table>
 

@@ -5,32 +5,37 @@
 
       <%= form_with model: @customer, url: customer_registration_path do |f| %>
         <h2><i class="fa-solid fa-star"></i>ユーザー登録フォーム<i class="fa-solid fa-star"></i></h2>
-        <!--<table class="table table-borderless">-->
-        <!--<tbody>-->
+
           <div class="field">
             <i class="fa-solid fa-paw"></i><%= f.label "名前(姓)" %></br>
             <%= f.text_field :last_name %>
           </div>
+
           <div class="field">
             <i class="fa-solid fa-paw"></i><%= f.label "名前(名)" %></br>
             <%= f.text_field :first_name %>
           </div>
-          <div class="field">
+
+         <div class="field">
             <i class="fa-solid fa-paw"></i><%= f.label "フリガナ(セイ)" %></br>
             <%= f.text_field :last_name_kana %>
           </div>
+
           <div class="field">
             <i class="fa-solid fa-paw"></i><%= f.label "フリガナ(メイ)" %></br>
             <%= f.text_field :first_name_kana %>
           </div>
+
           <div class="field">
             <i class="fa-solid fa-paw"></i><%= f.label :"メールアドレス" %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
           </div>
+
           <div class="field">
             <i class="fa-solid fa-paw"></i><%= f.label :"電話番号(ハイフンなし)" %></br>
             <%= f.text_field :phone_number %>
           </div>
+
           <div class="field">
             <i class="fa-solid fa-paw"></i><%= f.label :"パスワード" %>
             <% if @minimum_password_length %>

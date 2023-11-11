@@ -1,23 +1,22 @@
-
 <%#会員側と管理者側で使用するフラッシュメッセージの記述%>
- <%= render "layouts/flash" %>
+<%= render "layouts/flash" %>
 
 <div class='container'>
-<div class='row'>
-<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 
     <%= form_with model: @photo, url: customer_photo_path(@photo), method: :patch do |f| %>
 
-    <div id="error_explanation">
-      <% if @photo.errors.any? %>
-      <%= @photo.errors.count %>つのエラーにより編集の保存に失敗しました！
-       <ul>
-       <% @photo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <div id="error_explanation">
+        <% if @photo.errors.any? %>
+          <%= @photo.errors.count %>つのエラーにより編集の保存に失敗しました！
+          <ul>
+          <% @photo.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
         <% end %>
-       </ul>
-        <% end %>
-    </div>
+      </div>
 
     <h1><%= image_tag 'blackcat.jpg', :size => "35x35" %>投稿写真編集フォーム<%= image_tag 'blackcat1.jpg', :size => "30x30" %></h1>
 
@@ -40,13 +39,14 @@
         <label for="photo_introduction"><i class="fa-solid fa-pencil"></i>写真の説明文</label>
         <%= f.text_area :photo_introduction, class:'form-control photo_introduction' %>
       </div>
+
       <div class="form-group">
         <%= f.submit '更新する', class: 'btn btn-primary' %>
       </div>
     <% end %>
 
-        <%= link_to '詳細ページに戻る', customer_photo_path, class: "btn btn-dark" %>
+    <%= link_to '詳細ページに戻る', customer_photo_path, class: "btn btn-dark" %>
 
-        </div>
-      </div>
     </div>
+  </div>
+</div>

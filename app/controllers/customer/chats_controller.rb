@@ -32,10 +32,7 @@ class Customer::ChatsController < ApplicationController
     # フォームから送信されたメッセージを取得し、現在のユーザーに関連付けて保存
     @chat = current_customer.chats.new(chat_params)
       # 画像が存在する場合のみ添付する
-      if params[:chat][:image].present?
-        @chat.image.attach(params[:chat][:image])
-      end
-      render :validate unless @chat.save
+    @chat.save
   end
 
   # チャットメッセージの削除

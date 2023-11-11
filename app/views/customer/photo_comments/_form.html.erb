@@ -1,4 +1,3 @@
-
 <%= form_with model: [photo, photo_comment], url: customer_photo_photo_comments_path(photo), local: false do |f| %>
   <%= f.text_area :comment, rows:'5', placeholder: "コメントを記入", class: "w-100", id: "comment_textarea" %>
   <%= f.submit "送信", class: "btn btn-info"%>

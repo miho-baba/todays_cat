@@ -1,7 +1,7 @@
-
 <div style="color: white">
   <h4>特定の会員を探す<i class="fa-solid fa-magnifying-glass"></i></h4>
 </div>
+
   <% if admin_signed_in? %>
     <%= form_with url: admin_search_path, method: :get, local: true do |f| %>
       <%= f.text_field :content %>

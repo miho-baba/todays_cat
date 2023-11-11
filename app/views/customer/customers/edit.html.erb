@@ -1,5 +1,4 @@
-
-  <%#会員側と管理者側で使用するフラッシュメッセージの記述%>
+<%#会員側と管理者側で使用するフラッシュメッセージの記述%>
  <%= render "layouts/flash" %>
 
 <div class='container'>
@@ -7,55 +6,59 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 
     <%= form_with model: @customer, url:customer_customer_path(@customer) do |f| %>
-       <div id="error_explanation">
-    <% if @customer.errors.any? %>
-    <%= @customer.errors.count %>つのエラーにより編集の保存に失敗しました！
-    <ul>
-      <% @customer.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-    <% end %>
-  </div>
+      <div id="error_explanation">
+        <% if @customer.errors.any? %>
+          <%= @customer.errors.count %>つのエラーにより編集の保存に失敗しました！
+            <ul>
+              <% @customer.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
 
     <h2><i class="fa-solid fa-paw"></i>プロフィール編集フォーム<i class="fa-solid fa-paw"></i></h2>
 
-    <div class="form-group">
-      <i class="fa-solid fa-sun"></i><%= f.label :プロフィール画像 %>
-      <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
-    </div>
-    <div class="form-group">
-      <i class="fa-solid fa-sun"></i><%= f.label :名前（姓） %>
-      <%= f.text_field :last_name, class: "form-control last_name" %>
-    </div>
-    <div class="form-group">
-      <i class="fa-solid fa-sun"></i><%= f.label :名前（名） %>
-      <%= f.text_field :first_name, class: "form-control first_name" %>
-    </div>
+      <div class="form-group">
+        <i class="fa-solid fa-sun"></i><%= f.label :プロフィール画像 %>
+        <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
+      </div>
 
-    <div class="form-group">
-      <i class="fa-solid fa-sun"></i><%= f.label :フリガナ（セイ） %>
-      <%= f.text_field :last_name_kana, class: "form-control last_name_kana" %>
-    </div>
+      <div class="form-group">
+        <i class="fa-solid fa-sun"></i><%= f.label :名前（姓） %>
+        <%= f.text_field :last_name, class: "form-control last_name" %>
+      </div>
 
-    <div class="form-group">
-      <i class="fa-solid fa-sun"></i><%= f.label :フリガナ（メイ） %>
-      <%= f.text_field :first_name_kana, class: "form-control first_name_kana" %>
-    </div>
+      <div class="form-group">
+        <i class="fa-solid fa-sun"></i><%= f.label :名前（名） %>
+        <%= f.text_field :first_name, class: "form-control first_name" %>
+      </div>
 
-    <div class="form-group">
-      <i class="fa-solid fa-sun"></i><%= f.label :電話番号 %>
-      <%= f.text_field :phone_number, class: "form-control phone_number" %>
-    </div>
+      <div class="form-group">
+        <i class="fa-solid fa-sun"></i><%= f.label :フリガナ（セイ） %>
+        <%= f.text_field :last_name_kana, class: "form-control last_name_kana" %>
+      </div>
 
-    <div class="form-group">
-      <i class="fa-solid fa-sun"></i><%= f.label :紹介文 %>
-      <%= f.text_area :introduction, class: "form-control introduction" %>
-    </div>
-    <div class="form-group">
-      <%= f.submit "プロフィールを更新する", class: 'btn btn-info' %>
-      <%= link_to 'マイページに戻る', mypage_customer_customers_path, class: 'btn btn-sm btn-secondary destroy' %>
-    </div>
+      <div class="form-group">
+        <i class="fa-solid fa-sun"></i><%= f.label :フリガナ（メイ） %>
+        <%= f.text_field :first_name_kana, class: "form-control first_name_kana" %>
+      </div>
+
+      <div class="form-group">
+        <i class="fa-solid fa-sun"></i><%= f.label :電話番号 %>
+        <%= f.text_field :phone_number, class: "form-control phone_number" %>
+      </div>
+
+      <div class="form-group">
+        <i class="fa-solid fa-sun"></i><%= f.label :紹介文 %>
+        <%= f.text_area :introduction, class: "form-control introduction" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "プロフィールを更新する", class: 'btn btn-info' %>
+        <%= link_to 'マイページに戻る', mypage_customer_customers_path, class: 'btn btn-sm btn-secondary destroy' %>
+      </div>
     <% end %>
+    </div>
   </div>
 </div>

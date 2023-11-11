@@ -1,66 +1,65 @@
-
 <div class='col-md-8 offset-md-1'>
   <div class="row">
-<h1><i class="fa-solid fa-fish"></i><%= @customer.last_name%>様の会員プロフィール</h1>
+    <h1><i class="fa-solid fa-fish"></i><%= @customer.last_name%>様の会員プロフィール</h1>
 
-<table class='table'>
-  <tr>
-    <th><%= image_tag 'aikon.jpg', :size => "35x30" %>プロフィール画像</th>
-    <th><%= image_tag @customer.get_profile_image(100,100) %></th>
-  </tr>
-  <tr>
-	  <th><%= image_tag 'aikon.jpg', :size => "35x30" %>名前(姓)</th>
-	  <th><%= @customer.last_name %></th>
-  </tr>
-  <tr>
+    <table class='table'>
+      <tr>
+        <th><%= image_tag 'aikon.jpg', :size => "35x30" %>プロフィール画像</th>
+        <th><%= image_tag @customer.get_profile_image(100,100) %></th>
+      </tr>
 
-	<th><%= image_tag 'aikon.jpg', :size => "35x30" %>名前(名)</th>
-	  <th><%= @customer.first_name %></th>
-  </tr>
+      <tr>
+        <th><%= image_tag 'aikon.jpg', :size => "35x30" %>名前(姓)</th>
+        <th><%= @customer.last_name %></th>
+      </tr>
 
-  <tr>
-	  <th><%= image_tag 'aikon.jpg', :size => "35x30" %>紹介文</th>
-	  <th><%= @customer.introduction %></th>
-  </tr>
-   <tr>
-  	   <td>
-        <% if current_customer != @customer && current_customer.following?(@customer) && @customer.following?(current_customer) %>
-          <%= link_to 'チャットルーム', customer_chat_path(@customer.id), class: "ml-3 btn btn-outline-success" %>
-        <% end %>
-      <td>
-   </tr>
-   <tr>
-  <td><%= link_to '会員一覧に戻る', customer_customers_path, class: "btn btn-sm btn-warning index" %></td>
-  </tr>
-</table>
-    </div>
+      <tr>
+        <th><%= image_tag 'aikon.jpg', :size => "35x30" %>名前(名)</th>
+        <th><%= @customer.first_name %></th>
+      </tr>
+
+      <tr>
+        <th><%= image_tag 'aikon.jpg', :size => "35x30" %>紹介文</th>
+        <th><%= @customer.introduction %></th>
+      </tr>
+
+      <tr>
+        <td>
+          <% if current_customer != @customer && current_customer.following?(@customer) && @customer.following?(current_customer) %>
+            <%= link_to 'チャットルーム', customer_chat_path(@customer.id), class: "ml-3 btn btn-outline-success" %>
+          <% end %>
+        <td>
+      </tr>
+
+      <tr>
+        <td><%= link_to '会員一覧に戻る', customer_customers_path, class: "btn btn-sm btn-warning index" %></td>
+      </tr>
+    </table>
   </div>
 </div>
 
-<%#ここから追記#%>
 <div class='col-md-8 offset-md-1'>
   <h2><i class="fa-solid fa-paw"></i>投稿写真一覧<i class="fa-solid fa-paw"></i></h2>
-  <div class="row">
+    <div class="row">
     <% @customers.each do |photo| %>
       <div class="col-md-4">
-        <%= link_to customer_photo_path(photo) do %>
-          <div class="image-container move-left">
-              <%= image_tag photo.image, size: '250x250' %>
-              <div class="like-icon">
-                <div id="favorite_btn_<%= photo.id %>">
-                  <%= render "customer/favorites/btn", photo: photo, index: true %>
-                </div>
-              </div>
+      <%= link_to customer_photo_path(photo) do %>
+        <div class="image-container move-left">
+          <%= image_tag photo.image, size: '250x250' %>
+          <div class="like-icon">
+            <div id="favorite_btn_<%= photo.id %>">
+              <%= render "customer/favorites/btn", photo: photo, index: true %>
+            </div>
           </div>
-        <% end %>
+        </div>
+      <% end %>
       </div>
     <% end %>
+
     <div class="col-lg-5 mx-auto" style="width: 265px;">
       <div class="pagination">
         <%= paginate @photos %>
       </div>
     </div>
-
   </div>
 </div>
-<%#ここまで追記#%>

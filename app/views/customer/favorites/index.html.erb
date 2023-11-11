@@ -1,4 +1,3 @@
-
 <div class='col-md-8 offset-md-1'>
   <h1><i class="fa-solid fa-paw"></i>いいね一覧：<%= @photos.total_count %> 枚<i class="fa-solid fa-paw"></i></h1>
   <div class="row">
@@ -7,31 +6,33 @@
         <div class="col-md-4">
           <%= link_to customer_photo_path(photo) do %>
             <div class="image-container move-left">
-                <%= image_tag photo.image, size: '250x250' %>
+              <%= image_tag photo.image, size: '250x250' %>
                 <div class="like-icon">
                   <div id="favorite_btn_<%= photo.id %>">
                     <%= render "customer/favorites/btn", photo: photo, index: true %>
                   </div>
                 </div>
-                  <div class="name">
-                    <% if photo.customer %>
-                      by. <%= photo.customer.last_name %>様
-                    <% end %>
-                  </div>
+                <div class="name">
+                  <% if photo.customer %>
+                    by. <%= photo.customer.last_name %>様
+                  <% end %>
+                </div>
             </div>
           <% end %>
         </div>
       <% end %>
-    </div>
+  </div>
+    
     <div class="col-lg-5 mx-auto" style="width: 265px;">
       <div class="pagination">
         <%= paginate @photos %>
       </div>
     </div>
-  <% else %>
-    <p>いいねした写真はありません。</p>
-  <% end %>
+    <% else %>
+      <p>いいねした写真はありません。</p>
+    <% end %>
 </div>
+
 <div class='col-md-8 offset-md-1'>
-<%= link_to 'マイページに戻る', mypage_customer_customers_path, class: 'btn btn-sm btn-info destroy' %>
+  <%= link_to 'マイページに戻る', mypage_customer_customers_path, class: 'btn btn-sm btn-info destroy' %>
 </div>
