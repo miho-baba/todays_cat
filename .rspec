@@ -1,0 +1,99 @@
+--require spec_helper
+
+# 会員モデルのテスト
+RSpec.describe Customer, type: :model do
+  it 'is valid with a last_name, email, password, and introduction' do
+    customer = Customer.new(
+      first_name: 'first_name',
+      last_name: 'last_name',
+      first_name_kana: 'first_name_kana',
+      last_name_kana: 'last_name_kana',
+      phone_number: 'phone_number',
+      email: 'email',
+      password: 'password',
+      introduction: 'introduction'
+    )
+    expect(customer).to be_valid
+  end
+
+  it 'is invalid without a last_name' do
+    customer = Customer.new(last_name: nil)
+    customer.valid?
+    expect(customer.errors[:last_name]).to include("can't be blank")
+  end
+
+  # 他のバリデーションテストも同様に記述する
+end
+
+# 写真モデルのバリデーションテスト
+RSpec.describe Photo, type: :model do
+  it 'is valid with a title and photo_introduction' do
+    customer = Customer.create(last_name: 'Example Customer', email: 'email', password: 'password')
+    photo = customer.photos.new(title: 'title', image: 'image', cat_color: 'cat_color', photo_introduction: 'photo_introduction')
+    expect(photo).to be_valid
+  end
+
+  it 'is invalid without a title' do
+    customer = Customer.create(last_name: 'Example Customer', email: 'email', password: 'password')
+    photo = customer.photos.new(title: nil, photo_introduction: 'photo_introduction')
+    photo.valid?
+    expect(photo.errors[:title]).to include("can't be blank")
+  end
+
+  # 他のバリデーションテストも同様に記述する
+end
+
+# 会員のアソシエーションテスト
+RSpec.describe Customer, type: :model do
+  it 'has many photos' do
+    association = Customer.reflect_on_association(:photos)
+    expect(association.macro).to eq :has_many
+  end
+end
+
+# ログイン前のテスト
+RSpec.describe 'トップ画面', type: :system do
+  it '正しいコンテンツを表示する' do
+    visit root_path
+    expect(page).to have_current_path(user_root_path)
+    expect(page).to have_link('ログイン', href: customer_session_path)
+    expect(page).to have_link('新規登録', href: new_customer_registration_path)
+  end
+end
+
+# 会員新規登録のテスト
+RSpec.describe '会員登録', type: :system do
+  it '成功する' do
+    visit signup_path
+    fill_in '姓', with: 'last_name'
+    fill_in '名', with: 'first_name'
+    fill_in '姓（カナ）', with: 'last_name_kana'
+    fill_in '名（カナ）', with: 'first_name_kana'
+    fill_in '電話番号', with: 'phone_number'
+    fill_in 'メール', with: 'email'
+    fill_in 'パスワード', with: 'password'
+    fill_in 'パスワード確認', with: 'password'
+
+    click_button '新規登録'
+    expect(page).to have_current_path(mypage_customer_customers_path(Customer.last))
+  end
+
+  it '無効な情報で失敗する' do
+    visit signup_path
+    click_button '新規登録'
+    expect(page).to have_content('メールアドレスを入力してください')
+    expect(page).to have_content('パスワードを入力してください')
+    expect(page).to have_content('名を入力してください')
+    expect(page).to have_content('姓を入力してください')
+    expect(page).to have_content('カタカナ(姓)を入力してください')
+    expect(page).to have_content('カタカナ(名)を入力してください')
+    expect(page).to have_content('電話番号を入力してください')
+    # 他のエラーメッセージに関する確認も同様に行います
+  end
+end
+
+
+
+
+
+
