@@ -152,6 +152,33 @@ body {
   color: #333333;//とても暗い無彩色
 }
 
+/* スクロールボタンの記述 */
+.scroll-top-btn {
+  display: none; /* ボタンを初めは非表示に */
+  position: fixed; /* ボタンを画面に固定 */
+  bottom: 5%; /* 画面の下から5%の位置に配置 */
+  right: 2%; /* 画面の右から2%の位置に配置 */
+  width: 40px; /* ボタンの幅 */
+  height: 40px; /* ボタンの高さ */
+  background-color: #5a4498; /* ボタンの背景色(バイオレット) */
+  border-radius: 50%; /* ボタンの角を丸くする */
+  display: flex; /* ボタン内の要素を横並びに配置 */
+  align-items: center; /* ボタン内の要素を縦方向中央に配置 */
+  justify-content: center; /* ボタン内の要素を横方向中央に配置 */
+  color: #000000; /* テキストの色を黒に設定 */
+  font-size: 24px; /* テキストのフォントサイズ */
+  text-decoration: none; /* テキストの下線を削除 */
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* ホバー時のトランジション効果の設定 */
+  z-index: 9999; /* ボタンを最前面に */
+}
+/* スクロールボタンの記述 */
+.scroll-top-btn:hover {
+  background-color: #47266e; /* ホバー時の背景色変更(ディープロイヤルパープル) */
+  text-decoration: none; /* テキストの下線を削除 */
+  color: #1f1f1f; /* ホバー時のテキストの色を少し薄い黒に変更 */
+  transform: scale(1.1); /* ホバー時の拡大率変更 */
+}
+
 //黄色のヘッダーのあたりの記述
   .header {
   width: 100%;
@@ -509,6 +536,33 @@ body {
   color: #333333;//とても暗い無彩色
   font-family: 'Noto Serif JP';
   }
+
+/* スクロールボタンの記述 */
+.scroll-top-btn {
+  display: none; /* ボタンを初めは非表示に */
+  position: fixed; /* ボタンを画面に固定 */
+  bottom: 5%; /* 画面の下から5%の位置に配置 */
+  right: 2%; /* 画面の右から2%の位置に配置 */
+  width: 40%; /* ボタンの幅 */
+  height: 40px; /* ボタンの高さ */
+  background-color: #5a4498; /* ボタンの背景色(バイオレット) */
+  border-radius: 50%; /* ボタンの角を丸くする */
+  display: flex; /* ボタン内の要素を横並びに配置 */
+  align-items: center; /* ボタン内の要素を縦方向中央に配置 */
+  justify-content: center; /* ボタン内の要素を横方向中央に配置 */
+  color: #000000; /* テキストの色を黒に設定 */
+  font-size: 24px; /* テキストのフォントサイズ */
+  text-decoration: none; /* テキストの下線を削除 */
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* ホバー時のトランジション効果の設定 */
+  z-index: 9999; /* ボタンを最前面に */
+}
+/* スクロールボタンの記述 */
+.scroll-top-btn:hover {
+  background-color: #47266e; /* ホバー時の背景色変更(ディープロイヤルパープル) */
+  text-decoration: none; /* テキストの下線を削除 */
+  color: #1f1f1f; /* ホバー時のテキストの色を少し薄い黒に変更 */
+  transform: scale(1.1); /* ホバー時の拡大率変更 */
+}
 
 //黄色のヘッダーのあたりの記述
   .header {
