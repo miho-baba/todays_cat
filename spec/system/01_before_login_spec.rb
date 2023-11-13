@@ -10,7 +10,6 @@ describe '[STEP1] ユーザログイン前のテスト' do
       it 'URLが正しい' do
         expect(user_root_path).to eq '/user'
       end
-     end
     end
-   end
-
+  end
+end

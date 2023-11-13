@@ -52,7 +52,7 @@ class Customer::CustomersController < ApplicationController
   end
 
   private
-  def customer_params
-    params.require(:customer).permit(:profile_image, :last_name, :first_name, :introduction)
-  end
+    def customer_params
+      params.require(:customer).permit(:profile_image, :last_name, :first_name, :introduction)
+    end
 end

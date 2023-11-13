@@ -51,8 +51,7 @@ class Customer::PhotosController < ApplicationController
   end
 
   private
-
-  def photo_params
-    params.permit(:title, :image, :cat_color, :photo_introduction)
-  end
+    def photo_params
+      params.permit(:title, :image, :cat_color, :photo_introduction)
+    end
 end

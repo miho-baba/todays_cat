@@ -31,7 +31,7 @@ describe '[STEP3] 仕上げのテスト' do
       fill_in 'user[password]', with: user.password
       click_button 'Log in'
       logout_link = find_all('a')[4].text
-      logout_link = logout_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+      logout_link = logout_link.strip
       click_link logout_link
       is_expected.to have_content 'successfully'
     end

@@ -39,7 +39,7 @@ class Customer < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/no_image1.jpg')
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-      profile_image.variant(resize_to_limit: [width, height]).processed
+    profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
   # 指定したユーザーをフォローする
@@ -64,9 +64,9 @@ class Customer < ApplicationRecord
     elsif method == 'forward'
       Customer.where('last_name LIKE ?', content + '%').or(Customer.where("first_name LIKE ?", content + '%'))
     elsif method == 'backward'
-      Customer.where('last_name LIKE ?', '%' + content).or(Customer.where("first_name LIKE ?", '%' + content))
+      Customer.where('last_name LIKE ?', '%' + content).or(Customer where("first_name LIKE ?", '%' + content))
     else
-      Customer.where('last_name LIKE ?', '%' + content + '%').or(Customer.where('last_name LIKE ?', '%' + content + '%'))
+      Customer.where('last_name LIKE ?', '%' + content + '%').or(Customer.where('first_name LIKE ?', '%' + content + '%'))
     end
   end
 
@@ -75,7 +75,7 @@ class Customer < ApplicationRecord
     if method == 'perfect'
       Customer.where('last_name': content).or(Customer.where("first_name": content)).or(Customer.where(id: content))
     elsif method == 'forward'
-      Customer.where('last_name LIKE ?', content + '%').or(Customer.where("first_name LIKE ?", content + '%')) or (Customer.where("id LIKE ?", content + '%'))
+      Customer.where('last_name LIKE ?', content + '%').or(Customer.where("first_name LIKE ?", content + '%')).or(Customer.where("id LIKE ?", content + '%'))
     elsif method == 'backward'
       Customer.where('last_name LIKE ?', '%' + content).or(Customer.where("first_name LIKE ?", '%' + content)).or(Customer.where("id LIKE ?", '%' + content))
     else

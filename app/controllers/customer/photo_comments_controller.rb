@@ -15,9 +15,8 @@ class Customer::PhotoCommentsController < ApplicationController
   end
 
   private
-
-  # コメント作成時に必要なcommentパラメータのみを許可する記述
-  def photo_comment_params
-    params.require(:photo_comment).permit(:comment)
-  end
+    # コメント作成時に必要なcommentパラメータのみを許可する記述
+    def photo_comment_params
+      params.require(:photo_comment).permit(:comment)
+    end
 end

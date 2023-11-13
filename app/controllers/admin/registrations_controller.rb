@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Admin::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, if: :devise_controller?
 
@@ -8,8 +6,7 @@ class Admin::RegistrationsController < Devise::RegistrationsController
   end
 
   protected
-
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
-  end
+    def configure_sign_up_params
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
+    end
 end
