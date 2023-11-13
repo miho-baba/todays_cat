@@ -1,9 +1,9 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      
+
       <%= render "admin/shared/error_messages", resource: resource %>
-        <%# form_withで記述したら遷移しなかっため記述を変更%>
+        <%# form_withで記述したら遷移しなかっため記述を変更 %>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <h2><i class="fa-solid fa-key"></i>管理者ログイン</h2>
 
@@ -28,7 +28,7 @@
               </i><%= f.submit "ログイン", class: "btn btn-primary" %>
             </div>
           <% end %>
-    
+
     </div>
   </div>
 </div>

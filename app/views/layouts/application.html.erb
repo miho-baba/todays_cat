@@ -2,17 +2,13 @@
   <html lang="ja">
     <head>
       <meta charset="UTF-8" />
-      <!-- CSSファイルの記述は今回なしにする -->
         <title>＊今日のお猫様＊</title>
           <%= csrf_meta_tags %>
           <%= csp_meta_tag %>
             <meta name="viewport" content= "width=device-width, initial-scale=1, maximum-scale=1">
             <!-- 自身のKItCodeの記述-->
             <script src="https://kit.fontawesome.com/e0c0e0275e.js" crossorigin="anonymous"></script>
-            <%#= 今回は、javascriptのscssファイルに書いていくのでコメントアウトにする %>
-            <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
             <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
             <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
@@ -151,7 +147,6 @@
                  </div>
         </body>
       </header>
-
       <main class="mb-auto">
         <%= yield %>
       </main>

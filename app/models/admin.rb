@@ -5,6 +5,4 @@ class Admin < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :email, presence: true
-
 end
-

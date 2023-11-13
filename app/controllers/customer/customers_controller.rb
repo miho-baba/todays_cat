@@ -1,5 +1,4 @@
 class Customer::CustomersController < ApplicationController
-
   def show
     @customer = Customer.find(params[:id])
     @customer_new = Customer.new
@@ -26,21 +25,21 @@ class Customer::CustomersController < ApplicationController
   def withdraw
     @customer = current_customer # current_customer メソッドを使用してユーザーを取得
     if @customer.withdraw
-    reset_session
-    flash[:notice] = "退会処理を実行いたしました"
-    redirect_to user_root_path
+      reset_session
+      flash[:notice] = "退会処理を実行いたしました"
+      redirect_to user_root_path
     end
   end
 
   def update
     @customer = Customer.find(params[:id])
-      if @customer.update(customer_params)
-        flash[:notice] = "編集の更新に成功しました！"#無事投稿できたら表示する記述
-        redirect_to mypage_customer_customers_path(@customer)
-      else
-        flash[:alert] = "編集の更新に失敗しました。"
-        render 'customer/customers/edit' # 編集ページにリダイレクトし、エラーメッセージを表示
-      end
+    if @customer.update(customer_params)
+      flash[:notice] = "編集の更新に成功しました！" # 無事投稿できたら表示する記述
+      redirect_to mypage_customer_customers_path(@customer)
+    else
+      flash[:alert] = "編集の更新に失敗しました。"
+      render 'customer/customers/edit' # 編集ページにリダイレクトし、エラーメッセージを表示
+    end
   end
 
   def toggle_favorite
@@ -53,9 +52,7 @@ class Customer::CustomersController < ApplicationController
   end
 
   private
-    def customer_params
-      params.require(:customer).permit(:profile_image, :last_name, :first_name, :introduction )
-    end
-
+  def customer_params
+    params.require(:customer).permit(:profile_image, :last_name, :first_name, :introduction)
+  end
 end
-

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  #管理者用
-  devise_for :admins,skip: [:passwords], controllers: {
+  # 管理者用
+  devise_for :admins, skip: [:passwords], controllers: {
     sessions: "admin/sessions"
   }
-  #ルートパスの記述
+  # ルートパスの記述
   get "/" => "user/homes#top"
   namespace :admin do
     get "/" => "homes#top"
@@ -13,22 +13,20 @@ Rails.application.routes.draw do
     get "/search", to: "searches#search"
   end
 
-  #会員用
-  devise_for :customers,skip: [:passwords], controllers: {
+  # 会員用
+  devise_for :customers, skip: [:passwords], controllers: {
     sessions: "customer/sessions",
-    registrations: 'customer/registrations'
+    registrations: "customer/registrations"
   }
 
   namespace :customer do
     resources :mypages, only: [:show, :edit, :create, :update, :index]
     resources :customers, only: [:index, :show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
-      	get "followings" => "relationships#followings", as: "followings"
-      	get "followers" => "relationships#followers", as: "followers"
-        # 退会確認画面
-        get  "/check" => "customers#check"
-        # 論理削除用のルーティング
-        patch  '/withdraw' => 'customers#withdraw'
+      get "followings" => "relationships#followings", as: "followings"
+      get "followers" => "relationships#followers", as: "followers"
+      get "/check" => "customers#check"
+      patch "/withdraw" => "customers#withdraw"
       collection do
         get :mypage
       end
@@ -37,7 +35,8 @@ Rails.application.routes.draw do
     resources :photos, only: [:index, :show, :edit, :update, :create, :destroy] do
       resources :photo_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
-      get '/favorites', to: 'favorites#index'#いいねの一覧ページの記述
+      # いいねの一覧ページの記述
+      get '/favorites', to: 'favorites#index'
     end
     get "/search", to: "searches#search"
     resources :chats, only: [:show, :create, :destroy]

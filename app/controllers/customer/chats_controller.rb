@@ -21,17 +21,17 @@ class Customer::ChatsController < ApplicationController
       CustomerRoom.create(customer_id: current_customer.id, room_id: @room.id)
       CustomerRoom.create(customer_id: @customer.id, room_id: @room.id)
     end
-      # チャットルームに関連付けられたメッセージを取得
-      @chats = @room.chats
-      # 新しいメッセージを作成するための空のChatオブジェクトを生成
-      @chat = Chat.new(room_id: @room.id)
+    # チャットルームに関連付けられたメッセージを取得
+    @chats = @room.chats
+    # 新しいメッセージを作成するための空のChatオブジェクトを生成
+    @chat = Chat.new(room_id: @room.id)
   end
 
   # チャットメッセージの送信
   def create
     # フォームから送信されたメッセージを取得し、現在のユーザーに関連付けて保存
     @chat = current_customer.chats.new(chat_params)
-      # 画像が存在する場合のみ添付する
+    # 画像が存在する場合のみ添付する
     @chat.save
   end
 
@@ -41,19 +41,19 @@ class Customer::ChatsController < ApplicationController
     if @chat.image.attached?
       @chat.purge_image
     end
-    #相手のルームと会員IDを探しにいく記述
-    customer_id =CustomerRoom.where(room_id: @chat.room_id).where.not(customer_id: current_customer.id).limit(1)[0].customer_id
+    # 相手のルームと会員IDを探しにいく記述
+    customer_id = CustomerRoom.where(room_id: @chat.room_id).where.not(customer_id: current_customer.id).limit(1)[0].customer_id
     if @chat.destroy
       respond_to do |format|
-        #会員IDを探しにいき、削除する
+        # 会員IDを探しにいき、削除する
         format.html { redirect_to customer_chat_path(customer_id), notice: 'チャットメッセージが削除されました' }
         format.js
       end
     end
   end
-  private
 
-  #DMの画像の記述
+  private
+  # DMの画像の記述
   def chat_params
     params.require(:chat).permit(:message, :room_id, :image)
   end
@@ -67,7 +67,4 @@ class Customer::ChatsController < ApplicationController
       redirect_to photos_path # リダイレクト先は適切なものに変更
     end
   end
-
 end
-
-

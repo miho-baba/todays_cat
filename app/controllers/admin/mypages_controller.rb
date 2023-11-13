@@ -1,5 +1,4 @@
 class Admin::MypagesController < ApplicationController
-
   def show
     @admin = current_admin
   end
@@ -9,5 +8,4 @@ class Admin::MypagesController < ApplicationController
   def admin_params
     params.require(:admin).permit(:email, :password)
   end
-
 end

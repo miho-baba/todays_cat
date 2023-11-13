@@ -1,4 +1,4 @@
-<%#会員側と管理者側で使用するフラッシュメッセージの記述%>
+<%# 会員側と管理者側で使用するフラッシュメッセージの記述 %>
 <%= render "layouts/flash" %>
 
 <div class='container px-5 px-sm-0'>
@@ -56,7 +56,7 @@
 
         <tr>
       	  <th><i class="fa-solid fa-feather"></i>いいね
-            <%#ページが出来たらパスを変更する#%>
+            <%# ページが出来たらパスを変更する %>
             <%= link_to customer_photo_favorites_path(@customer), class: "btn btn-outline-danger btn-block" do %>
               <i class="fa-solid fa-paw" style="color: inherit;"></i>
             <% end %>
