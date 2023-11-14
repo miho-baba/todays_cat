@@ -43,8 +43,7 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    root "homes#top"
-      root "user/homes#top"
+    # root "homes#top"
     resources :customers, only: [:show]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
