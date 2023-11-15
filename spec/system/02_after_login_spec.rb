@@ -41,4 +41,3 @@ describe '[STEP2] ユーザログイン後のテスト' do
     end
   end
 end
-

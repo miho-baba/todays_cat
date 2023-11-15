@@ -1,5 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require 'capybara/rspec'
+require 'selenium/webdriver'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
@@ -63,4 +65,13 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :system
   # 特定のテスト実行のため
   config.filter_run_when_matching :focus
+
+  ENV['LAUNCHY_BROWSER'] = 'chrome' # または 'firefox'、またはシステムにインストールされている他のブラウザ
+
+  Capybara.register_driver :selenium do |app|
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
+  end
+
+  Capybara.default_driver = :selenium
+
 end
