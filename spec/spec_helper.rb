@@ -13,6 +13,7 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+# 動作確認ツールの記述
 require 'capybara/rspec'
 RSpec.configure do |config|
   config.before(:each, type: :system) do

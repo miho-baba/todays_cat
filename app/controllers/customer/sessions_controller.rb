@@ -8,7 +8,7 @@ class Customer::SessionsController < Devise::SessionsController
     end
 
     def after_sign_out_path_for(resource)
-      user_path
+      root_path
     end
     # 利用停止の場合の記述
     def reject_inactive_user

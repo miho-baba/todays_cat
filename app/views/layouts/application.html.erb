@@ -35,7 +35,7 @@
           <% if customer_signed_in? %>
           <ul class="bg">
             <li class="nav-list-item">
-              <%= link_to user_path, class: 'green-text' do %>
+              <%= link_to root_path, class: 'green-text' do %>
                 TOPページ<i class="fa-solid fa-paw"></i>
               <% end %>
             </li>
@@ -112,7 +112,7 @@
             <% else %>
             <ul>
               <li class="nav-list-item">
-                <%= link_to user_path, class: 'green-text' do %>
+                <%= link_to root_path, class: 'green-text' do %>
                   TOPページ<i class="fa-solid fa-paw"></i>
                 <% end %>
               </li>
@@ -154,7 +154,7 @@
               <% if customer_signed_in? %>
               <ul class="bg">
                 <li class="nav-list-item">
-                  <%= link_to user_path, class: 'nav-link green1-text' do %>
+                  <%= link_to root_path, class: 'nav-link green1-text' do %>
                     TOPページ<i class="fa-solid fa-paw"></i>
                   <% end %>
                 </li>
@@ -220,7 +220,7 @@
               <% else %>
               <ul>
                 <li class="nav-list-items">
-                  <%= link_to user_path, class: 'nav-link green1-text' do %>
+                  <%= link_to root_path, class: 'nav-link green1-text' do %>
                     TOPページ<i class="fa-solid fa-paw"></i>
                   <% end %>
                 </li>

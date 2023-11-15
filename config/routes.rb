@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
   # ルートパスの記述
-  get "/" => "user/homes#top"
+  root to: 'user/homes#top'
   namespace :admin do
     get "/" => "homes#top"
     get "mypage" => "mypages#show"
@@ -40,11 +40,6 @@ Rails.application.routes.draw do
     end
     get "/search", to: "searches#search"
     resources :chats, only: [:show, :create, :destroy]
-  end
-
-  namespace :user do
-    get "/", to: "homes#top"
-    resources :customers, only: [:show]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
