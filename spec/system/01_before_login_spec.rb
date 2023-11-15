@@ -31,6 +31,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
         expect(sign_up_link['href']).to eq new_customer_registration_path  # href属性を直接比較
       end
     end
+  end
 
   describe 'ヘッダーのテスト: ログインしていない場合' do
     before do
@@ -50,8 +51,7 @@ describe '[STEP1] ユーザログイン前のテスト' do
         signup_link = find_all('a')[3].text
         expect(signup_link).to match(/新規登録/)
       end
-
     end
   end
 end
-end
+
