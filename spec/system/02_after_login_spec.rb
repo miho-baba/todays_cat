@@ -2,6 +2,9 @@ require 'rails_helper'
 
 describe '[STEP2] ユーザログイン後のテスト' do
   let!(:customer) { create(:customer) }
+  let!(:photo) { create(:photo) }
+  let!(:other_photo) { create(:photo) }
+  let!(:other_customer) { create(:customer) }
 
   before do
     visit new_customer_session_path

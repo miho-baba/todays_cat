@@ -1,4 +1,3 @@
-# ./spec/system/01_before_login_spec.rb
 require 'rails_helper'
 
 describe '[STEP1] ユーザログイン前のテスト' do
@@ -32,5 +31,27 @@ describe '[STEP1] ユーザログイン前のテスト' do
         expect(sign_up_link['href']).to eq new_customer_registration_path  # href属性を直接比較
       end
     end
+
+  describe 'ヘッダーのテスト: ログインしていない場合' do
+    before do
+      visit root_path
+    end
+
+    context '表示内容の確認' do
+      it 'Topリンクが表示される: 左上から1番目のリンクが「TOPページ」である' do
+        top_link = find_all('a')[1].text
+        expect(top_link).to match(/TOPページ/)
+      end
+      it 'Log inリンクが表示される: 左上から2番目のリンクが「ログイン」である' do
+        login_link = find_all('a')[2].text
+        expect(login_link).to match(/ログイン/)
+      end
+      it 'Sign upリンクが表示される: 左上から3番目のリンクが「新規登録」である' do
+        signup_link = find_all('a')[3].text
+        expect(signup_link).to match(/新規登録/)
+      end
+
+    end
   end
+end
 end
