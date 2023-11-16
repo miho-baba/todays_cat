@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   root to: 'user/homes#top'
   namespace :admin do
     get "/" => "homes#top"
-    get "mypage" => "mypages#show"
-    resources :admins, only: [:show]
     resources :customers, only: [:index, :show, :edit, :update]
     get "/search", to: "searches#search"
   end

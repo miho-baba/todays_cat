@@ -74,14 +74,6 @@
           <% elsif admin_signed_in? %>
           <ul>
             <li class="nav-list-item">
-              <%= link_to admin_path, class: 'green-text' do %>
-                管理者TOP<i class="fa-solid fa-gear"></i>
-              <% end %>
-            </li>
-            <li class="nav-list-item">
-              <%= link_to "管理者マイページ", admin_mypage_path, class: 'green-text' %>
-            </li>
-            <li class="nav-list-item">
               <%= link_to "登録済み会員情報一覧", admin_customers_path, class: 'green-text' %>
             </li>
             <li class="nav-list-item">
@@ -182,14 +174,6 @@
               <% elsif admin_signed_in? %>
               <ul>
                 <li class="nav-list-items">
-                  <%= link_to admin_path, class: 'nav-link green1-text' do %>
-                    管理者TOP<i class="fa-solid fa-gear"></i>
-                  <% end %>
-                </li>
-                <li class="nav-list-items">
-                  <%= link_to "管理者マイページ", admin_mypage_path, class: 'nav-link green1-text' %>
-                </li>
-                <li class="nav-list-items">
                   <%= link_to "登録済み会員情報一覧", admin_customers_path, class: 'nav-link green1-text' %>
                 </li>
                 <li class="nav-list-items">
@@ -197,12 +181,6 @@
                     <i class="fa-solid fa-right-from-bracket"></i>ログアウト
                   <% end %>
                 </li>
-                <!-- 管理者側用の検索フォームの記述 -->
-                <div class="row pb-2 mr-2">
-                  <div class="col-12" style="text-align: right;">
-                    <%= render "admin/searches/form" %>
-                  </div>
-                </div>
               </ul>
               <!-- 会員・管理側でもログインしていない場合(urlで判定する)-->
               <% else %>
