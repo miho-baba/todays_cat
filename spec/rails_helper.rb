@@ -63,6 +63,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   # deviseのsign_inをsystemテストで使用するため
   config.include Devise::Test::IntegrationHelpers, type: :system
+  config.include Devise::Test::ControllerHelpers, type: :controller
   # 特定のテスト実行のため
   config.filter_run_when_matching :focus
 

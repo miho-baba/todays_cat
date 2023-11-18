@@ -54,4 +54,3 @@ describe '[STEP1] ユーザログイン前のテスト' do
     end
   end
 end
-

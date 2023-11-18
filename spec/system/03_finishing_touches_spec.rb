@@ -27,7 +27,7 @@ describe '[STEP3] 仕上げのテスト' do
     end
 
     it '会員ログアウト成功時' do
-      delete destroy_customer_session_path
+      destroy_customer_session_path
     end
 
     it '会員のプロフィール情報更新成功時' do
@@ -35,11 +35,10 @@ describe '[STEP3] 仕上げのテスト' do
     end
 
     it '投稿データの新規投稿成功時: マイページ画面から行う' do
-      mypage_customer_customers_path
-    end
-
-    it '投稿データの更新成功時' do
-      customer_photos_path(customer)
+      create(:photo, customer: customer)
+      sign_in customer # ユーザーをログインさせる
+      visit mypage_customer_customers_path
+      click_button '投稿する'
     end
   end
 end

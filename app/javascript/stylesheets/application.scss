@@ -62,7 +62,7 @@
 // いいねページ・マイページ・会員詳細の投稿画像の中の肉球アイコンの場所の記述
 .like-icon {
   position: absolute;
-  top: -5%; // 画像の中央に配置
+  top: 5px; // 画像の中央に配置
   left: 5%; // 画像の中央に配置
   transform: translate(-5%, -5%); // アイコンを中央揃えにする
 }
@@ -461,7 +461,7 @@ font-family: 'Noto Serif JP';
 // いいねページ・マイページ・会員詳細の投稿画像の中の肉球アイコンの場所の記述
 .like-icon {
   position: absolute;
-  top: -5%; // 画像の中央に配置
+  top: 5px; // 画像の中央に配置
   left: 5%; // 画像の中央に配置
   transform: translate(-5%, -5%); // アイコンを中央揃えにする
 }
