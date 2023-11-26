@@ -1,12 +1,15 @@
 <%# 会員側と管理者側で使用するフラッシュメッセージの記述 %>
  <%= render "layouts/flash" %>
 
-<div class='col-md-8 offset-md-1'>
+<div class='col-md-8 offset-md-2'>
   <h1><%= image_tag 'blackcat.jpg', :size => "35x35" %></i>猫ちゃんの詳細<%= image_tag 'blackcat1.jpg', :size => "27x27" %></h1>
 
     <th>
-      <td><% if @photo.image.attached? %>
-        <%= image_tag @photo.image, :size =>'980x640' %>
+      <td>
+        <% if @photo.image.attached? %>
+          <div class="photo_image_container">
+            <%= image_tag @photo.image, :size =>'800x600' %>
+          </div>
         <% end %>
       </td>
     </th>

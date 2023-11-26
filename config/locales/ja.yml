@@ -47,6 +47,7 @@ ja:
         email: メールアドレス
         password: パスワード
       photo:
+        image: 投稿する写真
         title: タイトル
         cat_color: 猫の毛色
         photo_introduction: 写真の紹介文

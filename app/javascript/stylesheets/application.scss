@@ -44,6 +44,13 @@
   padding-top: -10px; // 上に10ピクセル移動
 }
 
+// 投稿写真の画像の縦横比調整
+.photo_image_container {
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
 // DM画像の記述
 .dm-image img {
   max-width: 50%; // 画像はコンテナの幅を超えません
@@ -441,6 +448,13 @@ font-family: 'Noto Serif JP';
 .pagination a:hover {
   background-color: #ffc1ff; // 淡い紫系の色ホバー時の背景色
   padding-top: -10px; // 上に10ピクセル移動
+}
+
+// 投稿写真の画像の縦横比調整
+.photo_image_container {
+  max-width: 800%;
+  margin: 0px auto;
+  overflow: hidden;
 }
 
 // DM画像の記述

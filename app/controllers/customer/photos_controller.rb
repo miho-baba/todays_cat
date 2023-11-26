@@ -52,7 +52,8 @@ class Customer::PhotosController < ApplicationController
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy
-    redirect_to customer_photos_path
+    flash[:notice] = "投稿内容の削除に成功しました！"
+    redirect_to mypage_customer_customers_path
   end
 
   private

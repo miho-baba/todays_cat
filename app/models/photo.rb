@@ -10,31 +10,30 @@ class Photo < ApplicationRecord
   validates :title, presence: true, length: { in: 1..20 } # 1文字以上20文字以下
   validates :photo_introduction, presence: true, length: { maximum: 200 } # 最大200文字(200文字以下)
   validates :cat_color, presence: true, length: { in: 1..20 } # 1文字以上20文字以下
+  validate :correct_image_content_type
 
   # いいねしているか判定する
   def favorited_by?(customer)
     favorites.exists?(customer_id: customer.id)
   end
 
-  # 画像の記述
-  def get_image(width, height)
-    unless image.attached?
-      file_path = Rails.root.join('app/assets/images/no_image.jpg')
-      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+  private
+    def correct_image_content_type
+      if image.attached? && !image.content_type.in?(%w[image/jpeg image/png image/gif])
+        errors.add(:image, 'はJPEG、PNG、GIF形式でアップロードしてください')
+      end
     end
-    image.variant(resize_to_limit: [width, height]).processed
-  end
 
-  # 猫の特徴&タイトル：検索条件の記述
-  def self.search_for(content, method)
-    if method == 'perfect'
-      Photo.where('title': content).or(Photo.where("cat_color": content))
-    elsif method == 'forward'
-      Photo.where('title LIKE ?', content + '%').or(Photo.where("cat_color LIKE ?", content + '%'))
-    elsif method == 'backward'
-      Photo.where('title LIKE ?', '%' + content).or(Photo.where("cat_color LIKE ?", '%' + content))
-    else
-      Photo.where('title LIKE ?', '%' + content + '%').or(Photo.where("cat_color LIKE ?", '%' + content + '%'))
+    # 猫の特徴&タイトル：検索条件の記述
+    def self.search_for(content, method)
+      if method == 'perfect'
+        Photo.where('title': content).or(Photo.where("cat_color": content))
+      elsif method == 'forward'
+        Photo.where('title LIKE ?', content + '%').or(Photo.where("cat_color LIKE ?", content + '%'))
+      elsif method == 'backward'
+        Photo.where('title LIKE ?', '%' + content).or(Photo.where("cat_color LIKE ?", '%' + content))
+      else
+        Photo.where('title LIKE ?', '%' + content + '%').or(Photo.where("cat_color LIKE ?", '%' + content + '%'))
+      end
     end
-  end
 end
