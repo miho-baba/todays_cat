@@ -40,10 +40,10 @@
                   <tr>
                     <td><%= image_tag 'pinkpom.jpg', :size => "30x30" %>ご利用</td>
                     <td>
-                      <%= f.radio_button :is_deleted, :false, checked: true %>
-                      <%= f.label :is_deleted, "有効" %>
-                      <%= f.radio_button :is_deleted, :true %>
-                      <%= f.label :is_deleted, "無効" %>
+                      <%= f.radio_button :is_deleted, :false, id: "is_deleted_true" %>
+                      <%= f.label :is_deleted, "有効", value: false, for: "is_deleted_true" %>
+                      <%= f.radio_button :is_deleted, :true, id: "is_deleted_false" %>
+                      <%= f.label :is_deleted, "無効", value: true, for: "is_deleted_false" %>
                     </td>
                   </tr>
 
@@ -59,4 +59,3 @@
       </div>
     </div>
   </div>
-
