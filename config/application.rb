@@ -21,5 +21,6 @@ module Kyononekosama
     # 時間表示の記述
     config.time_zone = "Tokyo"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.active_record.default_timezone = :local
   end
 end

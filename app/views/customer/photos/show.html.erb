@@ -22,7 +22,7 @@
 
       <tr>
         <th><%= image_tag 'aikon.jpg', :size => "30x25" %>投稿時間</th>
-        <td><%= @photo.updated_at %></td>
+        <td><%= @photo.updated_at.localtime.strftime("%Y/%m/%d %H:%M:%S") %></td>
       </tr>
 
       <tr>
