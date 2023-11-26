@@ -1,6 +1,6 @@
 <div class='container'>
   <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <div class="col-sm-12 col-md-8 col-lg-4 px-5 px-sm-0 mx-auto">
 
       <%= render "admin/shared/error_messages", resource: resource %>
         <%# form_withで記述したら遷移しなかっため記述を変更 %>
@@ -9,12 +9,12 @@
 
             <div class="field">
               <i class="fa-solid fa-star-of-life"></i><%= f.label :メールアドレス %><br />
-                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                <%= f.email_field :email, class:'form-control email', autofocus: true, autocomplete: "email" %>
             </div>
 
             <div class="field">
               <i class="fa-solid fa-star-of-life"></i><%= f.label :パスワード %><br />
-                <%= f.password_field :password, autocomplete: "current-password" %>
+                <%= f.password_field :password, class:'form-control password', autocomplete: "current-password" %>
             </div>
 
             <% if devise_mapping.rememberable? %>
@@ -24,10 +24,10 @@
               </div>
             <% end %>
 
-            <div class="actions">
-              </i><%= f.submit "ログイン", class: "btn btn-primary" %>
-            </div>
-          <% end %>
+              <div class="actions">
+                </i><%= f.submit "ログイン", class: "form-control btn btn-primary" %>
+              </div>
+            <% end %>
 
     </div>
   </div>
