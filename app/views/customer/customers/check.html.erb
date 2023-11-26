@@ -1,17 +1,15 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>本当に退会しますか？</h1>
+      <p>
+        ＊退会すると、会員登録情報や<br>
+        写真投稿、閲覧ができなくなります。<br>
+        退会する場合は、「退会する」をクリックしてください。
+      </p>
 
-  <h1>本当に退会しますか？</h1>
-    <p>
-      ＊退会すると、会員登録情報や<br>
-      写真投稿、閲覧ができなくなります。<br>
-      退会する場合は、「退会する」をクリックしてください。
-    </p>
-
-    <%= link_to "退会しない", mypage_customer_customers_path, :class => "btn btn-info ms-3" %>
-    <%= link_to "退会する", customer_customer_withdraw_path, method: :patch, :class => "btn btn-danger ms-3" %>
-
+      <%= link_to "退会しない", mypage_customer_customers_path, class: "btn btn-info ms-3" %>
+      <%= link_to "退会する", customer_customer_withdraw_path, method: :patch, class: "btn btn-danger ms-3", data: { confirm: "本当に退会しますか？" } %>
     </div>
   </div>
 </div>
