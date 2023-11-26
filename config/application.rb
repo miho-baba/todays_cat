@@ -11,14 +11,15 @@ module Kyononekosama
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
-    # 記述追加済み(バリデーションの記述を日本語化）
+    # バリデーションの記述(日本語化)
     config.i18n.default_locale = :ja
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    # config.time_zone = "Central Time (US & Canada)"
+    # 時間表示の記述
+    config.time_zone = "Tokyo"
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end

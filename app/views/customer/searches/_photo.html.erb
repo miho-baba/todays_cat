@@ -28,7 +28,7 @@
           </td>
 
           <td>
-            <%= photo.updated_at %>
+            <%= photo.updated_at.localtime.strftime("%Y/%m/%d %H:%M:%S") %>
           </td>
 
           <td id="favorite_btn_<%= photo.id %>">
