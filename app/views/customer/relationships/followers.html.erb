@@ -1,4 +1,8 @@
-<h2><i class="fa-solid fa-hand-holding-heart"></i>フォロワー一覧：<%= @customers.total_count %> 人</h2>
+<h2>
+  <i class="fa-solid fa-hand-holding-heart"></i>
+  <%= "#{@customer.last_name}様のフォロワー一覧：" %>
+  <%= @customers.total_count %> 人
+</h2>
 
 <% if @customers.exists? %>
   <%= render "customer/searches/customer", customers: @customers %>
@@ -8,7 +12,7 @@
     </div>
   </div>
   <% else %>
-    <p>ユーザーはいません</p>
+    <p>フォロワーはいません</p>
   <% end %>
 
 <div class='col-md-8 offset-md-1'>

@@ -13,12 +13,20 @@ class Customer::RelationshipsController < ApplicationController
   end
 
   def followings
-    customer = Customer.find(params[:customer_id])
-    @customers = customer.followings.page(params[:page]).per(6)
+    @customer = Customer.find_by(id: params[:customer_id])
+    if @customer.present?
+      @customers = @customer.followings.page(params[:page]).per(6)
+    else
+      redirect_to request.referer
+    end
   end
 
   def followers
-    customer = Customer.find(params[:customer_id])
-    @customers = customer.followers.page(params[:page]).per(6)
+    @customer = Customer.find_by(id: params[:customer_id])
+    if @customer.present?
+      @customers = @customer.followers.page(params[:page]).per(6)
+    else
+      redirect_to request.referer
+    end
   end
 end
