@@ -1,62 +1,59 @@
 <div class='container'>
   <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <div class="col-sm-12 col-md-8 col-lg-4 px-5 px-sm-0 mx-auto">
       <%= render "customer/shared/error_messages", resource: @customer %>
 
       <%= form_with model: @customer, url: customer_registration_path do |f| %>
-        <h2><i class="fa-solid fa-star"></i>ユーザー登録フォーム<i class="fa-solid fa-star"></i></h2>
+        <h2><i class="fa-solid fa-star"></i>会員登録フォーム<i class="fa-solid fa-star"></i></h2>
 
           <div class="field">
             <i class="fa-solid fa-paw"></i><%= f.label "名前(姓)" %></br>
-            <%= f.text_field :last_name %>
+            <%= f.text_field :last_name, class:'form-control last_name', placeholder: '例：山田' %>
           </div>
 
           <div class="field">
             <i class="fa-solid fa-paw"></i><%= f.label "名前(名)" %></br>
-            <%= f.text_field :first_name %>
+            <%= f.text_field :first_name, class:'form-control first_name', placeholder: '例：太郎' %>
           </div>
 
          <div class="field">
             <i class="fa-solid fa-paw"></i><%= f.label "フリガナ(セイ)" %></br>
-            <%= f.text_field :last_name_kana %>
+            <%= f.text_field :last_name_kana, class:'form-control last_name_kana', placeholder: '例：ヤマダ' %>
           </div>
 
           <div class="field">
             <i class="fa-solid fa-paw"></i><%= f.label "フリガナ(メイ)" %></br>
-            <%= f.text_field :first_name_kana %>
+            <%= f.text_field :first_name_kana, class:'form-control first_name_kana', placeholder: '例：タロウ' %>
           </div>
 
           <div class="field">
             <i class="fa-solid fa-paw"></i><%= f.label :"メールアドレス" %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control email', placeholder: '例：○○○○@gmail.com' %>
           </div>
 
           <div class="field">
             <i class="fa-solid fa-paw"></i><%= f.label :"電話番号(ハイフンなし)" %></br>
-            <%= f.text_field :phone_number %>
+            <%= f.text_field :phone_number, class:'form-control phone_number', placeholder: '例：1111111111' %>
           </div>
 
           <div class="field">
             <i class="fa-solid fa-paw"></i><%= f.label :"パスワード" %>
             <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> 文字以上)</em>
+            <em>※<%= @minimum_password_length %> 文字を入力して下さい</em>
             <% end %><br />
-            <%= f.password_field :password, autocomplete: "new-password" %>
+            <%= f.password_field :password, autocomplete: "new-password", class:'form-control password', placeholder: '例：aaaaaa', maxlength: 6 %>
           </div>
 
           <div class="field">
             <i class="fa-solid fa-paw"></i><%= f.label :"パスワード確認用" %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control password_confirmation', placeholder: '例：aaaaaa', maxlength: 6 %>
           </div>
 
-          <div class="actions">
-            <%= f.submit "登録", class: "btn btn-danger" %>
+          <div class="mt-3">
+            <%= f.submit "登録", class: "form-control btn btn-danger" %>
           </div>
       <% end %>
     <%= render "customer/shared/links" %>
     </div>
   </div>
 </div>
-
-
-

@@ -1,4 +1,6 @@
 class Customer::PhotosController < ApplicationController
+  before_action :set_photo, only: [:show, :edit, :update, :destroy]
+
   def show
     @photo = Photo.find(params[:id])
     @photo_new = Photo.new
@@ -15,7 +17,7 @@ class Customer::PhotosController < ApplicationController
     @photo = Photo.new
   end
 
-  def create # 写真投稿の動作の記述
+  def create
     @photo = Photo.new(photo_params)
     @photo.customer_id = current_customer.id
     if @photo.save
@@ -30,7 +32,10 @@ class Customer::PhotosController < ApplicationController
   end
 
   def edit
-    @photo = Photo.find(params[:id])
+    if @photo.customer != current_customer
+      flash[:alert] = "他の会員の投稿は編集できません"
+      redirect_to customer_photo_path(@photo.id)
+    end
   end
 
   def update
@@ -51,7 +56,11 @@ class Customer::PhotosController < ApplicationController
   end
 
   private
+    def set_photo
+      @photo = Photo.find(params[:id])
+    end
+
     def photo_params
-      params.permit(:title, :image, :cat_color, :photo_introduction)
+      params.require(:photo).permit(:title, :image, :cat_color, :photo_introduction)
     end
 end

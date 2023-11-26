@@ -21,8 +21,16 @@ RSpec.describe Customer::PhotosController, type: :controller do
 
   describe 'CREATE photo' do
     context 'valid create' do
-      it '投稿データの登録成功時' do
-        post :create, params: { customer_id: 1, title: 'test', cat_color: '茶色', photo_introduction: 'testtest' }
+      it 'registers photo data successfully' do
+        post :create, params: {
+          photo: {
+            title: 'test',
+            cat_color: '茶色',
+            photo_introduction: 'testtest'
+          }
+        }
+        @photo = assigns(:photo)
+        expect(response).to redirect_to(customer_photo_path(@photo.id))
         expect(flash[:notice]).to eq("写真の投稿に成功しました！")
       end
     end

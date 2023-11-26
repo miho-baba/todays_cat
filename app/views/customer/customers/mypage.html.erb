@@ -49,14 +49,21 @@
         </tr>
 
         <tr>
-      	  <th><i class="fa-solid fa-feather"></i>紹介文:
+      	  <th><i class="fa-solid fa-feather"></i>紹介文(最大50文字):
       	    <%= @customer.introduction %>
       	  </th>
         </tr>
 
         <tr>
+          <th>
+          <%= link_to edit_customer_customer_path(@customer), class: "btn btn-outline-secondary btn-block" do %>
+            <i class="fa-solid fa-gear"></i>プロフィール設定
+          <% end %>
+          </th>
+        </tr>
+
+        <tr>
       	  <th><i class="fa-solid fa-feather"></i>いいね
-            <%# ページが出来たらパスを変更する %>
             <%= link_to customer_photo_favorites_path(@customer), class: "btn btn-outline-danger btn-block" do %>
               <i class="fa-solid fa-paw" style="color: inherit;"></i>
             <% end %>
@@ -83,18 +90,23 @@
         </tr>
       </table>
 
-      <div class='row'>
-          <%= link_to edit_customer_customer_path(@customer), class: "btn btn-outline-secondary btn-block" do %>
-            <i class="fa-solid fa-gear"></i>設定
-          <% end %>
-      </div>
-
       <%= form_with model: @photo, url: customer_photos_path, method: :post do |f| %>
         <h2 class="mt-3"><i class="fa-solid fa-paw" style="color: inherit;"></i>投稿フォーム<i class="fa-solid fa-paw" style="color: inherit;"></i></h2>
 
+        <div id="error_explanation">
+          <% if @photo.errors.any? %>
+            <%= @photo.errors.count %>つのエラーにより投稿に失敗しました！
+          <ul>
+            <% @photo.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+          <% end %>
+        </div>
+
         <div class="form-group">
-          <label for="title"><i class="fa-solid fa-star-of-david"></i>タイトル</label>
-          <%= f.text_field :title, class:'form-control photo_title' %>
+          <label for="title"><i class="fa-solid fa-star-of-david"></i>タイトル（最大20文字）</label>
+          <%= f.text_field :title, class:'form-control photo_title', placeholder: 'タイトルを入力して下さい', maxlength: 20 %>
         </div>
 
         <div class="form-group">
@@ -103,13 +115,13 @@
         </div>
 
         <div class="form-group">
-          <label for="cat_color"><i class="fa-solid fa-star-of-david"></i>猫ちゃんの特徴（毛の色）</label>
-          <%= f.text_field :cat_color, class:'form-control photo_cat_color' %>
+          <label for="cat_color"><i class="fa-solid fa-star-of-david"></i>猫ちゃんの特徴（最大20文字）</label>
+          <%= f.text_field :cat_color, class:'form-control photo_cat_color', placeholder: '例：黒色', maxlength: 20 %>
         </div>
 
         <div class="form-group">
-          <label for="photo_introduction"><i class="fa-solid fa-star-of-david"></i>写真の説明文</label>
-          <%= f.text_area :photo_introduction, class:'form-control photo_introduction' %>
+          <label for="photo_introduction"><i class="fa-solid fa-star-of-david"></i>写真の説明文（最大200文字）</label>
+          <%= f.text_area :photo_introduction, class:'form-control photo_introduction', placeholder: '写真の説明を入力して下さい', maxlength: 200 %>
         </div>
 
         <div class="form-group">

@@ -8,9 +8,16 @@ class Customer::CustomersController < ApplicationController
   end
 
   def mypage
-    @customer = current_customer
-    @photos = @customer.photos.page(params[:page]).per(12).order(created_at: :desc) # 1ページに12個の写真を表示し、最新のものから順に並べ替える
-    render 'customer/customers/mypage'
+    if current_customer
+      @customer = current_customer
+      @photos = @customer.photos.page(params[:page]).per(12).order(created_at: :desc) # 1ページに12個の写真を表示し、最新のものから順に並べ替える
+      # フォーム用に新しい Photo インスタンスを作成
+      @photo = Photo.new
+      render 'customer/customers/mypage'
+    else
+      flash[:alert] = 'ログインしてください。'
+      redirect_to new_customer_session_path
+    end
   end
 
   def index

@@ -27,7 +27,7 @@ class Customer < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name_kana, presence: true
   validates :first_name_kana, presence: true
-  validates :phone_number, presence: true
+  validates :phone_number, presence: true, format: { with: /\A\d+\z/, message: "は数字のみ入力してください" }
   validates :email, presence: true
 
   # 会員紹介文のバリデーション

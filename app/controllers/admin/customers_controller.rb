@@ -1,4 +1,5 @@
 class Admin::CustomersController < ApplicationController
+  before_action :authenticate_admin! # 管理者の認証が必要なアクションに対して適用する
   def index
     # ページネーションの記述
     @customers = Customer.page(params[:page]).per(6) # 1ページに6人の会員を表示

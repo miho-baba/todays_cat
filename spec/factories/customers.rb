@@ -4,7 +4,7 @@ FactoryBot.define do
     last_name { Faker::Lorem.characters(number: 10) }
     first_name_kana { Faker::Lorem.characters(number: 10) }
     last_name_kana { Faker::Lorem.characters(number: 10) }
-    phone_number { "phone_number" }
+    phone_number { Faker::Number.number(digits: 10) }
     email { Faker::Internet.email }
     introduction { Faker::Lorem.characters(number: 20) }
     password { 'password' }
