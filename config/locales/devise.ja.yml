@@ -21,5 +21,6 @@ ja:
         already_authenticated: "すでに認証されています"
       admin:
         already_authenticated: "すでに認証されています"
+        unauthenticated: "ログインして下さい"
 
     # 他のDeviseのメッセージを必要に応じて追加
