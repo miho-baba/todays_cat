@@ -10,7 +10,7 @@
 }
 // フラッシュメッセージの記述
 .flash-message.notice { // 成功の場合
-  background-color: #66ffff;// 軽い青緑系の色
+  background-color: #66ffff; // 軽い青緑系の色
   color: #0000ff; // あざやかな青紫系の色
   border: solid 1px #0000ff;
   font-family: 'Noto Serif JP';
@@ -90,7 +90,7 @@
 // いいねした画像の内側に名前を含む要素のスタイル
 .name {
   color: #ffffff; // テキストの色を白に変更
-  position: absolute;// 画像内の絶対位置に配置
+  position: absolute; // 画像内の絶対位置に配置
   bottom: 10px; // 画像の下部に配置
   left: 10px; // 画像の左端に配置
   padding: 5px; // テキストの周りの余白
@@ -210,7 +210,7 @@ body {
 .header strong {
   font-size: 60px; // strong要素のフォントサイズ
   display: block; // strong要素をブロック要素として表示
-  font-family: 'M PLUS Rounded 1c', sans-serif; //極太の丸ゴシック
+  font-family: 'M PLUS Rounded 1c', sans-serif; // 極太の丸ゴシック
   font-weight: 700; // "ab-yurumin" フォントを優先し、代替フォントを指定
   font-style: normal;
   color: #6a1917; // チョコレート色
@@ -300,7 +300,7 @@ body {
 }
 
 // カメラアイコンに色をつける記述
-.fa-camera-retro {//柔らかい青紫系の色
+.fa-camera-retro { // 柔らかい青紫系の色
   color : #6495ed;
 }
 
@@ -415,8 +415,8 @@ font-family: 'Noto Serif JP';
   text-align: center; // テキストを中央揃えにする
 }
 // フラッシュメッセージの記述
-.flash-message.notice {// 成功の場合
-  background-color: #66ffff;// 軽い青緑系の色
+.flash-message.notice { // 成功の場合
+  background-color: #66ffff; // 軽い青緑系の色
   color: #0000ff; // あざやかな青紫系の色
   border: solid 1px #0000ff;
   font-family: 'Noto Serif JP';
