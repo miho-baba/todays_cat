@@ -25,7 +25,7 @@ class Customer::PhotosController < ApplicationController
       redirect_to customer_photo_path(@photo.id)
     else
       @customer = current_customer
-      flash[:alert] = "写真の投稿に失敗しました。"
+      flash.now[:alert] = "写真の投稿に失敗しました。"
       @photos = @customer.photos.page(params[:page]).per(12)
       render 'customer/customers/mypage'
     end
@@ -44,7 +44,7 @@ class Customer::PhotosController < ApplicationController
       flash[:notice] = "編集の更新に成功しました！"
       redirect_to customer_photo_path(@photo.id)
     else
-      flash[:alert] = "編集の更新に失敗しました。"
+      flash.now[:alert] = "編集の更新に失敗しました。"
       render 'customer/photos/edit'
     end
   end
