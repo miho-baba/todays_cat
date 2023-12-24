@@ -44,7 +44,7 @@ class Customer::CustomersController < ApplicationController
       flash[:notice] = "編集の更新に成功しました！" # 無事投稿できたら表示する記述
       redirect_to mypage_customer_customers_path(@customer)
     else
-      flash[:alert] = "編集の更新に失敗しました"
+      flash.now[:alert] = "編集の更新に失敗しました"
       render 'customer/customers/edit' # 編集ページにリダイレクトし、エラーメッセージを表示
     end
   end
